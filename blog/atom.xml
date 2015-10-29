@@ -3,9 +3,9 @@
   <title><![CDATA[concise notes]]></title>
   
   <link href="/blog/atom.xml" rel="self"/>
-  <link href="http://vhf.github.io/blog/"/>
+  <link href="https://vhf.github.io/blog/"/>
   <updated>2015-10-29T13:37:30.000Z</updated>
-  <id>http://vhf.github.io/blog/</id>
+  <id>https://vhf.github.io/blog/</id>
   
   <author>
     <name><![CDATA[victor felder]]></name>
@@ -16,8 +16,8 @@
   
   <entry>
     <title><![CDATA[ES6 Destructuring]]></title>
-    <link href="http://vhf.github.io/blog/2015/10/28/es6-destructuring/"/>
-    <id>http://vhf.github.io/blog/2015/10/28/es6-destructuring/</id>
+    <link href="https://vhf.github.io/blog/2015/10/28/es6-destructuring/"/>
+    <id>https://vhf.github.io/blog/2015/10/28/es6-destructuring/</id>
     <published>2015-10-28T14:29:42.000Z</published>
     <updated>2015-10-29T13:37:30.000Z</updated>
     <content type="html"><![CDATA[<ul>
@@ -44,20 +44,20 @@
     
     </summary>
     
-      <category term="es6" scheme="http://vhf.github.io/blog/tags/es6/"/>
+      <category term="es6" scheme="https://vhf.github.io/blog/tags/es6/"/>
     
-      <category term="javascript" scheme="http://vhf.github.io/blog/tags/javascript/"/>
+      <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
-      <category term="programming" scheme="http://vhf.github.io/blog/categories/programming/"/>
+      <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
-      <category term="JavaScript" scheme="http://vhf.github.io/blog/categories/programming/JavaScript/"/>
+      <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title><![CDATA[JavaScript Promises]]></title>
-    <link href="http://vhf.github.io/blog/2015/10/27/javascript-promises/"/>
-    <id>http://vhf.github.io/blog/2015/10/27/javascript-promises/</id>
+    <link href="https://vhf.github.io/blog/2015/10/27/javascript-promises/"/>
+    <id>https://vhf.github.io/blog/2015/10/27/javascript-promises/</id>
     <published>2015-10-27T18:37:41.000Z</published>
     <updated>2015-10-29T13:01:20.000Z</updated>
     <content type="html"><![CDATA[<p>I read <a href="https://60devs.com/best-practices-for-using-promises-in-js.html" target="_blank" rel="external">Best Practices for Using Promises in JS</a>. Here are some concise notes expanding on this topic.</p>
@@ -93,17 +93,17 @@
     
     </summary>
     
-      <category term="es6" scheme="http://vhf.github.io/blog/tags/es6/"/>
+      <category term="es6" scheme="https://vhf.github.io/blog/tags/es6/"/>
     
-      <category term="javascript" scheme="http://vhf.github.io/blog/tags/javascript/"/>
+      <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
-      <category term="nodejs" scheme="http://vhf.github.io/blog/tags/nodejs/"/>
+      <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="promises" scheme="http://vhf.github.io/blog/tags/promises/"/>
+      <category term="promises" scheme="https://vhf.github.io/blog/tags/promises/"/>
     
-      <category term="programming" scheme="http://vhf.github.io/blog/categories/programming/"/>
+      <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
-      <category term="JavaScript" scheme="http://vhf.github.io/blog/categories/programming/JavaScript/"/>
+      <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
   </entry>
   
