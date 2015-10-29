@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[concise notes]]></title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="http://vhf.github.io/blog/"/>
+  <updated>2015-10-29T13:37:30.000Z</updated>
+  <id>http://vhf.github.io/blog/</id>
+  
+  <author>
+    <name><![CDATA[victor felder]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[ES6 Destructuring]]></title>
+    <link href="http://vhf.github.io/blog/2015/10/28/es6-destructuring/"/>
+    <id>http://vhf.github.io/blog/2015/10/28/es6-destructuring/</id>
+    <published>2015-10-28T14:29:42.000Z</published>
+    <updated>2015-10-29T13:37:30.000Z</updated>
+    <content type="html"><![CDATA[<ul>
+<li>Destructuring works exactly as its syntax suggests</li>
+<li>The only tricky point is object destructuring without variable declaration<ul>
+<li>with declaration: <code>let {x: a} = {x: &#39;a&#39;};</code></li>
+<li>without declaration: <code>({x: a} = {x: &#39;a&#39;});</code> (assuming that <code>a</code> has already been declared)</li>
+</ul>
+</li>
+<li>Default arguments and destructuring:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123;prop = <span class="string">'default'</span>&#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123;prop = <span class="string">'default'</span>&#125; = &#123;prop: <span class="string">'value'</span>&#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123;prop: name = <span class="string">'default'</span>&#125; = &#123;prop: <span class="string">'value'</span>&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Default arguments also work for arrays:<ul>
+<li><code>let [head = &quot;default&quot;] = [];</code></li>
+</ul>
+</li>
+<li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123;a = <span class="string">'a'</span>, b = <span class="string">'b'</span>&#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123;a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span>&#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123;b: <span class="string">'c'</span>&#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>
+]]></content>
+    <summary type="html">
+    <![CDATA[destructuring and assigning default values]]>
+    
+    </summary>
+    
+      <category term="es6" scheme="http://vhf.github.io/blog/tags/es6/"/>
+    
+      <category term="javascript" scheme="http://vhf.github.io/blog/tags/javascript/"/>
+    
+      <category term="programming" scheme="http://vhf.github.io/blog/categories/programming/"/>
+    
+      <category term="JavaScript" scheme="http://vhf.github.io/blog/categories/programming/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[JavaScript Promises]]></title>
+    <link href="http://vhf.github.io/blog/2015/10/27/javascript-promises/"/>
+    <id>http://vhf.github.io/blog/2015/10/27/javascript-promises/</id>
+    <published>2015-10-27T18:37:41.000Z</published>
+    <updated>2015-10-29T13:01:20.000Z</updated>
+    <content type="html"><![CDATA[<p>I read <a href="https://60devs.com/best-practices-for-using-promises-in-js.html" target="_blank" rel="external">Best Practices for Using Promises in JS</a>. Here are some concise notes expanding on this topic.</p>
+<ul>
+<li>Let’s use bluebird as Promise implementation for node</li>
+<li>Use <code>.then().catch()</code> instead of <code>.then(successCb, failCb)</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = (shouldResolve) =&gt; <span class="keyword">new</span> <span class="built_in">Promise</span>((resolve, reject) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (shouldResolve) &#123;</span><br><span class="line">    resolve();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject();</span><br><span class="line">  &#125;&#125;);</span><br><span class="line"></span><br><span class="line">promise(arg)</span><br><span class="line">  .then(() =&gt; &#123; <span class="comment">/* success */</span> &#125;)</span><br><span class="line">  .catch(ExceptionToCatch, OtherExceptionToCatch, (err) =&gt; &#123; <span class="comment">/* error */</span>&#125;)</span><br><span class="line">  .catch(StrangeExceptionToCatch, (err) =&gt; &#123; <span class="comment">/* error */</span>&#125;)</span><br><span class="line">  .catch((err) =&gt; &#123; <span class="comment">/* error */</span>&#125;); <span class="comment">// default</span></span><br></pre></td></tr></table></figure>
+<p>To define an exception to catch:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCustomError</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">MyCustomError.prototype = <span class="built_in">Object</span>.create(<span class="built_in">Error</span>.prototype);</span><br><span class="line"></span><br><span class="line">promise(arg)</span><br><span class="line">  .then(() =&gt; &#123; <span class="keyword">throw</span> <span class="keyword">new</span> MyCustomError() &#125;)</span><br><span class="line">  .catch(MyCustomError, (err) =&gt; &#123;&#125;)</span><br><span class="line">  .catch((err) =&gt; &#123;&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>Promise.all([promiseA(a), promiseB(b)])</code> runs two async functions in parallel, but <code>.then(() =&gt; {})</code> callback has no data result argument</li>
+<li>Use <code>.spread</code> instead of <code>.then</code> to get this data: <code>.spread((dataA, dataB) =&gt; {})</code></li>
+<li>To limit concurrency, <code>Promise.map([lotsOfStuff], promise, { concurrency: 3 }).then(() =&gt; {})</code></li>
+<li>See also <code>.reduce</code> and <code>.filter</code></li>
+<li>You can “pipe” your <code>.then</code> functions. If you do this, you should probably avoid using anonymous functions and enjoy more reusability, modularity, testability, readability</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">readFile(data)</span><br><span class="line">  .then(<span class="built_in">JSON</span>.parse)</span><br><span class="line">  .then(treatStuff)</span><br><span class="line">  .catch(handleError)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Don’t abuse this thing. It’s nice to read, but it breaks the event loop and could introduce race conditions</li>
+<li>A better approach is to pipe inside the <code>.then</code>:</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">readFile(data)</span><br><span class="line">  .then(pipe(<span class="built_in">JSON</span>.parse, treatStuff))</span><br><span class="line">  .catch(handleError)</span><br></pre></td></tr></table></figure>
+<h2 id="Further_reading:">Further reading:</h2><ul>
+<li><a href="http://bluebirdjs.com" target="_blank" rel="external">http://bluebirdjs.com</a></li>
+<li><a href="https://promise-nuggets.github.io" target="_blank" rel="external">https://promise-nuggets.github.io</a></li>
+<li><a href="http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" target="_blank" rel="external">http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html</a></li>
+<li><a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md" target="_blank" rel="external">https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[promises, bluebird, etc]]>
+    
+    </summary>
+    
+      <category term="es6" scheme="http://vhf.github.io/blog/tags/es6/"/>
+    
+      <category term="javascript" scheme="http://vhf.github.io/blog/tags/javascript/"/>
+    
+      <category term="nodejs" scheme="http://vhf.github.io/blog/tags/nodejs/"/>
+    
+      <category term="promises" scheme="http://vhf.github.io/blog/tags/promises/"/>
+    
+      <category term="programming" scheme="http://vhf.github.io/blog/categories/programming/"/>
+    
+      <category term="JavaScript" scheme="http://vhf.github.io/blog/categories/programming/JavaScript/"/>
+    
+  </entry>
+  
+</feed>
