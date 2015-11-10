@@ -3,21 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>concise notes</title>
+  <title>JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations | concise notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="concise notes">
-<meta property="og:url" content="https://vhf.github.io/blog/index.html">
+  <meta name="description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations">
+<meta property="og:url" content="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/index.html">
 <meta property="og:site_name" content="concise notes">
-<meta property="og:description">
+<meta property="og:description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
+<meta property="og:updated_time" content="2015-11-10T19:01:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="concise notes">
-<meta name="twitter:description">
+<meta name="twitter:title" content="JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations">
+<meta name="twitter:description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
 <meta name="twitter:creator" content="@vhf">
   
     <link rel="alternative" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
   
+  
+    <link rel="canonical" href="https://medium.com/@vhf/javascript-performance-with-babel-and-node-js-33673db55077" />
   
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
@@ -69,9 +72,7 @@ ga('send', 'pageview');
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-javascript-performance-with-babel-and-node-js" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+        <section id="main"><article id="post-javascript-performance-with-babel-and-node-js" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" class="article-date">
   <time datetime="2015-11-02T12:36:59.000Z" itemprop="datePublished">2015-11-02</time>
@@ -88,8 +89,8 @@ ga('send', 'pageview');
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations
     </h1>
   
 
@@ -219,144 +220,21 @@ Fastest is <span class="preprocessor">#<span class="number">3</span> TCO/no defa
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-es6-destructuring" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2015/10/28/es6-destructuring/" class="article-date">
-  <time datetime="2015-10-28T14:29:42.000Z" itemprop="datePublished">2015-10-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/programming/">programming</a>►<a class="article-category-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2015/10/28/es6-destructuring/">ES6 Destructuring</a>
-    </h1>
+    <a href="/blog/2015/10/28/es6-destructuring/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ES6 Destructuring</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Destructuring works exactly as its syntax suggests</li>
-<li>The only tricky point is object destructuring without variable declaration<ul>
-<li>with declaration: <code>let {x: a} = {x: &#39;a&#39;};</code></li>
-<li>without declaration: <code>({x: a} = {x: &#39;a&#39;});</code> (assuming that <code>a</code> has already been declared)</li>
-<li>It’s symply because <a href="http://stackoverflow.com/questions/17382024/why-is-a-bare-array-valid-javascript-syntax-but-not-a-bare-object" target="_blank" rel="external">a bare object is not valid syntax</a></li>
-</ul>
-</li>
-<li>Default arguments and destructuring:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123;prop = <span class="string">'default'</span>&#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123;prop = <span class="string">'default'</span>&#125; = &#123;prop: <span class="string">'value'</span>&#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123;prop: name = <span class="string">'default'</span>&#125; = &#123;prop: <span class="string">'value'</span>&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Default arguments also work for arrays:<ul>
-<li><code>let [head = &quot;default&quot;] = [];</code></li>
-</ul>
-</li>
-<li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123;a = <span class="string">'a'</span>, b = <span class="string">'b'</span>&#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123;a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span>&#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123;b: <span class="string">'c'</span>&#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="cigtkpxsw0002r7abmumwf7q1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
 
 
-
-  
-    <article id="post-javascript-promises" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2015/10/27/javascript-promises/" class="article-date">
-  <time datetime="2015-10-27T18:37:41.000Z" itemprop="datePublished">2015-10-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/programming/">programming</a>►<a class="article-category-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/blog/2015/10/27/javascript-promises/">JavaScript Promises</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>I read <a href="https://60devs.com/best-practices-for-using-promises-in-js.html" target="_blank" rel="external">Best Practices for Using Promises in JS</a>. Here are some concise notes expanding on this topic.</p>
-<ul>
-<li>Let’s use bluebird as Promise implementation for node</li>
-<li>Use <code>.then().catch()</code> instead of <code>.then(successCb, failCb)</code></li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> promise = (shouldResolve) =&gt; <span class="keyword">new</span> <span class="built_in">Promise</span>((resolve, reject) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (shouldResolve) &#123;</span><br><span class="line">    resolve();</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    reject();</span><br><span class="line">  &#125;&#125;);</span><br><span class="line"></span><br><span class="line">promise(arg)</span><br><span class="line">  .then(() =&gt; &#123; <span class="comment">/* success */</span> &#125;)</span><br><span class="line">  .catch(ExceptionToCatch, OtherExceptionToCatch, (err) =&gt; &#123; <span class="comment">/* error */</span>&#125;)</span><br><span class="line">  .catch(StrangeExceptionToCatch, (err) =&gt; &#123; <span class="comment">/* error */</span>&#125;)</span><br><span class="line">  .catch((err) =&gt; &#123; <span class="comment">/* error */</span>&#125;); <span class="comment">// default</span></span><br></pre></td></tr></table></figure>
-<p>To define an exception to catch:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyCustomError</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">MyCustomError.prototype = <span class="built_in">Object</span>.create(<span class="built_in">Error</span>.prototype);</span><br><span class="line"></span><br><span class="line">promise(arg)</span><br><span class="line">  .then(() =&gt; &#123; <span class="keyword">throw</span> <span class="keyword">new</span> MyCustomError() &#125;)</span><br><span class="line">  .catch(MyCustomError, (err) =&gt; &#123;&#125;)</span><br><span class="line">  .catch((err) =&gt; &#123;&#125;);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><code>Promise.all([promiseA(a), promiseB(b)])</code> runs two async functions in parallel, but <code>.then(() =&gt; {})</code> callback has no data result argument</li>
-<li>Use <code>.spread</code> instead of <code>.then</code> to get this data: <code>.spread((dataA, dataB) =&gt; {})</code></li>
-<li>To limit concurrency, <code>Promise.map([lotsOfStuff], promise, { concurrency: 3 }).then(() =&gt; {})</code></li>
-<li>See also <code>.reduce</code> and <code>.filter</code></li>
-<li>You can “pipe” your <code>.then</code> functions. If you do this, you should probably avoid using anonymous functions and enjoy more reusability, modularity, testability, readability</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">readFile(data)</span><br><span class="line">  .then(<span class="built_in">JSON</span>.parse)</span><br><span class="line">  .then(treatStuff)</span><br><span class="line">  .catch(handleError)</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Don’t abuse this thing. It’s nice to read, but it breaks the event loop and could introduce race conditions</li>
-<li>A better approach is to pipe inside the <code>.then</code>:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">readFile(data)</span><br><span class="line">  .then(pipe(<span class="built_in">JSON</span>.parse, treatStuff))</span><br><span class="line">  .catch(handleError)</span><br></pre></td></tr></table></figure>
-<h2 id="Further_reading:">Further reading:</h2><ul>
-<li><a href="http://bluebirdjs.com" target="_blank" rel="external">http://bluebirdjs.com</a></li>
-<li><a href="https://promise-nuggets.github.io" target="_blank" rel="external">https://promise-nuggets.github.io</a></li>
-<li><a href="http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" target="_blank" rel="external">http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html</a></li>
-<li><a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md" target="_blank" rel="external">https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vhf.github.io/blog/2015/10/27/javascript-promises/" data-id="cigtkpxt1000br7abuad1aepj" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/promises/">promises</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-  
 </section>
         
       </div>
