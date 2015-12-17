@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
-<meta property="og:updated_time" content="2015-11-10T19:01:21.000Z">
+<meta property="og:updated_time" content="2015-12-17T13:15:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations">
 <meta name="twitter:description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
@@ -215,13 +215,22 @@ Fastest is <span class="preprocessor">#<span class="number">3</span> TCO/no defa
       <a data-url="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" data-id="cigtqq2110000r4ab49gp4qqk" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es6/">es6</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li></ul>
 
     </footer>
   </div>
   
     
 <nav id="article-nav">
+  
+    <a href="/blog/2015/12/17/follow-up/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Making Babel fast with ES2015 rest parameters
+        
+      </div>
+    </a>
   
   
     <a href="/blog/2015/10/28/es6-destructuring/" id="article-nav-older" class="article-nav-link-wrap">
@@ -246,7 +255,7 @@ Fastest is <span class="preprocessor">#<span class="number">3</span> TCO/no defa
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">3</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -255,7 +264,7 @@ Fastest is <span class="preprocessor">#<span class="number">3</span> TCO/no defa
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es6/">es6</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -264,7 +273,7 @@ Fastest is <span class="preprocessor">#<span class="number">3</span> TCO/no defa
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -274,6 +283,10 @@ Fastest is <span class="preprocessor">#<span class="number">3</span> TCO/no defa
     <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/blog/2015/12/17/follow-up/">Making Babel fast with ES2015 rest parameters</a>
+          </li>
         
           <li>
             <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>
