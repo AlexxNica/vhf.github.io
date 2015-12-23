@@ -1,244 +1,261 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
-  
+
   <title>ES6 Destructuring | concise notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="destructuring and assigning default values">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://vhf.github.io/blog/2015/10/28/es6-destructuring/index.html">
-<meta property="og:site_name" content="concise notes">
-<meta property="og:description" content="destructuring and assigning default values">
-<meta property="og:updated_time" content="2015-12-17T14:57:20.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6 Destructuring">
-<meta name="twitter:description" content="destructuring and assigning default values">
-<meta name="twitter:creator" content="@vhf">
-  
-    <link rel="alternative" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
-  
-  
-  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ES6 Destructuring">
+  <meta property="og:url" content="https://vhf.github.io/blog/2015/10/28/es6-destructuring/index.html">
+  <meta property="og:site_name" content="concise notes">
+  <meta property="og:description" content="destructuring and assigning default values">
+  <meta property="og:updated_time" content="2015-12-17T14:57:20.000Z">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ES6 Destructuring">
+  <meta name="twitter:description" content="destructuring and assigning default values">
+  <meta name="twitter:creator" content="@vhf">
+
+  <link rel="alternative" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
+
+
+
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="/blog/css/style.css" type="text/css">
   <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css" type="text/css">
 
-  
-<!-- Google Analytics -->
-<script type="text/javascript">
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <!-- Google Analytics -->
+  <script type="text/javascript">
+    (function(i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-69443473-1', 'auto');
-ga('send', 'pageview');
-
-</script>
-<!-- End Google Analytics -->
-
-
+    ga('create', 'UA-69443473-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+  <!-- End Google Analytics -->
 </head>
 
 <body>
   <div id="container">
     <div id="wrap">
       <header id="header">
-  <div id="header-outer" class="outer">
-    <div id="header-inner" class="inner">
-      <h1 id="logo-wrap">
+        <div id="header-outer" class="outer">
+          <div id="header-inner" class="inner">
+            <h1 id="logo-wrap">
         <a href="/blog/" id="logo">concise notes</a>
       </h1>
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        <a class="main-nav-link" href="/blog/">Home</a>
-        
-          <a class="main-nav-link" href="/blog/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/blog/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
-        
-      </nav>
-    </div>
-  </div>
-</header>
+            <nav id="main-nav">
+              <a id="main-nav-toggle" class="nav-icon"></a>
+              <a class="main-nav-link" href="/blog/">Home</a>
 
+              <a class="main-nav-link" href="/blog/archives">Archives</a>
+
+              <a class="main-nav-link" href="/blog/about">About</a>
+
+            </nav>
+            <nav id="sub-nav">
+
+              <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+
+            </nav>
+          </div>
+        </div>
+      </header>
       <div class="outer">
-        <section id="main"><article id="post-es6-destructuring" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/blog/2015/10/28/es6-destructuring/" class="article-date">
-  <time datetime="2015-10-28T14:29:42.000Z" itemprop="datePublished">2015-10-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/programming/">programming</a>►<a class="article-category-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
-  </div>
+        <section id="main">
+          <article id="post-es6-destructuring" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="article-meta">
+              <a href="/blog/2015/10/28/es6-destructuring/" class="article-date">
+                <time datetime="2015-10-28T14:29:42.000Z" itemprop="datePublished">2015-10-28</time>
+              </a>
+              <div class="article-category">
+                <a class="article-category-link" href="/blog/categories/programming/">programming</a>►<a class="article-category-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
+              </div>
+            </div>
+            <div class="article-inner">
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
+
+              <header class="article-header">
+                <h1 class="article-title" itemprop="name">
       ES6 Destructuring
     </h1>
-  
+              </header>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Destructuring works exactly as its syntax suggests</li>
-<li>The only tricky point is object destructuring without variable declaration<ul>
-<li>with declaration: <code>let {x: a} = {x: &#39;a&#39;};</code></li>
-<li>without declaration: <code>({x: a} = {x: &#39;a&#39;});</code> (assuming that <code>a</code> has already been declared)</li>
-<li>It’s simply because <a href="http://stackoverflow.com/questions/17382024/why-is-a-bare-array-valid-javascript-syntax-but-not-a-bare-object" target="_blank" rel="external">a bare object is not valid syntax</a></li>
-</ul>
-</li>
-<li>Default arguments and destructuring:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123; prop: name = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Default arguments also work for arrays:<ul>
-<li><code>let [head = &quot;default&quot;] = [];</code></li>
-</ul>
-</li>
-<li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123; b: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>
+              <div class="article-entry" itemprop="articleBody">
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="cigtkpxsw0002r7abmumwf7q1" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
+                <ul>
+                  <li>Destructuring works exactly as its syntax suggests</li>
+                  <li>The only tricky point is object destructuring without variable declaration
+                    <ul>
+                      <li>with declaration: <code>let {x: a} = {x: &#39;a&#39;};</code></li>
+                      <li>without declaration: <code>({x: a} = {x: &#39;a&#39;});</code> (assuming that <code>a</code> has already been declared)</li>
+                      <li>It’s simply because <a href="http://stackoverflow.com/questions/17382024/why-is-a-bare-array-valid-javascript-syntax-but-not-a-bare-object" target="_blank" rel="external">a bare object is not valid syntax</a></li>
+                    </ul>
+                  </li>
+                  <li>Default arguments and destructuring:</li>
+                </ul>
+                <figure class="highlight js">
+                  <table>
+                    <tr>
+                      <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td>
+                      <td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123; prop: name = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br></pre></td>
+                    </tr>
+                  </table>
+                </figure>
+                <ul>
+                  <li>Default arguments also work for arrays:
+                    <ul>
+                      <li><code>let [head = &quot;default&quot;] = [];</code></li>
+                    </ul>
+                  </li>
+                  <li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
+                </ul>
+                <figure class="highlight js">
+                  <table>
+                    <tr>
+                      <td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td>
+                      <td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123; b: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td>
+                    </tr>
+                  </table>
+                </figure>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations
-        
-      </div>
-    </a>
-  
-  
-    <a href="/blog/2015/10/27/javascript-promises/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">JavaScript Promises</div>
-    </a>
-  
-</nav>
+              </div>
+              <footer class="article-footer">
+                <a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="ciijf2k5v000mcoabi7yrs63t" class="article-share-link">Share</a>
 
-  
-</article>
+                <ul class="article-tag-list">
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li>
+                </ul>
+              </footer>
+            </div>
+
+            <nav id="article-nav">
+
+              <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" id="article-nav-newer" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">Newer</strong>
+                <div class="article-nav-title">
+
+                  JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations
+
+                </div>
+              </a>
 
 
-</section>
-        
+              <a href="/blog/2015/10/27/javascript-promises/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">Older</strong>
+                <div class="article-nav-title">JavaScript Promises</div>
+              </a>
+
+            </nav>
+
+          </article>
+        </section>
+
       </div>
       <footer id="footer">
-  
-    <aside id="sidebar" class="outer">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li></ul></li></ul>
-    </div>
-  </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
+        <aside id="sidebar" class="outer">
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
-    </div>
-  </div>
+          <div class="widget-wrap">
+            <h3 class="widget-title">Categories</h3>
+            <div class="widget">
+              <ul class="category-list">
+                <li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">4</span>
+                  <ul class="category-list-child">
+                    <li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/blog/2015/12/17/making-babel-fast-with-rest-parameters/">Making Babel fast with ES2015 rest parameters</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2015/10/28/es6-destructuring/">ES6 Destructuring</a>
-          </li>
-        
-          <li>
-            <a href="/blog/2015/10/27/javascript-promises/">JavaScript Promises</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
+          <div class="widget-wrap">
+            <h3 class="widget-title">Tags</h3>
+            <div class="widget">
+              <ul class="tag-list">
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">4</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">3</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li>
+              </ul>
+            </div>
+          </div>
 
-  
-</aside>
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2015 victor felder<br>
-    </div>
-  </div>
-</footer>
+          <div class="widget-wrap">
+            <h3 class="widget-title">Archives</h3>
+            <div class="widget">
+              <ul class="archive-list">
+                <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li>
+                <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li>
+                <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="widget-wrap">
+            <h3 class="widget-title">Recents</h3>
+            <div class="widget">
+              <ul>
+
+                <li>
+                  <a href="/blog/2015/12/17/making-babel-fast-with-rest-parameters/">Making Babel fast with ES2015 rest parameters</a>
+                </li>
+
+                <li>
+                  <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>
+                </li>
+
+                <li>
+                  <a href="/blog/2015/10/28/es6-destructuring/">ES6 Destructuring</a>
+                </li>
+
+                <li>
+                  <a href="/blog/2015/10/27/javascript-promises/">JavaScript Promises</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+
+        </aside>
+
+        <div class="outer">
+          <div id="footer-info" class="inner">
+            &copy; 2015 victor felder
+            <br>
+          </div>
+        </div>
+      </footer>
     </div>
     <nav id="mobile-nav">
-  
-    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/blog/about" class="mobile-nav-link">About</a>
-  
-</nav>
-    
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      <a href="/blog/archives" class="mobile-nav-link">Archives</a>
 
+      <a href="/blog/about" class="mobile-nav-link">About</a>
 
-  <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    </nav>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js">
+    </script>
 
 
-<script src="/blog/js/script.js" type="text/javascript"></script>
+    <script src="/blog/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
 
+
+    <script src="/blog/js/script.js" type="text/javascript"></script>
   </div>
 </body>
+
 </html>
