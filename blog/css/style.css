@@ -141,6 +141,10 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+.hide {
+  display: none;
+}
+
 .outer {
   max-width: 920px;
   margin: 0 auto;
