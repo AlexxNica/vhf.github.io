@@ -10,12 +10,34 @@
   <link rel="stylesheet" href="https://file.myfontastic.com/n6vo44Re5QaWo8oCKShBs7/icons.css">
 
   <style>
-  .card-height > .card-content {
-    height: 160px;
+  @media only screen and (min-width: 1100px) {
+    .card-height > .card-content {
+      height: 160px;
+    }
+  }
+  @media only screen and (max-width: 1100px) {
+    .card-height > .card-content {
+      height: 190px;
+    }
   }
   @media only screen and (max-width: 992px) {
     .card-height > .card-content {
       height: 230px;
+    }
+  }
+  @media only screen and (max-width: 690px) {
+    .card-height > .card-content {
+      height: 250px;
+    }
+  }
+  @media only screen and (max-width: 645px) {
+    .card-height > .card-content {
+      height: 270px;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .card-height > .card-content {
+      height: initial;
     }
   }
 
