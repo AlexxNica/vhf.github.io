@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2015-12-18T16:16:19.000Z</updated>
+  <updated>2016-01-13T18:29:08.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Comment Syntax in Programming Languages (and the Eye of Osiris)]]></title>
+    <link href="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/"/>
+    <id>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</id>
+    <published>2016-01-13T18:19:19.000Z</published>
+    <updated>2016-01-13T18:29:08.000Z</updated>
+    <content type="html"><![CDATA[<p>I witnessed an uncommon debate the other day. Someone was asking why programming languages don’t agree on a common syntax for comments.</p>
+<p>Besides the usual indifferent answers such as “why would they”, “why should they”, and “it doesn’t matter in the least”, a couple of points where made:</p>
+<ol>
+  <li>When designing a programming language discussing the comment syntax is the ultimate form of <a href="https://en.wikipedia.org/wiki/Bikeshedding" target="_blank" rel="external">bikeshedding</a>.</li>
+  <li>An interesting corollary of <em>Parkinson’s law of triviality</em> is <a href="https://wiki.haskell.org/Wadler&#39;s_Law" target="_blank" rel="external">Wadler’s law of language design</a>, stating that when designing a programming language “twice as much time is spent discussing
+    syntax than semantics, twice as much time is spent discussing lexical syntax than syntax, and twice as much time is spent discussing syntax of comments than lexical syntax.”</li>
+</ol>
+<p>In conclusion, why not just rip off <a href="https://vimeo.com/111122950" target="_blank" rel="external">Sketchy JS</a>‘ “Eye of Osiris” operator syntax introduced by James Mickens?</p>
+<p class="pre-fake">{[~æ
+  <br>this is a comment
+  <br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin: none !important; display: inline-block; height: 37px; width: 39px; vertical-align: text-top;"></p>
+
+<p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>]]></content>
+    <summary type="html">
+    <![CDATA[Wadler's law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.]]>
+    
+    </summary>
+    
+      <category term="programming language design" scheme="https://vhf.github.io/blog/tags/programming-language-design/"/>
+    
+      <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Making Babel fast with ES2015 rest parameters]]></title>

@@ -4,17 +4,19 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Archives: 2015/11 | concise notes</title>
+  <title>Comment Syntax in Programming Languages (and the Eye of Osiris) | concise notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="concise notes">
-  <meta property="og:url" content="https://vhf.github.io/blog/archives/2015/11/index.html">
+  <meta name="description" content="Wadler&apos;s law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Comment Syntax in Programming Languages (and the Eye of Osiris)">
+  <meta property="og:url" content="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/index.html">
   <meta property="og:site_name" content="concise notes">
-  <meta property="og:description">
+  <meta property="og:description" content="Wadler&apos;s law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.">
+  <meta property="og:image" content="https://vhf.github.io/blog/blog/images/beyonce.jpg">
+  <meta property="og:updated_time" content="2016-01-13T18:29:08.000Z">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="concise notes">
-  <meta name="twitter:description">
+  <meta name="twitter:title" content="Comment Syntax in Programming Languages (and the Eye of Osiris)">
+  <meta name="twitter:description" content="Wadler&apos;s law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.">
   <meta name="twitter:creator" content="@vhf">
 
   <link rel="alternative" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
@@ -73,31 +75,73 @@
       </header>
       <div class="outer">
         <section id="main">
-          <section class="archives-wrap">
-            <div class="archive-year-wrap">
-              <a href="/blog/archives/2015" class="archive-year">2015</a>
+          <article id="post-comment-syntax-in-programming-languages" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="article-meta">
+              <a href="/blog/2016/01/13/comment-syntax-in-programming-languages/" class="article-date">
+                <time datetime="2016-01-13T18:19:19.000Z" itemprop="datePublished">2016-01-13</time>
+
+                <time class="hide" datetime="2016-01-13T18:19:19.000Z" itemprop="dateModified">2016-01-13</time>
+
+              </a>
+              <div class="article-category">
+                <a class="article-category-link" href="/blog/categories/programming/">programming</a>
+              </div>
+              <span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <span itemprop="name">
+    <a href="https://plus.google.com/102455247906663845886" itemprop="url" rel="author">victor felder</a>
+  </span>
+              </span>
+              <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="concise notes">
+              </div>
+              <link itemprop="mainEntityOfPage" href="/blog/2016/01/13/comment-syntax-in-programming-languages/">
             </div>
-            <div class="archives">
+            <div class="article-inner">
 
-              <article class="archive-article archive-type-post">
-                <div class="archive-article-inner">
-                  <header class="archive-article-header">
-                    <a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" class="archive-article-date">
-                      <time datetime="2015-11-02T12:36:59.000Z" itemprop="datePublished">Nov 2</time>
 
-                      <time class="hide" datetime="2015-11-02T12:36:59.000Z" itemprop="dateModified">Nov 2</time>
-
-                    </a>
-                    <h1 itemprop="headline">
-      <a class="archive-article-title" href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>
+              <header class="article-header">
+                <h1 class="article-title" itemprop="headline">
+      Comment Syntax in Programming Languages (and the Eye of Osiris)
     </h1>
-                  </header>
-                </div>
-              </article>
+              </header>
 
+              <div class="article-entry" itemprop="articleBody">
 
+                <p>I witnessed an uncommon debate the other day. Someone was asking why programming languages don’t agree on a common syntax for comments.</p>
+                <p>Besides the usual indifferent answers such as “why would they”, “why should they”, and “it doesn’t matter in the least”, a couple of points where made:</p>
+                <ol>
+                  <li>When designing a programming language discussing the comment syntax is the ultimate form of <a href="https://en.wikipedia.org/wiki/Bikeshedding" target="_blank" rel="external">bikeshedding</a>.</li>
+                  <li>An interesting corollary of <em>Parkinson’s law of triviality</em> is <a href="https://wiki.haskell.org/Wadler&#39;s_Law" target="_blank" rel="external">Wadler’s law of language design</a>, stating that when designing a programming language
+                    “twice as much time is spent discussing syntax than semantics, twice as much time is spent discussing lexical syntax than syntax, and twice as much time is spent discussing syntax of comments than lexical syntax.”</li>
+                </ol>
+                <p>In conclusion, why not just rip off <a href="https://vimeo.com/111122950" target="_blank" rel="external">Sketchy JS</a>‘ “Eye of Osiris” operator syntax introduced by James Mickens?</p>
+                <p class="pre-fake">{[~æ
+                  <br>this is a comment
+                  <br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin: none !important; display: inline-block; height: 37px; width: 39px; vertical-align: text-top;"></p>
+
+                <p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>
+
+              </div>
+              <footer class="article-footer">
+                <a data-url="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/" data-id="cijd1s5ic0002lzabebpnjb3r" class="article-share-link">Share</a>
+
+                <ul class="article-tag-list">
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a></li>
+                </ul>
+              </footer>
             </div>
-          </section>
+
+            <nav id="article-nav">
+
+
+              <a href="/blog/2015/12/17/making-babel-fast-with-rest-parameters/" id="article-nav-older" class="article-nav-link-wrap">
+                <strong class="article-nav-caption">Older</strong>
+                <div class="article-nav-title">Making Babel fast with ES2015 rest parameters</div>
+              </a>
+
+            </nav>
+
+          </article>
         </section>
 
       </div>
