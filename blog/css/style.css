@@ -796,6 +796,10 @@ a.article-title:hover {
   color: #555;
 }
 
+.article-footer-right {
+  float: right;
+}
+
 .article-tag-list-item {
   float: left;
   margin-right: 10px;
@@ -817,7 +821,6 @@ a.article-title:hover {
 
 .article-share-link {
   cursor: pointer;
-  float: right;
   margin-left: 20px;
 }
 
@@ -825,6 +828,16 @@ a.article-title:hover {
   content: "\f064";
   font-family: FontAwesome;
   padding-right: 6px;
+}
+
+.article-suggest-modification {
+  cursor: pointer;
+}
+
+.article-suggest-modification:after {
+  content: "\f040";
+  font-family: FontAwesome;
+  padding-left: 6px;
 }
 
 #article-nav {
