@@ -4,19 +4,18 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Comment Syntax in Programming Languages (and the Eye of Osiris) | concise notes</title>
+  <title>One Simple Trick for JavaScript Performance Optimization | concise notes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Wadler&apos;s law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.">
+  <meta name="description" content="Sorry for the clickbait. It’s so omnipresent these days, I had to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait f">
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Comment Syntax in Programming Languages (and the Eye of Osiris)">
-  <meta property="og:url" content="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/index.html">
+  <meta property="og:title" content="One Simple Trick for JavaScript Performance Optimization">
+  <meta property="og:url" content="https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/index.html">
   <meta property="og:site_name" content="concise notes">
-  <meta property="og:description" content="Wadler&apos;s law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.">
-  <meta property="og:image" content="https://vhf.github.io/blog/blog/images/beyonce.jpg">
-  <meta property="og:updated_time" content="2016-01-13T18:31:55.000Z">
+  <meta property="og:description" content="Sorry for the clickbait. It’s so omnipresent these days, I had to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait f">
+  <meta property="og:updated_time" content="2016-01-15T00:26:26.000Z">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Comment Syntax in Programming Languages (and the Eye of Osiris)">
-  <meta name="twitter:description" content="Wadler&apos;s law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.">
+  <meta name="twitter:title" content="One Simple Trick for JavaScript Performance Optimization">
+  <meta name="twitter:description" content="Sorry for the clickbait. It’s so omnipresent these days, I had to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait f">
   <meta name="twitter:creator" content="@vhf">
 
   <link rel="alternative" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
@@ -75,16 +74,16 @@
       </header>
       <div class="outer">
         <section id="main">
-          <article id="post-comment-syntax-in-programming-languages" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+          <article id="post-one-simple-trick-for-javascript-performance-optimization" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
             <div class="article-meta">
-              <a href="/blog/2016/01/13/comment-syntax-in-programming-languages/" class="article-date">
-                <time datetime="2016-01-13T18:19:19.000Z" itemprop="datePublished">2016-01-13</time>
+              <a href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/" class="article-date">
+                <time datetime="2016-01-15T00:20:12.000Z" itemprop="datePublished">2016-01-15</time>
 
-                <time class="hide" datetime="2016-01-13T18:19:19.000Z" itemprop="dateModified">2016-01-13</time>
+                <time class="hide" datetime="2016-01-15T00:20:12.000Z" itemprop="dateModified">2016-01-15</time>
 
               </a>
               <div class="article-category">
-                <a class="article-category-link" href="/blog/categories/programming/">programming</a>
+                <a class="article-category-link" href="/blog/categories/programming/">programming</a>►<a class="article-category-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
               </div>
               <span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
   <span itemprop="name">
@@ -94,58 +93,60 @@
               <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                 <meta itemprop="name" content="concise notes">
               </div>
-              <link itemprop="mainEntityOfPage" href="/blog/2016/01/13/comment-syntax-in-programming-languages/">
+              <link itemprop="mainEntityOfPage" href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">
             </div>
             <div class="article-inner">
 
 
               <header class="article-header">
                 <h1 class="article-title" itemprop="headline">
-      Comment Syntax in Programming Languages (and the Eye of Osiris)
+      One Simple Trick for JavaScript Performance Optimization
     </h1>
               </header>
 
               <div class="article-entry" itemprop="articleBody">
 
-                <p>I witnessed an uncommon debate the other day. Someone was asking why programming languages don’t agree on a common syntax for comments.</p>
-                <p>Besides the usual indifferent answers such as “why would they”, “why should they”, and “it doesn’t matter in the least”, a couple of points where made:</p>
-                <ol>
-                  <li>When designing a programming language, discussing the comment syntax is the ultimate form of <a href="https://en.wikipedia.org/wiki/Bikeshedding" target="_blank" rel="external">bikeshedding</a>.</li>
-                  <li>An interesting corollary of <em>Parkinson’s law of triviality</em> is <a href="https://wiki.haskell.org/Wadler&#39;s_Law" target="_blank" rel="external">Wadler’s law of language design</a>, stating that when designing a programming language
-                    “twice as much time is spent discussing syntax than semantics, twice as much time is spent discussing lexical syntax than syntax, and twice as much time is spent discussing syntax of comments than lexical syntax.”</li>
-                </ol>
-                <p>In conclusion, why not just rip off <a href="https://vimeo.com/111122950" target="_blank" rel="external">Sketchy JS</a>‘ “Eye of Osiris” operator syntax introduced by James Mickens?</p>
-                <p class="pre-fake">{[~æ
-                  <br>this is a comment
-                  <br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin: none !important; display: inline-block; height: 37px; width: 39px; vertical-align: text-top;"></p>
-
-                <p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>
+                <p>Sorry for the clickbait. It’s so omnipresent these days, I <em>had</em> to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait filtering software. Obtaining
+                  a huge training set should <strong>not</strong> be an issue. (We could even crowdsource these! How fun!)</p>
+                <p>Anyway. If you follow my blog (and I’m not sure you should), you might have guessed that I’m currently having fun with V8’s optimizing compiler, an awesome piece of software romantically called Crankshaft. Basically, it’s what makes JavaScript
+                  fast on Chrome/nodejs.
+                </p>
+                <p>Most of the time Crankshaft is able to optimize JavaScript functions. They then run really fast.</p>
+                <p>In some cases, Crankshaft doesn’t optimize a function. It simply gets to a function and bails out instead of trying to optimize it. Whenever this happens, it invokes a <strong>bailout reason</strong>.</p>
+                <p>Documentation on these bailout reasons are very scarce, so Wednesday I decided to list them all and try to reproduce each of them, documenting why it occurs, giving advice on how to avoid the bailout, and give real-life examples of where
+                  it can be spotted.</p>
+                <p>As of the writing of this post, I was only able to partially document 8 of them. I have more material but need more research/more time.</p>
+                <p>If you’d like to see what I got and to contribute your awesome V8 knowledge, please see <strong><a href="https://github.com/vhf/V8-Crankshaft-bailout-reasons" target="_blank" rel="external">V8 Crankshaft bailout reasons</a></strong> on
+                  GitHub.</p>
+                <p>But I didn’t make you read all this for nothing. In the title of this post I made a promise I intend to fulfill, so here is…</p>
+                <h3 id="One_Simple_Trick_for_JavaScript_Performance_Optimization"><a href="#One_Simple_Trick_for_JavaScript_Performance_Optimization" class="headerlink" title="One Simple Trick for JavaScript Performance Optimization"></a>One Simple Trick for JavaScript Performance Optimization</h3>
+                <p>Don’t use more than 65535 parameters in a single JavaScript function. Otherwise, Crankshaft will bail out with the following informative message: “Too many parameters.”</p>
+                <h4 id="How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F"><a href="#How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F" class="headerlink" title="How can I fix my JavaScript code to make it run blazingly fast?"></a>How can I fix my JavaScript code to make it run blazingly fast?</h4>
+                <p>Stick to 65534 parameters (or less).</p>
+                <ul>
+                  <li>65534 is a good-looking number. It’s (2 + 1)(4 + 1)(16 + 1)(256 + 1) - 1.</li>
+                  <li>A function with 65534 parameters always looks better than a function with 65535 parameters. (I could show you why but I’m too lazy to generate one.)</li>
+                </ul>
 
               </div>
               <footer class="article-footer">
-                <a data-url="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/" data-id="cijexxeul000fl1ab6kyoicea" class="article-share-link">Share</a>
+                <a data-url="https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/" data-id="cijexxeuf0002l1abuvgall0a" class="article-share-link">Share</a>
 
                 <ul class="article-tag-list">
-                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/v8/">v8</a></li>
                 </ul>
               </footer>
             </div>
 
             <nav id="article-nav">
 
-              <a href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/" id="article-nav-newer" class="article-nav-link-wrap">
-                <strong class="article-nav-caption">Newer</strong>
-                <div class="article-nav-title">
 
-                  One Simple Trick for JavaScript Performance Optimization
-
-                </div>
-              </a>
-
-
-              <a href="/blog/2015/12/17/making-babel-fast-with-rest-parameters/" id="article-nav-older" class="article-nav-link-wrap">
+              <a href="/blog/2016/01/13/comment-syntax-in-programming-languages/" id="article-nav-older" class="article-nav-link-wrap">
                 <strong class="article-nav-caption">Older</strong>
-                <div class="article-nav-title">Making Babel fast with ES2015 rest parameters</div>
+                <div class="article-nav-title">Comment Syntax in Programming Languages (and the Eye of Osiris)</div>
               </a>
 
             </nav>

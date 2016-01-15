@@ -73,6 +73,75 @@
       </header>
       <div class="outer">
         <section id="main">
+          <article id="post-one-simple-trick-for-javascript-performance-optimization" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+            <div class="article-meta">
+              <a href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/" class="article-date">
+                <time datetime="2016-01-15T00:20:12.000Z" itemprop="datePublished">2016-01-15</time>
+
+                <time class="hide" datetime="2016-01-15T00:20:12.000Z" itemprop="dateModified">2016-01-15</time>
+
+              </a>
+              <div class="article-category">
+                <a class="article-category-link" href="/blog/categories/programming/">programming</a>►<a class="article-category-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
+              </div>
+              <span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+  <span itemprop="name">
+    <a href="https://plus.google.com/102455247906663845886" itemprop="url" rel="author">victor felder</a>
+  </span>
+              </span>
+              <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="concise notes">
+              </div>
+              <link itemprop="mainEntityOfPage" href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">
+            </div>
+            <div class="article-inner">
+
+
+              <header class="article-header">
+                <h1 itemprop="headline">
+      <a class="article-title" href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">One Simple Trick for JavaScript Performance Optimization</a>
+    </h1>
+              </header>
+
+              <div class="article-entry" itemprop="articleBody">
+
+                <p>Sorry for the clickbait. It’s so omnipresent these days, I <em>had</em> to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait filtering software. Obtaining
+                  a huge training set should <strong>not</strong> be an issue. (We could even crowdsource these! How fun!)</p>
+                <p>Anyway. If you follow my blog (and I’m not sure you should), you might have guessed that I’m currently having fun with V8’s optimizing compiler, an awesome piece of software romantically called Crankshaft. Basically, it’s what makes JavaScript
+                  fast on Chrome/nodejs.
+                </p>
+                <p>Most of the time Crankshaft is able to optimize JavaScript functions. They then run really fast.</p>
+                <p>In some cases, Crankshaft doesn’t optimize a function. It simply gets to a function and bails out instead of trying to optimize it. Whenever this happens, it invokes a <strong>bailout reason</strong>.</p>
+                <p>Documentation on these bailout reasons are very scarce, so Wednesday I decided to list them all and try to reproduce each of them, documenting why it occurs, giving advice on how to avoid the bailout, and give real-life examples of where
+                  it can be spotted.</p>
+                <p>As of the writing of this post, I was only able to partially document 8 of them. I have more material but need more research/more time.</p>
+                <p>If you’d like to see what I got and to contribute your awesome V8 knowledge, please see <strong><a href="https://github.com/vhf/V8-Crankshaft-bailout-reasons" target="_blank" rel="external">V8 Crankshaft bailout reasons</a></strong> on
+                  GitHub.</p>
+                <p>But I didn’t make you read all this for nothing. In the title of this post I made a promise I intend to fulfill, so here is…</p>
+                <h3 id="One_Simple_Trick_for_JavaScript_Performance_Optimization"><a href="#One_Simple_Trick_for_JavaScript_Performance_Optimization" class="headerlink" title="One Simple Trick for JavaScript Performance Optimization"></a>One Simple Trick for JavaScript Performance Optimization</h3>
+                <p>Don’t use more than 65535 parameters in a single JavaScript function. Otherwise, Crankshaft will bail out with the following informative message: “Too many parameters.”</p>
+                <h4 id="How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F"><a href="#How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F" class="headerlink" title="How can I fix my JavaScript code to make it run blazingly fast?"></a>How can I fix my JavaScript code to make it run blazingly fast?</h4>
+                <p>Stick to 65534 parameters (or less).</p>
+                <ul>
+                  <li>65534 is a good-looking number. It’s (2 + 1)(4 + 1)(16 + 1)(256 + 1) - 1.</li>
+                  <li>A function with 65534 parameters always looks better than a function with 65535 parameters. (I could show you why but I’m too lazy to generate one.)</li>
+                </ul>
+
+              </div>
+              <footer class="article-footer">
+                <a data-url="https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/" data-id="cijexxeuf0002l1abuvgall0a" class="article-share-link">Share</a>
+
+                <ul class="article-tag-list">
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li>
+                  <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/v8/">v8</a></li>
+                </ul>
+              </footer>
+            </div>
+
+          </article>
+
           <article id="post-comment-syntax-in-programming-languages" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
             <div class="article-meta">
               <a href="/blog/2016/01/13/comment-syntax-in-programming-languages/" class="article-date">
@@ -121,7 +190,7 @@
 
               </div>
               <footer class="article-footer">
-                <a data-url="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/" data-id="cijd1s5ic0002lzabebpnjb3r" class="article-share-link">Share</a>
+                <a data-url="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/" data-id="cijexxeul000fl1ab6kyoicea" class="article-share-link">Share</a>
 
                 <ul class="article-tag-list">
                   <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a></li>
@@ -256,7 +325,7 @@
 
               </div>
               <footer class="article-footer">
-                <a data-url="https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/" data-id="cijd1s5ig0005lzabyci0ai22" class="article-share-link">Share</a>
+                <a data-url="https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/" data-id="cijexxeuo000jl1ab0t6b0ydc" class="article-share-link">Share</a>
 
                 <ul class="article-tag-list">
                   <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/babel/">babel</a></li>
@@ -480,7 +549,7 @@ Fastest is #3 TCO/no default params
 
               </div>
               <footer class="article-footer">
-                <a data-url="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" data-id="cijd1s5il000ilzaber34bz98" class="article-share-link">Share</a>
+                <a data-url="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/" data-id="cijexxeur000sl1abo39rot3z" class="article-share-link">Share</a>
 
                 <ul class="article-tag-list">
                   <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/babel/">babel</a></li>
@@ -563,7 +632,7 @@ Fastest is #3 TCO/no default params
 
               </div>
               <footer class="article-footer">
-                <a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="cijd1s5io000plzabag8jcm2u" class="article-share-link">Share</a>
+                <a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="cijexxeuu000zl1abins0xxam" class="article-share-link">Share</a>
 
                 <ul class="article-tag-list">
                   <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li>
@@ -665,7 +734,7 @@ Fastest is #3 TCO/no default params
 
               </div>
               <footer class="article-footer">
-                <a data-url="https://vhf.github.io/blog/2015/10/27/javascript-promises/" data-id="cijd1s5iq000ulzabtt00m4zv" class="article-share-link">Share</a>
+                <a data-url="https://vhf.github.io/blog/2015/10/27/javascript-promises/" data-id="cijexxeuw0014l1abvbbwcuey" class="article-share-link">Share</a>
 
                 <ul class="article-tag-list">
                   <li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li>
@@ -688,9 +757,9 @@ Fastest is #3 TCO/no default params
             <h3 class="widget-title">Categories</h3>
             <div class="widget">
               <ul class="category-list">
-                <li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">5</span>
+                <li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">6</span>
                   <ul class="category-list-child">
-                    <li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">4</span></li>
+                    <li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">5</span></li>
                   </ul>
                 </li>
               </ul>
@@ -702,11 +771,13 @@ Fastest is #3 TCO/no default params
             <div class="widget">
               <ul class="tag-list">
                 <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a><span class="tag-list-count">1</span></li>
                 <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">4</span></li>
-                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">4</span></li>
-                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">3</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">5</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">4</span></li>
                 <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a><span class="tag-list-count">1</span></li>
                 <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li>
+                <li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/v8/">v8</a><span class="tag-list-count">1</span></li>
               </ul>
             </div>
           </div>
@@ -715,7 +786,7 @@ Fastest is #3 TCO/no default params
             <h3 class="widget-title">Archives</h3>
             <div class="widget">
               <ul class="archive-list">
-                <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">1</span></li>
+                <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">2</span></li>
                 <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li>
                 <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li>
                 <li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li>
@@ -727,6 +798,10 @@ Fastest is #3 TCO/no default params
             <h3 class="widget-title">Recents</h3>
             <div class="widget">
               <ul>
+
+                <li>
+                  <a href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">One Simple Trick for JavaScript Performance Optimization</a>
+                </li>
 
                 <li>
                   <a href="/blog/2016/01/13/comment-syntax-in-programming-languages/">Comment Syntax in Programming Languages (and the Eye of Osiris)</a>
@@ -742,10 +817,6 @@ Fastest is #3 TCO/no default params
 
                 <li>
                   <a href="/blog/2015/10/28/es6-destructuring/">ES6 Destructuring</a>
-                </li>
-
-                <li>
-                  <a href="/blog/2015/10/27/javascript-promises/">JavaScript Promises</a>
                 </li>
 
               </ul>
