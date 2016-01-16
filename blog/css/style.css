@@ -11047,10 +11047,13 @@ nav .brand-logo {
   color: #272727;
 }
 
+body {
+  background-color: #fafafa;
+}
+
 .container {
-  max-width: 3000px;
+  max-width: container-max-width;
   background: #fff;
-  background: rgba(255, 255, 255, 0.95);
 }
 
 .page-wrap {
@@ -11537,7 +11540,7 @@ footer ul li {
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
   color: #666;
-  font-size: 0.85em;
+  font-size: 16px;
 }
 
 .article-entry pre,
@@ -11559,7 +11562,8 @@ footer ul li {
 
 .article-entry .highlight {
   margin: 0 -50px;
-  padding: 10px 50px;
+  padding: 2.5em 50px 2em;
+  border-color: #555;
 }
 
 .article-entry .highlight pre {
@@ -11569,7 +11573,7 @@ footer ul li {
 }
 
 .article-entry .highlight table {
-  margin: 0;
+  margin: 0 0 0 -50px;
   width: auto;
 }
 
@@ -11583,7 +11587,7 @@ footer ul li {
   font-size: 0.85em;
   color: #999;
   line-height: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.75em;
 }
 
 .article-entry .highlight figcaption:before,
@@ -11596,13 +11600,28 @@ footer ul li {
   clear: both;
 }
 
+.article-entry .highlight figcaption span {
+  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+}
+
 .article-entry .highlight figcaption a {
   float: right;
 }
 
-.article-entry .highlight .gutter pre {
+.article-entry .highlight figcaption a:after {
+  font-family: FontAwesome;
+  font-size: 12px;
+  content: '\f08e';
+  margin-left: 8px;
+}
+
+.article-entry .highlight .gutter {
+  min-width: 50px;
   text-align: right;
-  padding-right: 20px;
+}
+
+.article-entry .highlight .gutter pre {
+  padding-right: 12px;
   font-size: 16px;
 }
 
@@ -11729,7 +11748,7 @@ pre .javascript .function {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
   background: #2d2d2d;
   margin: 0 -50px;
-  padding: 15px 50px;
+  padding: 2.5em 50px 2em;
   border-style: solid;
   border-color: #ddd;
   border-width: 1px 0;
@@ -11740,7 +11759,7 @@ pre .javascript .function {
 
 .article-entry pre {
   margin: 0 -50px;
-  padding: 15px 50px;
+  padding: 2.5em 50px 2em;
 }
 
 @media only screen and (max-width: 992px) {
