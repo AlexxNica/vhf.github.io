@@ -11182,6 +11182,7 @@ nav .brand-logo {
   height: 36px;
   line-height: 36px;
   font-size: 10px !important;
+  margin: 0 !important;
 }
 
 .article-share-link {
@@ -11204,6 +11205,7 @@ nav .brand-logo {
 
 .article-share-links {
   zoom: 1;
+  height: 50px;
 }
 
 .article-share-links:before,
@@ -11221,7 +11223,7 @@ nav .brand-logo {
 .article-share-pinterest,
 .article-share-google {
   width: 50px;
-  height: 36px;
+  height: 75px;
   display: block;
   float: left;
   position: relative;
