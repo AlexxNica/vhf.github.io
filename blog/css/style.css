@@ -11135,6 +11135,10 @@ nav .brand-logo {
   box-shadow: 0 0px 16px 0px rgba(0, 0, 0, 0.1);
 }
 
+.article-header h1 {
+  margin: 0rem 0 1.68rem 0;
+}
+
 .article-title {
   margin-top: 0;
   font-size: 3.56rem;
@@ -11303,6 +11307,10 @@ nav .brand-logo {
   content: '#';
 }
 
+.article-footer .row {
+  margin-bottom: 0;
+}
+
 .article-footer-right {
   margin-top: 16px;
 }
@@ -11314,6 +11322,11 @@ nav .brand-logo {
 
 .article-list-part .article-footer {
   border-top: 1px solid rgba(100, 100, 100, 0.5);
+}
+
+blockquote {
+  border-left: 5px solid #349f8c;
+  font-style: italic;
 }
 
 .archives-wrap {
@@ -11721,6 +11734,11 @@ pre .javascript .function {
   overflow: auto;
   color: #ccc;
   line-height: 30.599999999999998px;
+}
+
+.article-entry pre {
+  margin: 0 -50px;
+  padding: 15px 50px;
 }
 
 @media only screen and (max-width: 992px) {
