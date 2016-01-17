@@ -8,7 +8,7 @@
     var $this = $(this),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
-      id = 'article-share-box-' + $this.attr('data-id'),
+      id = 'article-share-box' + $this.attr('data-id'),
       offset = $this.offset();
 
     if ($('#' + id).length){
@@ -44,13 +44,13 @@
     }).addClass('on');
   }).on('click', '.article-share-box', function(e){
     e.stopPropagation();
-  }).on('click', '.article-share-box-input', function(){
+  }).on('click', '.article-share-input', function(){
     $(this).select();
-  }).on('click', '.article-share-box-link', function(e){
+  }).on('click', '.article-share-links > a', function(e){
     e.preventDefault();
     e.stopPropagation();
 
-    window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+    window.open(this.href, 'article-share-window-' + Date.now(), 'width=500,height=450');
   });
 
   var $sidenav = $('.side-nav');
