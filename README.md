@@ -1,3 +1,3 @@
 this repository hosts my personal website and my blog
 
-[☑.ml](http://☑.ml)
+be sure to check my blog at [☑.ml/blog/](http://☑.ml/blog/)
