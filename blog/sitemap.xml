@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
+    <lastmod>2016-01-22T19:35:57.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</loc>
     <lastmod>2016-01-21T22:09:27.000Z</lastmod>
   </url>
