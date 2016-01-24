@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-01-24T10:38:53.000Z</updated>
+  <updated>2016-01-24T13:07:14.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/"/>
     <id>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</id>
     <published>2016-01-22T19:20:20.000Z</published>
-    <updated>2016-01-24T10:38:53.000Z</updated>
+    <updated>2016-01-24T13:07:14.000Z</updated>
     <content type="html"><![CDATA[<p>This post is a short summary about all these terms, with a rough description of how V8 works. (It’s rather an overview of how Crankshaft works, really.)</p>
 <h2 id="Chromium_2C_Chrome_2C_Node-js"><a href="#Chromium_2C_Chrome_2C_Node-js" class="headerlink" title="Chromium, Chrome, Node.js"></a>Chromium, Chrome, Node.js</h2><p>The Chromium Project is responsible for Chromium’s development. Chromium, released in 2008, is the open-source web browser on which Google Chrome is based. Chromium’s JavaScript engine is V8. Other projects such as the Opera web browser and the Node.js runtime use V8 as their JavaScript engine.</p>
 <h2 id="V8"><a href="#V8" class="headerlink" title="V8"></a>V8</h2><p>V8 compiles JavaScript to native machine code and executes it right away. In 2010, the Chromium Project released a new version of V8 including a new compiling infrastructure named Crankshaft (<a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)" target="_blank" rel="external">#1</a>, <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" target="_blank" rel="external">#2</a>).</p>
@@ -42,8 +42,6 @@
     
     </summary>
     
-      <category term="V8" scheme="https://vhf.github.io/blog/tags/V8/"/>
-    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
@@ -51,6 +49,8 @@
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
+    
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -63,7 +63,7 @@
     <link href="https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/"/>
     <id>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</id>
     <published>2016-01-21T20:53:35.000Z</published>
-    <updated>2016-01-24T10:38:56.000Z</updated>
+    <updated>2016-01-24T13:07:17.000Z</updated>
     <content type="html"><![CDATA[<p>December 11, Chrome 49 landed on the Dev channel. This week, with already <a href="https://googlechromereleases.blogspot.com" target="_blank" rel="external">two new releases of Chrome 49</a> to the Dev channel, the process seems to intensify.</p>
 <p>On Tuesday <a href="http://seththompson.org" target="_blank" rel="external">Seth Thompson</a>, who works on V8, <a href="https://news.ycombinator.com/item?id=10932790" target="_blank" rel="external">wrote on HN</a> that “V8 now has 92% ES6 coverage in Chrome Canary (on track for shipping in Chrome M49)!”</p>
 <p>kangax’ awesome <a href="http://kangax.github.io/compat-table/es6/#chrome49" target="_blank" rel="external">ECMAScript compatibility table</a> is already up to date, and Chrome 49’s column looks very green indeed.</p>
@@ -75,8 +75,6 @@
     
     </summary>
     
-      <category term="V8" scheme="https://vhf.github.io/blog/tags/V8/"/>
-    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
@@ -84,6 +82,8 @@
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
+    
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -200,7 +200,7 @@
     <link href="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/"/>
     <id>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</id>
     <published>2016-01-13T18:19:19.000Z</published>
-    <updated>2016-01-24T10:39:01.000Z</updated>
+    <updated>2016-01-24T17:13:20.000Z</updated>
     <content type="html"><![CDATA[<p>I witnessed an uncommon debate the other day. Someone was asking why programming languages don’t agree on a common syntax for comments.</p>
 <p>Besides the usual indifferent answers such as “why would they”, “why should they”, and “it doesn’t matter in the least”, a couple of points where made:</p>
 <ol>
@@ -211,7 +211,7 @@
 <p class="pre-fake">{[~æ<br>this is a comment<br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin:none!important;display:inline-block;height:37px;width:39px;vertical-align:text-top"></p>
 <p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>]]></content>
     <summary type="html">
-    <![CDATA[Wadler's law is bikeshedding applied to programming languages design. Agreeing on the use of the Eye of Osiris would (not) be an elegant way to settle this debate.]]>
+    <![CDATA[Wadler's law is bikeshedding applied to programming languages design.]]>
     
     </summary>
     
@@ -226,7 +226,7 @@
     <link href="https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/"/>
     <id>https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/</id>
     <published>2015-12-17T12:36:59.000Z</published>
-    <updated>2016-01-24T10:39:03.000Z</updated>
+    <updated>2016-01-24T13:07:31.000Z</updated>
     <content type="html"><![CDATA[<p>This post is a follow-up of <a href="http://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>. At the time, Babel 6 had only been published for a few hours.</p>
 <p>When Babel 6 was released, I quickly realised that I kind of missed my target: tail call optimisation had been dropped in the process. But all was not lost, I could still investigate Babel’s use of <code>arguments</code>.</p>
 <h1 id="Fixture_tests"><a href="#Fixture_tests" class="headerlink" title="Fixture tests"></a>Fixture tests</h1><p>First, I looked at a lot of fixture tests. These are files meant to test if a particular Babel transform or plug-in works properly. They consist of two files: <code>actual.js</code> (ES2015 code) and <code>expected.js</code>. The goal of this test is to check if the output of <code>babel actual.js</code> matches the content of <code>expected.js</code>.</p>
@@ -263,6 +263,8 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
       <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
@@ -274,7 +276,7 @@
     <link href="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/"/>
     <id>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</id>
     <published>2015-11-02T12:36:59.000Z</published>
-    <updated>2016-01-24T10:39:05.000Z</updated>
+    <updated>2016-01-24T13:07:35.000Z</updated>
     <content type="html"><![CDATA[<p>Disclaimer:</p>
 <ul>
 <li>Babel 5.8.29 (babel-core 5.8.33)</li>
@@ -399,6 +401,8 @@ Fastest is #3 TCO/no default params
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
+    
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     

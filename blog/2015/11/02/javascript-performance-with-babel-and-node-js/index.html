@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
-<meta property="og:updated_time" content="2016-01-24T10:39:05.000Z">
+<meta property="og:updated_time" content="2016-01-24T13:07:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations">
 <meta name="twitter:description" content="Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?">
@@ -211,7 +211,7 @@ Fastest is #3 TCO/no default params
 <footer class="article-footer">
 <div class="row">
 <div class="col s6">
-<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li></ul>
+<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/babel/">babel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/v8/">v8</a></li></ul>
 &nbsp;
 </div>
 <div class="col s6 right-align">
@@ -222,7 +222,7 @@ Fastest is #3 TCO/no default params
 </div>
 </footer>
 </div>
-<div class="row">
+<div class="row post-navigation">
 <div class="col s12 m6 push-m6">
 <div class="post-nav">
 <div class="post-nav-title blue-grey darken-1 right center-align">
@@ -262,7 +262,7 @@ ES6 Destructuring
 <div class="col l3 s12">
 <h5 class="white-text">Tags</h5>
 <p class="grey-text text-lighten-4">
-<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/V8/">V8</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/v8/">v8</a><span class="tag-list-count">1</span></li></ul>
+<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/v8/">v8</a><span class="tag-list-count">5</span></li></ul>
 </p>
 </div>
 <div class="col l3 s12">
@@ -295,7 +295,7 @@ ES6 Destructuring
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-&copy; 2016 victor felder<br>
+all content &amp; design &copy; copyright 2016 victor felder<br>
 </div>
 </footer>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="/blog/js/script.js" type="text/javascript"></script></div></body>
