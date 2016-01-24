@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="My attempt at clickbait. Also, an interesting (who said &quot;useless&quot;) JS performance tip.">
-<meta property="og:updated_time" content="2016-01-24T10:38:59.000Z">
+<meta property="og:updated_time" content="2016-01-24T23:53:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="One Simple Trick for JavaScript Performance Optimization">
 <meta name="twitter:description" content="My attempt at clickbait. Also, an interesting (who said &quot;useless&quot;) JS performance tip.">
@@ -104,12 +104,13 @@ One Simple Trick for JavaScript Performance Optimization
 <p>As of the writing of this post, I was only able to partially document 8 of them. I have more material but need more research/more time.</p>
 <p>If you’d like to see what I got and to contribute your awesome V8 knowledge, please see <strong><a href="https://github.com/vhf/v8-bailout-reasons" target="_blank" rel="external">V8 bailout reasons</a></strong> on GitHub.</p>
 <p>But I didn’t make you read all this for nothing. In the title of this post I made a promise I intend to fulfill, so here is…</p>
-<h3 id="One_Simple_Trick_for_JavaScript_Performance_Optimization"><a href="#One_Simple_Trick_for_JavaScript_Performance_Optimization" class="headerlink" title="One Simple Trick for JavaScript Performance Optimization"></a>One Simple Trick for JavaScript Performance Optimization</h3><p>Don’t use more than 65535 parameters in a single JavaScript function. Otherwise, Crankshaft will bail out with the following informative message: “Too many parameters.”</p>
-<h4 id="How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F"><a href="#How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F" class="headerlink" title="How can I fix my JavaScript code to make it run blazingly fast?"></a>How can I fix my JavaScript code to make it run blazingly fast?</h4><p>Stick to 65534 parameters (or less).</p>
+<h3 id="One_Simple_Trick_for_JavaScript_Performance_Optimization"><a href="#One_Simple_Trick_for_JavaScript_Performance_Optimization" class="headerlink" title="One Simple Trick for JavaScript Performance Optimization"></a>One Simple Trick for JavaScript Performance Optimization</h3><p>Don’t use more than <del>65535</del> 512 parameters in a single JavaScript function. Otherwise, Crankshaft will bail out with the following informative message: “Too many parameters.”</p>
+<h4 id="How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F"><a href="#How_can_I_fix_my_JavaScript_code_to_make_it_run_blazingly_fast_3F" class="headerlink" title="How can I fix my JavaScript code to make it run blazingly fast?"></a>How can I fix my JavaScript code to make it run blazingly fast?</h4><p>Stick to 511 parameters (or less).</p>
 <ul>
-<li>65534 is a good-looking number. It’s (2 + 1)(4 + 1)(16 + 1)(256 + 1) - 1.</li>
-<li>A function with 65534 parameters always looks better than a function with 65535 parameters. (I could show you why but I’m too lazy to generate one.)</li>
+<li>511 is a good-looking number. In unicode, it looks really really good: &#511;</li>
+<li>A function with 511 parameters always looks better than a function with 512 parameters. (I have discovered a truly remarkable proof which this margin is too small to contain.)</li>
 </ul>
+<p><em>Note: I originally wrote this article with 65535 instead of 512. I did not pay enough attention while reading V8 source code. It was 65535 bits, i.e. 512 bytes, or 512 parameters. Not 65535 parameters. <a href="https://github.com/vhf/concise-notes/commit/88fc535cbe23a567ddd3e65f8f64c6590936a51b" target="_blank" rel="external">Review the diff</a>.</em></p>
 </div>
 <footer class="article-footer">
 <div class="row">
