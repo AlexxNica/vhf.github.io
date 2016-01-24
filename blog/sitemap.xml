@@ -2,48 +2,48 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
-    <lastmod>2016-01-24T10:01:03.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</loc>
-    <lastmod>2016-01-24T10:00:50.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</loc>
-    <lastmod>2016-01-24T10:00:34.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/</loc>
-    <lastmod>2016-01-24T10:00:11.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</loc>
-    <lastmod>2016-01-24T10:00:00.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
-    <lastmod>2016-01-23T18:43:01.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
-    <lastmod>2016-01-21T09:05:02.000Z</lastmod>
+    <loc>https://vhf.github.io/blog/2015/10/27/javascript-promises/</loc>
+    <lastmod>2016-01-24T10:39:10.000Z</lastmod>
   </url>
   
   <url>
     <loc>https://vhf.github.io/blog/2015/10/28/es6-destructuring/</loc>
-    <lastmod>2015-12-17T14:57:20.000Z</lastmod>
+    <lastmod>2016-01-24T10:39:08.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://vhf.github.io/blog/2015/10/27/javascript-promises/</loc>
-    <lastmod>2015-12-17T13:15:02.000Z</lastmod>
+    <loc>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</loc>
+    <lastmod>2016-01-24T10:39:05.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/</loc>
+    <lastmod>2016-01-24T10:39:03.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</loc>
+    <lastmod>2016-01-24T10:39:01.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
+    <lastmod>2016-01-24T10:38:59.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
+    <lastmod>2016-01-24T10:38:58.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</loc>
+    <lastmod>2016-01-24T10:38:56.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
+    <lastmod>2016-01-24T10:38:53.000Z</lastmod>
   </url>
   
 </urlset>
