@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Modifying or Deleting a Line from an Old Commit">
 <meta name="twitter:description" content="Here&apos;s how. But seriously, you probably shouldn&apos;t do it.">
 <meta name="twitter:creator" content="@_vhf">
-<link rel="alternative" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
+<link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="196x196" href="/favicons/favicon-192.png">
@@ -38,7 +38,7 @@
 <meta name="msapplication-config" content="/favicons/browserconfig.xml">
 <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="/blog/css/style.css" type="text/css">
-<!-- Google Analytics --> <script type="text/javascript">!function(e,a,t,n,c,o,s){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,o=a.createElement(t),s=a.getElementsByTagName(t)[0],o.async=1,o.src=n,s.parentNode.insertBefore(o,s)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-69443473-1","auto"),ga("send","pageview");</script><!-- End Google Analytics --></head></html><body>
+<script type="text/javascript">!function(e,a,n,t,c,i,o){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,i=a.createElement(n),o=a.getElementsByTagName(n)[0],i.async=1,i.src=t,o.parentNode.insertBefore(i,o)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-69443473-1","auto"),ga("require","linkid"),ga("send","pageview");</script></head><body>
 <div class="container">
 <div class="page-wrap">
 <header class="page-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
@@ -107,7 +107,7 @@ Modifying or Deleting a Line from an Old Commit
 </ol>
 <p>I work alone on most of my side projects. They are experiments, personal documentations, <del>stupid</del> ideas… they have something in common though, they are versioned using git and I’m often their only contributor. Which means that if I want to rewrite the history and <code>git push --force</code>, I can! It won’t break someone else’s work!</p>
 <p>Maybe I shouldn’t have stricken out <em>stupid</em> here. Two months ago I had an idea. It came out of nowhere and was very easy to do, so I did it. <em>Let’s log the content of my clipboard every minute!</em></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * <span class="built_in">cd</span> ~/repositories/clipboard/ &amp;&amp; pbpaste &gt; clipboard.txt &amp;&amp; git aa &amp;&amp; git commit -m <span class="string">"`date`"</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span> &gt;/dev/null</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * <span class="built_in">cd</span> ~/repositories/clipboard/ &amp;&amp; pbpaste &gt; clipboard.txt &amp;&amp; git aa &amp;&amp; git commit -m <span class="string">"`date`"</span> 2&gt;&amp;1 &gt;/dev/null</span><br></pre></td></tr></table></figure>
 <p>This idea being stupid and/or useless does not mean I <em>am</em> stupid or useless, I was obviously not going to push this to a remote server.</p>
 <p>But let’s pretend I’d like to anyway. We can very safely assume that doing so would be very unsafe: there are probably a bunch of my passwords in the repo (copy-pasted from my password manager), and private emails (written in my text editor and copy-pasted to my webmail), and kilobytes of source code I wrote at work, etc.</p>
 <p>Obviously, trying to delete all potential private data from my clipboard repo would be a hard and painful process of carefully reviewing the content of each of the thousands of commits it contains.</p>
@@ -236,4 +236,4 @@ One Simple Trick for JavaScript Performance Optimization
 all content &amp; design &copy; copyright 2016 victor felder<br>
 </div>
 </footer>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="/blog/js/script.js" type="text/javascript"></script></div></body>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="/blog/js/script.js" type="text/javascript"></script></div></body></html>
