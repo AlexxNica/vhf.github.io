@@ -260,11 +260,11 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
+      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
+    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
-    
-      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -399,11 +399,11 @@ Fastest is #3 TCO/no default params
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
+      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
+    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
-    
-      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -493,9 +493,9 @@ Fastest is #3 TCO/no default params
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
     
-      <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
-    
       <category term="promises" scheme="https://vhf.github.io/blog/tags/promises/"/>
+    
+      <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     

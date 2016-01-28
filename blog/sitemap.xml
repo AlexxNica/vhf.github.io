@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vhf.github.io/blog/contact/index.html</loc>
+    <lastmod>2016-01-28T10:14:51.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://vhf.github.io/blog/contact/css.html</loc>
+    <lastmod>2016-01-28T09:53:11.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
     <lastmod>2016-01-28T06:31:21.000Z</lastmod>
   </url>
