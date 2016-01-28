@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
+    <lastmod>2016-01-28T06:31:21.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
     <lastmod>2016-01-24T23:53:01.000Z</lastmod>
   </url>
@@ -39,11 +44,6 @@
   <url>
     <loc>https://vhf.github.io/blog/2015/10/28/es6-destructuring/</loc>
     <lastmod>2016-01-24T10:39:08.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
-    <lastmod>2016-01-24T10:38:58.000Z</lastmod>
   </url>
   
 </urlset>

@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="Here&apos;s how. But seriously, you probably shouldn&apos;t do it.">
-<meta property="og:updated_time" content="2016-01-24T10:38:58.000Z">
+<meta property="og:updated_time" content="2016-01-28T06:31:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Modifying or Deleting a Line from an Old Commit">
 <meta name="twitter:description" content="Here&apos;s how. But seriously, you probably shouldn&apos;t do it.">
@@ -98,8 +98,8 @@ Modifying or Deleting a Line from an Old Commit
 <p>I’ll spare you and assume you know what you’re doing, so here’s the short version. Keep reading for a more comprehensive one.</p>
 <ol>
 <li>Find the commit you want to change or delete</li>
-<li>Get the SHA of its child commit.</li>
-<li><code>git rebase -i 1a2b3c4d</code> (1a2b3c4d is the child)</li>
+<li>Get the SHA of its parent commit.</li>
+<li><code>git rebase -i 1a2b3c4d</code> (1a2b3c4d is the parent)</li>
 <li>Replace <code>pick</code> with <code>edit</code></li>
 <li><code>git add yourfile</code></li>
 <li><code>git commit --amend</code></li>
@@ -121,16 +121,16 @@ Modifying or Deleting a Line from an Old Commit
 <li>Choose whatever option gets you the SHA the quickest. The order listed here is not that bad in my opinion. So, your secret first appeared in your git repository at commit <code>054f345865f8f5a319dc05fcfa6cf9b76541e229</code></li>
 </ul>
 </li>
-<li>You actually need the SHA of the child commit. The commit that came directly after the one you want to modify or get rid of.<ul>
+<li>You actually need the SHA of the previous commit (parent commit). The commit that came directly before the one you want to modify or get rid of.<ul>
 <li><code>git rev-list --all | grep 054f345865f8f5a319dc05fcfa6cf9b76541e229 -A1 | tail -n1</code></li>
-<li>So, the child is <code>e20645764ce6419e348e6c1b5dea2348e18d050f</code></li>
+<li>So, the parent is <code>e20645764ce6419e348e6c1b5dea2348e18d050f</code></li>
 </ul>
 </li>
-<li>We will rebase after the child.<ul>
+<li>We will use the parent as rebase starting point, meaning our bad commit will be the first one in the rebase process.<ul>
 <li><code>git rebase -i e20645764ce6419e348e6c1b5dea2348e18d050f</code></li>
 </ul>
 </li>
-<li>The first line should be the one for your “bad” commit: <code>pick 054f345 versioning secret stuff!</code><ul>
+<li>The first line should be your “bad” commit: <code>pick 054f345 versioning secret stuff!</code><ul>
 <li>Replace <code>pick</code> with <code>edit</code>.</li>
 <li>Close the editor to start rebasing.</li>
 </ul>
