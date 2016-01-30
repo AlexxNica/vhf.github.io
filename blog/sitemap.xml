@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/</loc>
+    <lastmod>2016-01-30T17:27:16.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>https://vhf.github.io/blog/contact/index.html</loc>
     <lastmod>2016-01-28T10:14:51.000Z</lastmod>
   </url>

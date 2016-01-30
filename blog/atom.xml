@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-01-24T13:07:14.000Z</updated>
+  <updated>2016-01-30T17:27:16.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Enhancing GitHub with Chrome extensions]]></title>
+    <link href="https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/"/>
+    <id>https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/</id>
+    <published>2016-01-30T17:18:18.000Z</published>
+    <updated>2016-01-30T17:27:16.000Z</updated>
+    <content type="html"><![CDATA[<p>If you ever maintained a popular GitHub project, you might have suffered from a couple of things:</p>
+<ul>
+<li>Your GitHub news feed became <a href="/blog/blog/images/github-feed.png">useless</a> because stars, issues/PR comments, wiki edits notifications were burying the notifications you were interested in in an endless flood.</li>
+<li>You spent a lot of time repeating the same things over and over on your project’s issues or PRs, such as <em>Thanks for your contribution! Please read the <a href="https://github.com/vhf/free-programming-books/blob/master/CONTRIBUTING.md#formatting" target="_blank" rel="external">Formatting section of our <code>CONTRIBUTING.md</code></a> and fix your PR accordingly.</em> (While still adding a custom comment to each contributor pointing them at what they did wrong or how they can fix it, of course.)</li>
+</ul>
+<p>And since we spend so much time on GitHub, why not also customizing it in some fun ways?</p>
+<p>Here are four Chrome extensions for GitHub I enjoy using – and they are all compatible with each others.</p>
+<h3 id="dashboard__28src_29"><a href="#dashboard__28src_29" class="headerlink" title="dashboard (src)"></a><a href="https://chrome.google.com/webstore/detail/dashboard/pcnaddhmngnnpookfhhamkelhhakimdg" target="_blank" rel="external">dashboard</a> (<a href="https://github.com/muan/dashboard" target="_blank" rel="external">src</a>)</h3><p>dashboard inserts a row of checkboxes at the top of your GitHub feed. Toggling these checkboxes show/hide specific types of notifications. For example you could use it to hide all fork notifications. Or only show new issues/PR notifications.</p>
+<p>I use it to quickly navigate in my feed.</p>
+<h3 id="github-feed-blacklist__28src_29"><a href="#github-feed-blacklist__28src_29" class="headerlink" title="github-feed-blacklist (src)"></a><a href="https://chrome.google.com/webstore/detail/github-feed-blacklist/dbhboodpldcdeolligbmnhnjpkkolcnl" target="_blank" rel="external">github-feed-blacklist</a> (<a href="https://github.com/vhf/github-feed-blacklist" target="_blank" rel="external">src</a>)</h3><p>dashboard is great and all but what if you only want to hide star notifications and issues/PR comments coming from a specific repository? github-feed-blacklist got your back. It adds an icon to your extensions list, clicking it provides you with a way to add (remove) repositories to the list and blacklist notifications for each repo you added by checking boxes. (Keep in mind it’s a <em>blacklist</em>: check a box to hide, not the opposite.) To keep your feed “full”, it automatically loads the next notifications until 50 notifications are displayed. It also adds a counter at the top of your feed to tell you how many notifications have been hidden - clicking this counter will temporarily show them all. The UI is kinda ugly but heh, I’m no design ninja.</p>
+<p>I use it to mute specific notification types coming from specific repos.</p>
+<h3 id="GitHub_Canned_Responses__28src_29"><a href="#GitHub_Canned_Responses__28src_29" class="headerlink" title="GitHub Canned Responses (src)"></a><a href="https://chrome.google.com/webstore/detail/github-canned-responses/lhehmppafakahahobaibfcomknkhoina" target="_blank" rel="external">GitHub Canned Responses</a> (<a href="https://github.com/notwaldorf/github-canned-responses" target="_blank" rel="external">src</a>)</h3><p>GitHub Canned Responses adds a button inside the issues/PR comment form. Activating it will allow you to insert a predefined answer in the comment form. The saved canned answers list can be edited to modify the existing ones, add your own or delete the ones you don’t need.</p>
+<p>I intend to use it to insert repetitive answers to the PRs I got, I’m sure it will prove particularly useful to avoid having to explain the same stuff over and over again, for example to tell people that a failed Travis run on a PR means they should go check Travis’ logs and actually fix their commits or ask for help.</p>
+<h3 id="Isometric_Contributions__28src_29"><a href="#Isometric_Contributions__28src_29" class="headerlink" title="Isometric Contributions (src)"></a><a href="https://chrome.google.com/webstore/detail/isometric-contributions/mjoedlfflcchnleknnceiplgaeoegien" target="_blank" rel="external">Isometric Contributions</a> (<a href="https://github.com/jasonlong/isometric-contributions" target="_blank" rel="external">src</a>)</h3><p>Isometric Contributions is the fun one. It does not serve a particularly useful purpose. All it does is rendering a GitHub user contribution graph (the small squares you keep abusing to draw cat emojis or propose to your SO, you know) as isometric pixel art. And it’s beautiful.</p>
+<p>Please tweet me <a href="https://twitter.com/_vhf" target="_blank" rel="external"><code>@_vhf</code></a> if you think I forgot your favorite GitHub Chrome extension!</p>]]></content>
+    <summary type="html">
+    <![CDATA[GitHub lacks a few features which might be useful for popular projects maintainers. Here are some helpful Chrome extensions.]]>
+    
+    </summary>
+    
+      <category term="chrome" scheme="https://vhf.github.io/blog/tags/chrome/"/>
+    
+      <category term="github" scheme="https://vhf.github.io/blog/tags/github/"/>
+    
+      <category term="project" scheme="https://vhf.github.io/blog/categories/project/"/>
+    
+      <category term="tools" scheme="https://vhf.github.io/blog/categories/project/tools/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons]]></title>
@@ -48,9 +84,9 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
       <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -81,9 +117,9 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
       <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -186,9 +222,9 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
       <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -209,7 +245,8 @@
 <li>An interesting corollary of <em>Parkinson’s law of triviality</em> is <a href="https://wiki.haskell.org/Wadler&#39;s_Law" target="_blank" rel="external">Wadler’s law of language design</a>, stating that when designing a programming language “twice as much time is spent discussing syntax than semantics, twice as much time is spent discussing lexical syntax than syntax, and twice as much time is spent discussing syntax of comments than lexical syntax.”</li>
 </ol>
 <p>In conclusion, why not just rip off <a href="https://vimeo.com/111122950" target="_blank" rel="external">Sketchy JS</a>‘ “Eye of Osiris” operator syntax introduced by James Mickens?</p>
-<p class="pre-fake">{[~æ<br>this is a comment<br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin:none!important;display:inline-block;height:37px;width:39px;vertical-align:text-top"></p>
+<p class="pre-fake">{[~æ<br>this is a comment<br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin: none !important; display: inline-block; height: 37px; width: 39px; vertical-align: text-top"></p>
+
 <p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>]]></content>
     <summary type="html">
     <![CDATA[Wadler's law is bikeshedding applied to programming languages design.]]>
@@ -260,11 +297,11 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -399,11 +436,11 @@ Fastest is #3 TCO/no default params
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
