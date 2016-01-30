@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="A short summary about these terms, an overview of how V8 / Crankshaft works.">
-<meta property="og:updated_time" content="2016-01-24T13:07:14.000Z">
+<meta property="og:updated_time" content="2016-01-30T23:33:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons">
 <meta name="twitter:description" content="A short summary about these terms, an overview of how V8 / Crankshaft works.">
@@ -110,7 +110,7 @@ Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons
 <p>Optimizing the JavaScript is always a tradeoff. We want both fast loading pages and fast running code, i.e. low start-up time and peak performance. Low start-up time is achieved by the base compiler: V8 compiles and runs the code as soon as it gets it. Peak performance is achieved by the optimizing compiler: Crankshaft optimizes the hot code. Optimizing before first running the code is not a good idea because optimizing takes time which would slow down start-up time. Also, running the unoptimized code allows Crankshaft to gather useful data about <em>how</em> to optimize it.</p>
 <p>When the optimizing compiler gets to work, it makes optimistic assumptions about the code it’s optimizing, meaning that it assumes it’s optimizable and does its best.</p>
 <p>In some cases, the runtime data (e.g. type information) provided by the base compiler to the optimizing compiler didn’t cover some (edge) cases and the optimizing compiler sends V8 back to run the base compiler compiled code. This is known as a <em>deopt</em>. Later on, the same hot code will be fed to the optimizing compiler again with more runtime data, and could eventually succeed its optimization attemps. If it fails more than 10 times, it will give up with the following bailout reason: “<a href="https://github.com/vhf/v8-bailout-reasons#optimized-too-many-times" target="_blank" rel="external">Optimized too many times</a>“</p>
-<p>In some other cases, the optimizing compiler receives code that contains JavaScript features (such as <code>try...catch</code> statements) it doesn’t support, or the code doesn’t respect <a href="/blog/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">some limits</a> set by the optimizing compiler. In this case, the optimizing compiler will also fall back to the base compiler compiled code. This is known as a <em>bailout</em> (because the optimizing compiler bails out on his optimization attempt), and whenever it happens Crankshaft is kind enough to give us a reason why the bailout happened.</p>
+<p>In some other cases, the optimizing compiler receives code that contains JavaScript features (such as <code>try...catch</code> statements) it doesn’t support, or the code doesn’t respect <a href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">some limits</a> set by the optimizing compiler. In this case, the optimizing compiler will also fall back to the base compiler compiled code. This is known as a <em>bailout</em> (because the optimizing compiler bails out on his optimization attempt), and whenever it happens Crankshaft is kind enough to give us a reason why the bailout happened.</p>
 <p>This repo lists all these bailout reasons: <a href="https://github.com/vhf/v8-bailout-reasons" target="_blank" rel="external">V8 bailout reasons</a>. The aim of this project is to provide insights by reproducing most of them, explaining why they happened and how to avoid them.</p>
 <p>A function which gets optimized can run 100x faster, meaning that it’s kind of wise to learn about these bailout patterns to best avoid them if you care about the JavaScript performances of the code you run on V8 (for instance if you target Chromium/Chrome, Node.js or Opera).</p>
 <p>I’ll most probably write a follow up about TurboFan -the new V8 JavaScript optimizing compiler- and what it brings to the table.</p>
@@ -124,7 +124,7 @@ Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/" data-id="cik1e2gwt000qd7abi75sq48g" class="article-share-link">share</a> or <a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-01-22-chromium-chrome-v8-crankshaft-bailout-reasons.md" class="article-suggest-modification">suggest a modification</a>
+<a data-url="https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/" data-id="cik1kdi6z000s1fab4logyn6v" class="article-share-link">share</a> or <a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-01-22-chromium-chrome-v8-crankshaft-bailout-reasons.md" class="article-suggest-modification">suggest a modification</a>
 </div>
 </div>
 </div>

@@ -55,7 +55,7 @@
     <link href="https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/"/>
     <id>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</id>
     <published>2016-01-22T19:20:20.000Z</published>
-    <updated>2016-01-24T13:07:14.000Z</updated>
+    <updated>2016-01-30T23:33:29.000Z</updated>
     <content type="html"><![CDATA[<p>This post is a short summary about all these terms, with a rough description of how V8 works. (It’s rather an overview of how Crankshaft works, really.)</p>
 <h2 id="Chromium_2C_Chrome_2C_Node-js"><a href="#Chromium_2C_Chrome_2C_Node-js" class="headerlink" title="Chromium, Chrome, Node.js"></a>Chromium, Chrome, Node.js</h2><p>The Chromium Project is responsible for Chromium’s development. Chromium, released in 2008, is the open-source web browser on which Google Chrome is based. Chromium’s JavaScript engine is V8. Other projects such as the Opera web browser and the Node.js runtime use V8 as their JavaScript engine.</p>
 <h2 id="V8"><a href="#V8" class="headerlink" title="V8"></a>V8</h2><p>V8 compiles JavaScript to native machine code and executes it right away. In 2010, the Chromium Project released a new version of V8 including a new compiling infrastructure named Crankshaft (<a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)" target="_blank" rel="external">#1</a>, <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" target="_blank" rel="external">#2</a>).</p>
@@ -68,7 +68,7 @@
 <p>Optimizing the JavaScript is always a tradeoff. We want both fast loading pages and fast running code, i.e. low start-up time and peak performance. Low start-up time is achieved by the base compiler: V8 compiles and runs the code as soon as it gets it. Peak performance is achieved by the optimizing compiler: Crankshaft optimizes the hot code. Optimizing before first running the code is not a good idea because optimizing takes time which would slow down start-up time. Also, running the unoptimized code allows Crankshaft to gather useful data about <em>how</em> to optimize it.</p>
 <p>When the optimizing compiler gets to work, it makes optimistic assumptions about the code it’s optimizing, meaning that it assumes it’s optimizable and does its best.</p>
 <p>In some cases, the runtime data (e.g. type information) provided by the base compiler to the optimizing compiler didn’t cover some (edge) cases and the optimizing compiler sends V8 back to run the base compiler compiled code. This is known as a <em>deopt</em>. Later on, the same hot code will be fed to the optimizing compiler again with more runtime data, and could eventually succeed its optimization attemps. If it fails more than 10 times, it will give up with the following bailout reason: “<a href="https://github.com/vhf/v8-bailout-reasons#optimized-too-many-times" target="_blank" rel="external">Optimized too many times</a>“</p>
-<p>In some other cases, the optimizing compiler receives code that contains JavaScript features (such as <code>try...catch</code> statements) it doesn’t support, or the code doesn’t respect <a href="/blog/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">some limits</a> set by the optimizing compiler. In this case, the optimizing compiler will also fall back to the base compiler compiled code. This is known as a <em>bailout</em> (because the optimizing compiler bails out on his optimization attempt), and whenever it happens Crankshaft is kind enough to give us a reason why the bailout happened.</p>
+<p>In some other cases, the optimizing compiler receives code that contains JavaScript features (such as <code>try...catch</code> statements) it doesn’t support, or the code doesn’t respect <a href="/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">some limits</a> set by the optimizing compiler. In this case, the optimizing compiler will also fall back to the base compiler compiled code. This is known as a <em>bailout</em> (because the optimizing compiler bails out on his optimization attempt), and whenever it happens Crankshaft is kind enough to give us a reason why the bailout happened.</p>
 <p>This repo lists all these bailout reasons: <a href="https://github.com/vhf/v8-bailout-reasons" target="_blank" rel="external">V8 bailout reasons</a>. The aim of this project is to provide insights by reproducing most of them, explaining why they happened and how to avoid them.</p>
 <p>A function which gets optimized can run 100x faster, meaning that it’s kind of wise to learn about these bailout patterns to best avoid them if you care about the JavaScript performances of the code you run on V8 (for instance if you target Chromium/Chrome, Node.js or Opera).</p>
 <p>I’ll most probably write a follow up about TurboFan -the new V8 JavaScript optimizing compiler- and what it brings to the table.</p>
@@ -84,9 +84,9 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
-    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -99,7 +99,7 @@
     <link href="https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/"/>
     <id>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</id>
     <published>2016-01-21T20:53:35.000Z</published>
-    <updated>2016-01-24T13:07:17.000Z</updated>
+    <updated>2016-01-30T23:41:51.000Z</updated>
     <content type="html"><![CDATA[<p>December 11, Chrome 49 landed on the Dev channel. This week, with already <a href="https://googlechromereleases.blogspot.com" target="_blank" rel="external">two new releases of Chrome 49</a> to the Dev channel, the process seems to intensify.</p>
 <p>On Tuesday <a href="http://seththompson.org" target="_blank" rel="external">Seth Thompson</a>, who works on V8, <a href="https://news.ycombinator.com/item?id=10932790" target="_blank" rel="external">wrote on HN</a> that “V8 now has 92% ES6 coverage in Chrome Canary (on track for shipping in Chrome M49)!”</p>
 <p>kangax’ awesome <a href="http://kangax.github.io/compat-table/es6/#chrome49" target="_blank" rel="external">ECMAScript compatibility table</a> is already up to date, and Chrome 49’s column looks very green indeed.</p>
@@ -117,9 +117,9 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
-    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -222,9 +222,9 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
-    
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -297,11 +297,11 @@
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
     
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
-      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
@@ -314,7 +314,7 @@
     <link href="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/"/>
     <id>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</id>
     <published>2015-11-02T12:36:59.000Z</published>
-    <updated>2016-01-24T13:07:35.000Z</updated>
+    <updated>2016-01-30T23:34:11.000Z</updated>
     <content type="html"><![CDATA[<p>Disclaimer:</p>
 <ul>
 <li>Babel 5.8.29 (babel-core 5.8.33)</li>
@@ -436,11 +436,11 @@ Fastest is #3 TCO/no default params
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
     
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
-      <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
     
