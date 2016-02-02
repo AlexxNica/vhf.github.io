@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-01-30T17:34:23.000Z</updated>
+  <updated>2016-02-02T17:03:05.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Fixing Hiring through RSS]]></title>
+    <link href="https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/"/>
+    <id>https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/</id>
+    <published>2016-02-02T16:17:17.000Z</published>
+    <updated>2016-02-02T17:03:05.000Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p><code>From: Victor Felder &lt;me@example.com&gt;</code><br><code>To: &lt;you@example.com&gt;</code></p>
+<h2 id="I_u2019m_not_looking_for_work_2C_thanks_for_asking_21"><a href="#I_u2019m_not_looking_for_work_2C_thanks_for_asking_21" class="headerlink" title="I’m not looking for work, thanks for asking!"></a>I’m not looking for work, thanks for asking!</h2><p>Really, I appreciate your attention. Both you and I know that sooner or later I’ll be looking for a job again. I understand you might need to hire someone right now. In this case, and if you’re not a recruiter, you could still find my email address on the web and take your chance if you really believe I would be a good fit. Otherwise, if you’re not in a hurry and if you consider I would still be worth hiring in a few months/years/decades or if you think I’d be an awesome colleague, here’s what you could do: Subscribe to <a href="https://vhf.github.io/job.xml">this RSS feed</a> to get notified as soon as I’m back on the job market.</p>
+<p>Now, of course I might be stuck in an unsatisfying position and wouldn’t like my boss to be aware that I’m looking for a way out, but I don’t want to be pessimistic. I don’t have the relevant data but I’m not sure most people in my industry switch jobs without spending a few (f)unemployed weeks looking for the best option in between.</p>
+<p>Should you subscribe, here is my pledge to you:</p>
+<ul>
+<li>I will not use this feed if I don’t need to. A publication on this feed will be a definitive signal of my intention of finding a new job. (Or a short message containing a new address for this feed if for whatever reason I need to move it.)</li>
+<li>I will publish something on this RSS feed as soon as I need to.</li>
+<li>It will contain a very short bio and describe what I’m looking for (in terms of position, company type/size, technology, location, part/full-time, perhaps even remuneration).</li>
+<li>It will inform you of my preferred method(s) of contact (to schedule a call, ask for a full CV, etc).<br>&nbsp;</li>
+</ul>
+</blockquote>
+<p>This blog post is licensed under a <a rel="external" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">Creative Commons Attribution 3.0 Unported License</a> by Victor Felder.</p>
+<p><em>I’m <a href="https://twitter.com/_vhf" target="_blank" rel="external">@_vhf</a> on Twitter, please feel free to follow me. I’ll probably be blogging again about other RSS-related things because unlike a Norwegian Blue parrot, web feed are not dead<sup id="a1"><a href="#f1" title="Jump to footnote">1</a></sup>.</em></p>
+<hr>
+<p><b id="f1">1</b> Although (according to <a href="https://www.google.com/trends/explore#q=%2Fm%2F035c93%2C%20%2Fm%2F0n5tx&amp;cmpt=q&amp;tz=Etc%2FGMT-1" target="_blank" rel="external">Google Trends</a>) interest for web feeds in the general public has been steadily declining since December 2005, more than a third of the top 1,000,000 most visited websites are providing an XML feed according to <a href="http://trends.builtwith.com/feeds/" target="_blank" rel="external">builtwith</a>. Please get in touch if you have relevant data, e.g. if you know whether this &gt;33% statistic is in a down- or uptrend. We could even mine <a href="https://commoncrawl.org/" target="_blank" rel="external">Common Crawl</a> for XML feeds presence with subdomain granularity. Any help much appreciated. <a href="#a1" title="Jump back to footnote reference">↩</a></p>]]></content>
+    <summary type="html">
+    <![CDATA[What if people had feeds companies could subscribe to, to be notified when start looking for work?]]>
+    
+    </summary>
+    
+      <category term="rss" scheme="https://vhf.github.io/blog/tags/rss/"/>
+    
+      <category term="hiring" scheme="https://vhf.github.io/blog/tags/hiring/"/>
+    
+      <category term="project" scheme="https://vhf.github.io/blog/categories/project/"/>
+    
+      <category term="old tech new ideas" scheme="https://vhf.github.io/blog/categories/project/old-tech-new-ideas/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Enhancing GitHub with Chrome extensions]]></title>
