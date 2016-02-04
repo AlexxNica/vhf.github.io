@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-02-04T19:02:33.000Z</updated>
+  <updated>2016-02-04T19:06:07.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/"/>
     <id>https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/</id>
     <published>2016-02-04T19:00:00.000Z</published>
-    <updated>2016-02-04T19:02:33.000Z</updated>
+    <updated>2016-02-04T19:06:07.000Z</updated>
     <content type="html"><![CDATA[<p>HFS+ is not case sensitive. It took me 6 months to realize this basic fact. It’s one of these things you never bother researching when you consider buying a mac. Last week it hit me hard. I spent 30 minutes trying to fix something that should have been fixed in 30 seconds at most.</p>
 <p>A colleague had created <code>File.ext</code> on our website hosted on github pages but printed <code>url/file.ext</code> on important documents they were supposed to hand over to someone. Without access to either Internet or a printer, they asked me to fix this. Easy as pie. Except…</p>
 <pre><code>$ mkdir gittest &amp;&amp; cd gittest
@@ -28,7 +28,7 @@ $ touch File &amp;&amp; ls
 File
 $ git add File &amp;&amp; git commit -m &quot;add File&quot;
 $ mv File file &amp;&amp; ls
-a
+file
 $ git add file &amp;&amp; git status
 On branch master
 nothing to commit, working directory clean
@@ -59,7 +59,7 @@ A a
 </code></pre><p>Perfect. And the sparse volume will grow without my intervention to fit my <code>~/repositories</code> content.</p>
 <p>JetBrains IDEs started complaining though:</p>
 <blockquote>
-<p>   Filesystem Case-Sensitivity Mismatch<br>        The project seems to be located on a case-sensitive file system.<br>        This does not match the IDE setting (controlled by property “idea.case.sensitive.fs”)</p>
+<p> Filesystem Case-Sensitivity Mismatch<br> The project seems to be located on a case-sensitive file system.<br> This does not match the IDE setting (controlled by property “idea.case.sensitive.fs”)</p>
 </blockquote>
 <p>Even if their doc on this subject is very, very poor, I found the following solution:</p>
 <pre><code>echo idea.case.sensitive.fs=true &gt;&gt; Library/Preferences/IntelliJIdea15/idea.properties

@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="OSX file system, HFS+, is case insensitive.">
-<meta property="og:updated_time" content="2016-02-04T19:02:33.000Z">
+<meta property="og:updated_time" content="2016-02-04T19:06:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The dangers of HFS+ for git repositories">
 <meta name="twitter:description" content="OSX file system, HFS+, is case insensitive.">
@@ -97,7 +97,7 @@ $ touch File &amp;&amp; ls
 File
 $ git add File &amp;&amp; git commit -m &quot;add File&quot;
 $ mv File file &amp;&amp; ls
-a
+file
 $ git add file &amp;&amp; git status
 On branch master
 nothing to commit, working directory clean
