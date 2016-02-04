@@ -2,92 +2,106 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/promises/</loc>
-        <lastmod>2016-01-24T10:39:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/programming-language-design/</loc>
-        <lastmod>2016-01-24T17:13:20.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/git/</loc>
-        <lastmod>2016-01-28T06:31:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/chrome/</loc>
-        <lastmod>2016-01-30T17:34:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/github/</loc>
-        <lastmod>2016-01-30T17:34:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/babel/</loc>
-        <lastmod>2016-01-30T23:34:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/es2015/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/nodejs/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/crankshaft/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/v8/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhf.github.io/blog/tags/rss/</loc>
-        <lastmod>2016-02-02T17:03:05.000Z</lastmod>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://vhf.github.io/blog/tags/hiring/</loc>
-        <lastmod>2016-02-02T17:03:05.000Z</lastmod>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/es2015/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/promises/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/nodejs/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/babel/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/crankshaft/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/v8/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/programming-language-design/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/git/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/chrome/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/github/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/osx/</loc>
+        <lastmod>2016-02-04T19:02:33.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/file-systems/</loc>
+        <lastmod>2016-02-04T19:02:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

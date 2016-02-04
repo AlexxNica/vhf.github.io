@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-02-02T17:03:05.000Z</updated>
+  <updated>2016-02-04T19:02:33.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -15,11 +15,74 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[The dangers of HFS+ for git repositories]]></title>
+    <link href="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/"/>
+    <id>https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/</id>
+    <published>2016-02-04T19:00:00.000Z</published>
+    <updated>2016-02-04T19:02:33.000Z</updated>
+    <content type="html"><![CDATA[<p>HFS+ is not case sensitive. It took me 6 months to realize this basic fact. It’s one of these things you never bother researching when you consider buying a mac. Last week it hit me hard. I spent 30 minutes trying to fix something that should have been fixed in 30 seconds at most.</p>
+<p>A colleague had created <code>File.ext</code> on our website hosted on github pages but printed <code>url/file.ext</code> on important documents they were supposed to hand over to someone. Without access to either Internet or a printer, they asked me to fix this. Easy as pie. Except…</p>
+<pre><code>$ mkdir gittest &amp;&amp; cd gittest
+$ git init
+$ touch File &amp;&amp; ls
+File
+$ git add File &amp;&amp; git commit -m &quot;add File&quot;
+$ mv File file &amp;&amp; ls
+a
+$ git add file &amp;&amp; git status
+On branch master
+nothing to commit, working directory clean
+</code></pre><p>Oops. At this point, I lost quite some trying different ideas. I could not believe HFS+ was case insensitive, it never even occurred to me, I thought git was playing a trick on me. I ended up doing the following:</p>
+<pre><code>$ git rm File &amp;&amp; git add file
+$ git commit -m &quot;rename file&quot;
+</code></pre><p>The problem being fixed, I investigated a bit.</p>
+<pre><code>$ touch a A &amp;&amp; ls
+a
+$ echo b &gt; a
+$ cat A
+b
+</code></pre><p>I then had to get confirmation on the Internet. Of course, most developers already knew about this. I didn’t. And I currently have more than 70 repositories in my dedicated folder <code>~/repositories</code>. Imagine if one of these had <code>file</code> and <code>File</code> in the same directory when I cloned it.</p>
+<p>Here is what I finally did to prevent any future headache.</p>
+<pre><code>$ du -ch repositories | grep total
+14.8G   total
+$ hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 20g ~/volume_repos.dmg
+created: ~/volume_repos.dmg.sparseimage
+</code></pre><p>I then decided on a mounting point for this volume, added an alias to mount it to my rc file, created a symlink <code>~/repositories</code> -&gt; <code>~/mountpointrepo</code>, moved my repos to the volume.</p>
+<pre><code>$ mv repositories backup_repositories
+$ echo alias mountrepos=&quot;hdiutil attach ~/volume_repos.dmg.sparseimage -mountpoint /Users/victor/mountpointrepo&quot; &gt; .zshrc
+$ source .zshrc
+$ mountrepos
+$ ln -s /Users/user/mountpointrepo repositories
+$ cp -r backup_repositories/.* backup_repositories/* repositories
+$ touch repositories/a repositories/A &amp;&amp; ls repositories/
+A a
+</code></pre><p>Perfect. And the sparse volume will grow without my intervention to fit my <code>~/repositories</code> content.</p>
+<p>JetBrains IDEs started complaining though:</p>
+<blockquote>
+<p>   Filesystem Case-Sensitivity Mismatch<br>        The project seems to be located on a case-sensitive file system.<br>        This does not match the IDE setting (controlled by property “idea.case.sensitive.fs”)</p>
+</blockquote>
+<p>Even if their doc on this subject is very, very poor, I found the following solution:</p>
+<pre><code>echo idea.case.sensitive.fs=true &gt;&gt; Library/Preferences/IntelliJIdea15/idea.properties
+</code></pre><p>It feels safer now though I cannot really understand why case insensitive file systems still exist in 2016. Probably because people like me buy macs, I know.</p>]]></content>
+    <summary type="html">
+    <![CDATA[OSX file system, HFS+, is case insensitive.]]>
+    
+    </summary>
+    
+      <category term="osx" scheme="https://vhf.github.io/blog/tags/osx/"/>
+    
+      <category term="file systems" scheme="https://vhf.github.io/blog/tags/file-systems/"/>
+    
+      <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[Fixing Hiring through RSS]]></title>
     <link href="https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/"/>
     <id>https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/</id>
     <published>2016-02-02T16:17:17.000Z</published>
-    <updated>2016-02-02T17:03:05.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<blockquote>
 <p><code>From: Victor Felder &lt;me@example.com&gt;</code><br><code>To: &lt;you@example.com&gt;</code></p>
 <h2 id="I_u2019m_not_looking_for_work_2C_thanks_for_asking_21"><a href="#I_u2019m_not_looking_for_work_2C_thanks_for_asking_21" class="headerlink" title="I’m not looking for work, thanks for asking!"></a>I’m not looking for work, thanks for asking!</h2><p>Really, I appreciate your attention. Both you and I know that sooner or later I’ll be looking for a job again. I understand you might need to hire someone right now. In this case, and if you’re not a recruiter, you could still find my email address on the web and take your chance if you really believe I would be a good fit. Otherwise, if you’re not in a hurry and if you consider I would still be worth hiring in a few months/years/decades or if you think I’d be an awesome colleague, here’s what you could do: Subscribe to <a href="https://vhf.github.io/job.xml">this RSS feed</a> to get notified as soon as I’m back on the job market.</p>
@@ -56,7 +119,7 @@
     <link href="https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/"/>
     <id>https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/</id>
     <published>2016-01-30T17:18:18.000Z</published>
-    <updated>2016-01-30T17:34:23.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>If you ever maintained a popular GitHub project, you might have suffered from a couple of things:</p>
 <ul>
 <li>Your GitHub news feed became <a href="/blog/images/github-feed.png">useless</a> because stars, issues/PR comments, wiki edits notifications were burying the notifications you were interested in in an endless flood.</li>
@@ -92,7 +155,7 @@
     <link href="https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/"/>
     <id>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</id>
     <published>2016-01-22T19:20:20.000Z</published>
-    <updated>2016-01-30T23:33:29.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>This post is a short summary about all these terms, with a rough description of how V8 works. (It’s rather an overview of how Crankshaft works, really.)</p>
 <h2 id="Chromium_2C_Chrome_2C_Node-js"><a href="#Chromium_2C_Chrome_2C_Node-js" class="headerlink" title="Chromium, Chrome, Node.js"></a>Chromium, Chrome, Node.js</h2><p>The Chromium Project is responsible for Chromium’s development. Chromium, released in 2008, is the open-source web browser on which Google Chrome is based. Chromium’s JavaScript engine is V8. Other projects such as the Opera web browser and the Node.js runtime use V8 as their JavaScript engine.</p>
 <h2 id="V8"><a href="#V8" class="headerlink" title="V8"></a>V8</h2><p>V8 compiles JavaScript to native machine code and executes it right away. In 2010, the Chromium Project released a new version of V8 including a new compiling infrastructure named Crankshaft (<a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)" target="_blank" rel="external">#1</a>, <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" target="_blank" rel="external">#2</a>).</p>
@@ -136,7 +199,7 @@
     <link href="https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/"/>
     <id>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</id>
     <published>2016-01-21T20:53:35.000Z</published>
-    <updated>2016-01-30T23:41:51.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>December 11, Chrome 49 landed on the Dev channel. This week, with already <a href="https://googlechromereleases.blogspot.com" target="_blank" rel="external">two new releases of Chrome 49</a> to the Dev channel, the process seems to intensify.</p>
 <p>On Tuesday <a href="http://seththompson.org" target="_blank" rel="external">Seth Thompson</a>, who works on V8, <a href="https://news.ycombinator.com/item?id=10932790" target="_blank" rel="external">wrote on HN</a> that “V8 now has 92% ES6 coverage in Chrome Canary (on track for shipping in Chrome M49)!”</p>
 <p>kangax’ awesome <a href="http://kangax.github.io/compat-table/es6/#chrome49" target="_blank" rel="external">ECMAScript compatibility table</a> is already up to date, and Chrome 49’s column looks very green indeed.</p>
@@ -169,7 +232,7 @@
     <link href="https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/"/>
     <id>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</id>
     <published>2016-01-20T22:59:59.000Z</published>
-    <updated>2016-01-28T06:31:21.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>I’ll spare you and assume you know what you’re doing, so here’s the short version. Keep reading for a more comprehensive one.</p>
 <ol>
 <li>Find the commit you want to change or delete</li>
@@ -234,7 +297,7 @@
     <link href="https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/"/>
     <id>https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</id>
     <published>2016-01-15T00:20:12.000Z</published>
-    <updated>2016-01-24T23:53:01.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>Sorry for the clickbait. It’s so omnipresent these days, I <em>had</em> to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait filtering software. Obtaining a huge training set should <strong>not</strong> be an issue. (We could even crowdsource these! How fun!)</p>
 <p>Anyway. If you follow my blog (and I’m not sure you should), you might have guessed that I’m currently having fun with V8’s optimizing compiler, an awesome piece of software romantically called Crankshaft. Basically, it’s what makes JavaScript fast on Chrome/nodejs.</p>
 <p>Most of the time Crankshaft is able to optimize JavaScript functions. They then run really fast.</p>
@@ -274,7 +337,7 @@
     <link href="https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/"/>
     <id>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</id>
     <published>2016-01-13T18:19:19.000Z</published>
-    <updated>2016-01-24T17:13:20.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>I witnessed an uncommon debate the other day. Someone was asking why programming languages don’t agree on a common syntax for comments.</p>
 <p>Besides the usual indifferent answers such as “why would they”, “why should they”, and “it doesn’t matter in the least”, a couple of points where made:</p>
 <ol>
@@ -301,7 +364,7 @@
     <link href="https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/"/>
     <id>https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/</id>
     <published>2015-12-17T12:36:59.000Z</published>
-    <updated>2016-01-24T13:07:31.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>This post is a follow-up of <a href="http://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>. At the time, Babel 6 had only been published for a few hours.</p>
 <p>When Babel 6 was released, I quickly realised that I kind of missed my target: tail call optimisation had been dropped in the process. But all was not lost, I could still investigate Babel’s use of <code>arguments</code>.</p>
 <h1 id="Fixture_tests"><a href="#Fixture_tests" class="headerlink" title="Fixture tests"></a>Fixture tests</h1><p>First, I looked at a lot of fixture tests. These are files meant to test if a particular Babel transform or plug-in works properly. They consist of two files: <code>actual.js</code> (ES2015 code) and <code>expected.js</code>. The goal of this test is to check if the output of <code>babel actual.js</code> matches the content of <code>expected.js</code>.</p>
@@ -351,7 +414,7 @@
     <link href="https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/"/>
     <id>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</id>
     <published>2015-11-02T12:36:59.000Z</published>
-    <updated>2016-01-30T23:34:11.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>Disclaimer:</p>
 <ul>
 <li>Babel 5.8.29 (babel-core 5.8.33)</li>
@@ -490,7 +553,7 @@ Fastest is #3 TCO/no default params
     <link href="https://vhf.github.io/blog/2015/10/28/es6-destructuring/"/>
     <id>https://vhf.github.io/blog/2015/10/28/es6-destructuring/</id>
     <published>2015-10-28T14:29:42.000Z</published>
-    <updated>2016-01-24T10:39:08.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<ul>
 <li>Destructuring works exactly as its syntax suggests</li>
 <li>The only tricky point is object destructuring without variable declaration<ul>
@@ -530,7 +593,7 @@ Fastest is #3 TCO/no default params
     <link href="https://vhf.github.io/blog/2015/10/27/javascript-promises/"/>
     <id>https://vhf.github.io/blog/2015/10/27/javascript-promises/</id>
     <published>2015-10-27T18:37:41.000Z</published>
-    <updated>2016-01-24T10:39:10.000Z</updated>
+    <updated>2016-02-03T22:50:28.000Z</updated>
     <content type="html"><![CDATA[<p>I read <a href="https://60devs.com/best-practices-for-using-promises-in-js.html" target="_blank" rel="external">Best Practices for Using Promises in JS</a>. Here are some concise notes expanding on this topic.</p>
 <ul>
 <li>Let’s use bluebird as Promise implementation for node</li>

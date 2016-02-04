@@ -7,36 +7,36 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/categories/project/tools/</loc>
-        <lastmod>2016-01-30T17:34:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/categories/programming/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/categories/programming/JavaScript/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhf.github.io/blog/categories/project/</loc>
-        <lastmod>2016-02-02T17:03:05.000Z</lastmod>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://vhf.github.io/blog/categories/project/old-tech-new-ideas/</loc>
-        <lastmod>2016-02-02T17:03:05.000Z</lastmod>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/categories/programming/JavaScript/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/categories/project/tools/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/categories/programming/</loc>
+        <lastmod>2016-02-04T19:02:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -7,72 +7,8 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/</loc>
-        <lastmod>2016-02-02T17:03:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</loc>
-        <lastmod>2016-01-30T23:41:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</loc>
-        <lastmod>2016-01-30T23:34:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
-        <lastmod>2016-01-30T23:33:29.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/</loc>
-        <lastmod>2016-01-30T17:34:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
-        <lastmod>2016-01-28T06:31:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
-        <lastmod>2016-01-24T23:53:01.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</loc>
-        <lastmod>2016-01-24T17:13:20.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/</loc>
-        <lastmod>2016-01-24T13:07:31.000Z</lastmod>
+        <loc>https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/</loc>
+        <lastmod>2016-02-04T19:02:33.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -80,7 +16,7 @@
 
     <url>
         <loc>https://vhf.github.io/blog/2015/10/27/javascript-promises/</loc>
-        <lastmod>2016-01-24T10:39:10.000Z</lastmod>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -88,7 +24,79 @@
 
     <url>
         <loc>https://vhf.github.io/blog/2015/10/28/es6-destructuring/</loc>
-        <lastmod>2016-01-24T10:39:08.000Z</lastmod>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/01/13/comment-syntax-in-programming-languages/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2015/12/17/making-babel-fast-with-rest-parameters/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

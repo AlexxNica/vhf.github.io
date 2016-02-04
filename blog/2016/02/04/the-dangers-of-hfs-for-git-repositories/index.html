@@ -2,18 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ES6 Destructuring | concise notes</title>
+<title>The dangers of HFS+ for git repositories | concise notes</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="description" content="A few things about destructuring and assigning default values.">
+<meta name="description" content="OSX file system, HFS+, is case insensitive.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://vhf.github.io/blog/2015/10/28/es6-destructuring/index.html">
+<meta property="og:title" content="The dangers of HFS+ for git repositories">
+<meta property="og:url" content="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/index.html">
 <meta property="og:site_name" content="concise notes">
-<meta property="og:description" content="A few things about destructuring and assigning default values.">
-<meta property="og:updated_time" content="2016-02-03T22:50:28.000Z">
+<meta property="og:description" content="OSX file system, HFS+, is case insensitive.">
+<meta property="og:updated_time" content="2016-02-04T19:02:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6 Destructuring">
-<meta name="twitter:description" content="A few things about destructuring and assigning default values.">
+<meta name="twitter:title" content="The dangers of HFS+ for git repositories">
+<meta name="twitter:description" content="OSX file system, HFS+, is case insensitive.">
 <meta name="twitter:creator" content="@_vhf">
 <link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
@@ -61,16 +61,16 @@
 </header>
 <div class="pattern"></div>
 <main class="page-main" role="main" tabindex="-1">
-<article id="post-es6-destructuring" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-<link itemprop="mainEntityOfPage" href="/blog/2015/10/28/es6-destructuring/">
+<article id="post-the-dangers-of-hfs-for-git-repositories" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<link itemprop="mainEntityOfPage" href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/">
 <nav class="hide-on-small-only">
 <div class="nav-wrapper">
 <div class="col s12">
-<a href="/blog/2015/10/28/es6-destructuring/" class="breadcrumb">
-<time datetime="2015-10-28T14:29:42.000Z" itemprop="datePublished">2015-10-28</time>
-<time class="hide" datetime="2015-10-28T14:29:42.000Z" itemprop="dateModified">2015-10-28</time>
+<a href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/" class="breadcrumb">
+<time datetime="2016-02-04T19:00:00.000Z" itemprop="datePublished">2016-02-04</time>
+<time class="hide" datetime="2016-02-04T19:00:00.000Z" itemprop="dateModified">2016-02-04</time>
 </a>
-<a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a><a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
+<a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a>
 <span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <span itemprop="name">
 <a class="breadcrumb" href="https://plus.google.com/102455247906663845886" itemprop="url" rel="author">victor felder</a>
@@ -85,65 +85,78 @@
 <div class="article-inner">
 <header class="article-header">
 <h1 class="article-title" itemprop="headline">
-ES6 Destructuring
+The dangers of HFS+ for git repositories
 </h1>
 </header>
 <div class="article-entry" itemprop="articleBody">
-<ul>
-<li>Destructuring works exactly as its syntax suggests</li>
-<li>The only tricky point is object destructuring without variable declaration<ul>
-<li>with declaration: <code>let {x: a} = {x: &#39;a&#39;};</code></li>
-<li>without declaration: <code>({x: a} = {x: &#39;a&#39;});</code> (assuming that <code>a</code> has already been declared)</li>
-<li>It’s simply because <a href="http://stackoverflow.com/questions/17382024/why-is-a-bare-array-valid-javascript-syntax-but-not-a-bare-object" target="_blank" rel="external">a bare object is not valid syntax</a></li>
-</ul>
-</li>
-<li>Default arguments and destructuring:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123; prop: name = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Default arguments also work for arrays:<ul>
-<li><code>let [head = &quot;default&quot;] = [];</code></li>
-</ul>
-</li>
-<li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123; b: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>
+<p>HFS+ is not case sensitive. It took me 6 months to realize this basic fact. It’s one of these things you never bother researching when you consider buying a mac. Last week it hit me hard. I spent 30 minutes trying to fix something that should have been fixed in 30 seconds at most.</p>
+<p>A colleague had created <code>File.ext</code> on our website hosted on github pages but printed <code>url/file.ext</code> on important documents they were supposed to hand over to someone. Without access to either Internet or a printer, they asked me to fix this. Easy as pie. Except…</p>
+<pre><code>$ mkdir gittest &amp;&amp; cd gittest
+$ git init
+$ touch File &amp;&amp; ls
+File
+$ git add File &amp;&amp; git commit -m &quot;add File&quot;
+$ mv File file &amp;&amp; ls
+a
+$ git add file &amp;&amp; git status
+On branch master
+nothing to commit, working directory clean
+</code></pre><p>Oops. At this point, I lost quite some trying different ideas. I could not believe HFS+ was case insensitive, it never even occurred to me, I thought git was playing a trick on me. I ended up doing the following:</p>
+<pre><code>$ git rm File &amp;&amp; git add file
+$ git commit -m &quot;rename file&quot;
+</code></pre><p>The problem being fixed, I investigated a bit.</p>
+<pre><code>$ touch a A &amp;&amp; ls
+a
+$ echo b &gt; a
+$ cat A
+b
+</code></pre><p>I then had to get confirmation on the Internet. Of course, most developers already knew about this. I didn’t. And I currently have more than 70 repositories in my dedicated folder <code>~/repositories</code>. Imagine if one of these had <code>file</code> and <code>File</code> in the same directory when I cloned it.</p>
+<p>Here is what I finally did to prevent any future headache.</p>
+<pre><code>$ du -ch repositories | grep total
+14.8G   total
+$ hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 20g ~/volume_repos.dmg
+created: ~/volume_repos.dmg.sparseimage
+</code></pre><p>I then decided on a mounting point for this volume, added an alias to mount it to my rc file, created a symlink <code>~/repositories</code> -&gt; <code>~/mountpointrepo</code>, moved my repos to the volume.</p>
+<pre><code>$ mv repositories backup_repositories
+$ echo alias mountrepos=&quot;hdiutil attach ~/volume_repos.dmg.sparseimage -mountpoint /Users/victor/mountpointrepo&quot; &gt; .zshrc
+$ source .zshrc
+$ mountrepos
+$ ln -s /Users/user/mountpointrepo repositories
+$ cp -r backup_repositories/.* backup_repositories/* repositories
+$ touch repositories/a repositories/A &amp;&amp; ls repositories/
+A a
+</code></pre><p>Perfect. And the sparse volume will grow without my intervention to fit my <code>~/repositories</code> content.</p>
+<p>JetBrains IDEs started complaining though:</p>
+<blockquote>
+<p> Filesystem Case-Sensitivity Mismatch<br> The project seems to be located on a case-sensitive file system.<br> This does not match the IDE setting (controlled by property “idea.case.sensitive.fs”)</p>
+</blockquote>
+<p>Even if their doc on this subject is very, very poor, I found the following solution:</p>
+<pre><code>echo idea.case.sensitive.fs=true &gt;&gt; Library/Preferences/IntelliJIdea15/idea.properties
+</code></pre><p>It feels safer now though I cannot really understand why case insensitive file systems still exist in 2016. Probably because people like me buy macs, I know.</p>
 </div>
 <footer class="article-footer">
 <div class="row">
 <div class="col s6">
-<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
+<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/file-systems/">file systems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/osx/">osx</a></li></ul>
 &nbsp;
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="cik8lmb5o000bn7ab93gaeprx" class="article-share-link">share</a> or <a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2015-10-28-es6-destructuring.md" class="article-suggest-modification">suggest a modification</a>
+<a data-url="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/" data-id="cik8mn3v1003pn7ab0nuw1fi7" class="article-share-link">share</a> or <a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-02-04-the-dangers-of-hfs-for-git-repositories.md" class="article-suggest-modification">suggest a modification</a>
 </div>
 </div>
 </div>
 </footer>
 </div>
 <div class="row post-navigation">
-<div class="col s12 m6 push-m6">
-<div class="post-nav">
-<div class="post-nav-title blue-grey darken-1 right center-align">
-<span class="white-text">Newer</span>
-</div>
-<div class="post-nav-content post-nav-prev clear right-align">
-<a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">
-JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations
-</a>
-</div>
-</div>
-</div>
-<div class="col s12 m6 pull-m6">
+<div class="col s12">
 <div class="post-nav">
 <div class="post-nav-title blue-grey darken-1 left center-align">
 <span class="white-text">Older</span>
 </div>
 <div class="post-nav-content post-nav-next clear">
-<a href="/blog/2015/10/27/javascript-promises/">
-JavaScript Promises
+<a href="/blog/2016/02/02/fixing-hiring-through-rss/">
+Fixing Hiring through RSS
 </a>
 </div>
 </div>

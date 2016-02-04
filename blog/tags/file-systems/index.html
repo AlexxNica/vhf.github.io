@@ -2,18 +2,17 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>ES6 Destructuring | concise notes</title>
+<title>Tag: file systems | concise notes</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="description" content="A few things about destructuring and assigning default values.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Destructuring">
-<meta property="og:url" content="https://vhf.github.io/blog/2015/10/28/es6-destructuring/index.html">
+<meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="concise notes">
+<meta property="og:url" content="https://vhf.github.io/blog/tags/file-systems/index.html">
 <meta property="og:site_name" content="concise notes">
-<meta property="og:description" content="A few things about destructuring and assigning default values.">
-<meta property="og:updated_time" content="2016-02-03T22:50:28.000Z">
+<meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6 Destructuring">
-<meta name="twitter:description" content="A few things about destructuring and assigning default values.">
+<meta name="twitter:title" content="concise notes">
+<meta name="twitter:description">
 <meta name="twitter:creator" content="@_vhf">
 <link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
@@ -60,96 +59,30 @@
 </nav>
 </header>
 <div class="pattern"></div>
-<main class="page-main" role="main" tabindex="-1">
-<article id="post-es6-destructuring" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-<link itemprop="mainEntityOfPage" href="/blog/2015/10/28/es6-destructuring/">
-<nav class="hide-on-small-only">
-<div class="nav-wrapper">
-<div class="col s12">
-<a href="/blog/2015/10/28/es6-destructuring/" class="breadcrumb">
-<time datetime="2015-10-28T14:29:42.000Z" itemprop="datePublished">2015-10-28</time>
-<time class="hide" datetime="2015-10-28T14:29:42.000Z" itemprop="dateModified">2015-10-28</time>
+<main class="page-main page-article-list" role="main" tabindex="-1">
+<section>
+<div class="archive-year-wrap">
+<a href="/blog/archives/2016">2016</a>
+</div>
+<article class="archive-article archive-type-post">
+<div class="archive-article-inner">
+<header class="archive-article-header">
+<a href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/" class="archive-article-date blue-grey darken-1 white-text">
+<time datetime="2016-02-04T19:00:00.000Z" itemprop="datePublished">Feb 4</time>
+<time class="hide" datetime="2016-02-04T19:00:00.000Z" itemprop="dateModified">Feb 4</time>
 </a>
-<a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a><a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
-<span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-<span itemprop="name">
-<a class="breadcrumb" href="https://plus.google.com/102455247906663845886" itemprop="url" rel="author">victor felder</a>
-</span>
-</span>
-<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-<meta itemprop="name" content="concise notes">
-</div>
-</div>
-</div>
-</nav>
-<div class="article-inner">
-<header class="article-header">
-<h1 class="article-title" itemprop="headline">
-ES6 Destructuring
+<h1>
+<a class="archive-article-title" href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/">The dangers of HFS+ for git repositories</a>
 </h1>
 </header>
-<div class="article-entry" itemprop="articleBody">
-<ul>
-<li>Destructuring works exactly as its syntax suggests</li>
-<li>The only tricky point is object destructuring without variable declaration<ul>
-<li>with declaration: <code>let {x: a} = {x: &#39;a&#39;};</code></li>
-<li>without declaration: <code>({x: a} = {x: &#39;a&#39;});</code> (assuming that <code>a</code> has already been declared)</li>
-<li>It’s simply because <a href="http://stackoverflow.com/questions/17382024/why-is-a-bare-array-valid-javascript-syntax-but-not-a-bare-object" target="_blank" rel="external">a bare object is not valid syntax</a></li>
-</ul>
-</li>
-<li>Default arguments and destructuring:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123; prop: name = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>Default arguments also work for arrays:<ul>
-<li><code>let [head = &quot;default&quot;] = [];</code></li>
-</ul>
-</li>
-<li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
-</ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123; b: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>
 </div>
-<footer class="article-footer">
-<div class="row">
-<div class="col s6">
-<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
-&nbsp;
-</div>
-<div class="col s6 right-align">
-<div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2015/10/28/es6-destructuring/" data-id="cik8lmb5o000bn7ab93gaeprx" class="article-share-link">share</a> or <a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2015-10-28-es6-destructuring.md" class="article-suggest-modification">suggest a modification</a>
-</div>
-</div>
-</div>
-</footer>
-</div>
-<div class="row post-navigation">
-<div class="col s12 m6 push-m6">
-<div class="post-nav">
-<div class="post-nav-title blue-grey darken-1 right center-align">
-<span class="white-text">Newer</span>
-</div>
-<div class="post-nav-content post-nav-prev clear right-align">
-<a href="/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">
-JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations
+<p>
+<a class="article-description-link" href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/">
+OSX file system, HFS+, is case insensitive.
 </a>
-</div>
-</div>
-</div>
-<div class="col s12 m6 pull-m6">
-<div class="post-nav">
-<div class="post-nav-title blue-grey darken-1 left center-align">
-<span class="white-text">Older</span>
-</div>
-<div class="post-nav-content post-nav-next clear">
-<a href="/blog/2015/10/27/javascript-promises/">
-JavaScript Promises
-</a>
-</div>
-</div>
-</div>
-</div>
+</p>
 </article>
+</section>
 </main>
 </div>
 <footer class="page-footer blue-grey darken-3">
