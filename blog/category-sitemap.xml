@@ -7,20 +7,6 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/categories/project/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/categories/project/old-tech-new-ideas/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhf.github.io/blog/categories/programming/JavaScript/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -28,7 +14,21 @@
     </url>
 
     <url>
+        <loc>https://vhf.github.io/blog/categories/project/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://vhf.github.io/blog/categories/project/tools/</loc>
+        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/categories/project/old-tech-new-ideas/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

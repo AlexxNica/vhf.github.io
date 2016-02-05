@@ -345,8 +345,7 @@ A a
 <li>An interesting corollary of <em>Parkinson’s law of triviality</em> is <a href="https://wiki.haskell.org/Wadler&#39;s_Law" target="_blank" rel="external">Wadler’s law of language design</a>, stating that when designing a programming language “twice as much time is spent discussing syntax than semantics, twice as much time is spent discussing lexical syntax than syntax, and twice as much time is spent discussing syntax of comments than lexical syntax.”</li>
 </ol>
 <p>In conclusion, why not just rip off <a href="https://vimeo.com/111122950" target="_blank" rel="external">Sketchy JS</a>‘ “Eye of Osiris” operator syntax introduced by James Mickens?</p>
-<p class="pre-fake">{[~æ<br>this is a comment<br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin: none !important; display: inline-block; height: 37px; width: 39px; vertical-align: text-top"></p>
-
+<p class="pre-fake">{[~æ<br>this is a comment<br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin:none!important;display:inline-block;height:37px;width:39px;vertical-align:text-top"></p>
 <p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>]]></content>
     <summary type="html">
     <![CDATA[Wadler's law is bikeshedding applied to programming languages design.]]>
