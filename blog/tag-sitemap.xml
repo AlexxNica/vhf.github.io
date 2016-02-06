@@ -2,20 +2,6 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/es2015/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhf.github.io/blog/tags/promises/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -102,6 +88,20 @@
     <url>
         <loc>https://vhf.github.io/blog/tags/file-systems/</loc>
         <lastmod>2016-02-04T19:06:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
+        <lastmod>2016-02-06T12:03:31.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/es2015/</loc>
+        <lastmod>2016-02-06T12:03:31.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

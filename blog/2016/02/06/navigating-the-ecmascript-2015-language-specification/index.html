@@ -2,18 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>The dangers of HFS+ for git repositories | concise notes</title>
+<title>Navigating the ECMAScript® 2015 Language Specification | concise notes</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta name="description" content="OSX file system, HFS+, is case insensitive.">
+<meta name="description" content="Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here&apos;s how.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="The dangers of HFS+ for git repositories">
-<meta property="og:url" content="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/index.html">
+<meta property="og:title" content="Navigating the ECMAScript® 2015 Language Specification">
+<meta property="og:url" content="https://vhf.github.io/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/index.html">
 <meta property="og:site_name" content="concise notes">
-<meta property="og:description" content="OSX file system, HFS+, is case insensitive.">
-<meta property="og:updated_time" content="2016-02-04T19:06:07.000Z">
+<meta property="og:description" content="Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here&apos;s how.">
+<meta property="og:updated_time" content="2016-02-06T12:03:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The dangers of HFS+ for git repositories">
-<meta name="twitter:description" content="OSX file system, HFS+, is case insensitive.">
+<meta name="twitter:title" content="Navigating the ECMAScript® 2015 Language Specification">
+<meta name="twitter:description" content="Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here&apos;s how.">
 <meta name="twitter:creator" content="@_vhf">
 <link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
@@ -61,16 +61,16 @@
 </header>
 <div class="pattern"></div>
 <main class="page-main" role="main" tabindex="-1">
-<article id="post-the-dangers-of-hfs-for-git-repositories" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-<link itemprop="mainEntityOfPage" href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/">
+<article id="post-navigating-the-ecmascript-2015-language-specification" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<link itemprop="mainEntityOfPage" href="/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/">
 <nav class="hide-on-small-only">
 <div class="nav-wrapper">
 <div class="col s12">
-<a href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/" class="breadcrumb">
-<time datetime="2016-02-04T19:00:00.000Z" itemprop="datePublished">2016-02-04</time>
-<time class="hide" datetime="2016-02-04T19:00:00.000Z" itemprop="dateModified">2016-02-04</time>
+<a href="/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/" class="breadcrumb">
+<time datetime="2016-02-06T11:12:12.000Z" itemprop="datePublished">2016-02-06</time>
+<time class="hide" datetime="2016-02-06T11:12:12.000Z" itemprop="dateModified">2016-02-06</time>
 </a>
-<a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a>
+<a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a><a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
 <span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
 <span itemprop="name">
 <a class="breadcrumb" href="https://plus.google.com/102455247906663845886" itemprop="url" rel="author">victor felder</a>
@@ -85,68 +85,59 @@
 <div class="article-inner">
 <header class="article-header">
 <h1 class="article-title" itemprop="headline">
-The dangers of HFS+ for git repositories
+Navigating the ECMAScript® 2015 Language Specification
 </h1>
 </header>
 <div class="article-entry" itemprop="articleBody">
-<p>HFS+ is not case sensitive. It took me 6 months to realize this basic fact. It’s one of these things you never bother researching when you consider buying a mac. Last week it hit me hard. I spent 30 minutes trying to fix something that should have been fixed in 30 seconds at most.</p>
-<p>A colleague had created <code>File.ext</code> on our website hosted on github pages but printed <code>url/file.ext</code> on important documents they were supposed to hand over to someone. Without access to either Internet or a printer, they asked me to fix this. Easy as pie. Except…</p>
-<pre><code>$ mkdir gittest &amp;&amp; cd gittest
-$ git init
-$ touch File &amp;&amp; ls
-File
-$ git add File &amp;&amp; git commit -m &quot;add File&quot;
-$ mv File file &amp;&amp; ls
-file
-$ git add file &amp;&amp; git status
-On branch master
-nothing to commit, working directory clean
-</code></pre><p>Oops. At this point, I lost quite some trying different ideas. I could not believe HFS+ was case insensitive, it never even occurred to me, I thought git was playing a trick on me. I ended up doing the following:</p>
-<pre><code>$ git rm File &amp;&amp; git add file
-$ git commit -m &quot;rename file&quot;
-</code></pre><p>The problem being fixed, I investigated a bit.</p>
-<pre><code>$ touch a A &amp;&amp; ls
-a
-$ echo b &gt; a
-$ cat A
-b
-</code></pre><p>I then had to get confirmation on the Internet. Of course, most developers already knew about this. I didn’t. And I currently have more than 70 repositories in my dedicated folder <code>~/repositories</code>. Imagine if one of these had <code>file</code> and <code>File</code> in the same directory when I cloned it.</p>
-<p>Here is what I finally did to prevent any future headache.</p>
-<pre><code>$ du -ch repositories | grep total
-14.8G   total
-$ hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 20g ~/volume_repos.dmg
-created: ~/volume_repos.dmg.sparseimage
-</code></pre><p>I then decided on a mounting point for this volume, added an alias to mount it to my rc file, created a symlink <code>~/repositories</code> -&gt; <code>~/mountpointrepo</code>, moved my repos to the volume.</p>
-<pre><code>$ mv repositories backup_repositories
-$ echo alias mountrepos=&quot;hdiutil attach ~/volume_repos.dmg.sparseimage -mountpoint /Users/victor/mountpointrepo&quot; &gt; .zshrc
-$ source .zshrc
-$ mountrepos
-$ ln -s /Users/user/mountpointrepo repositories
-$ cp -r backup_repositories/.* backup_repositories/* repositories
-$ touch repositories/a repositories/A &amp;&amp; ls repositories/
-A a
-</code></pre><p>Perfect. And the sparse volume will grow without my intervention to fit my <code>~/repositories</code> content.</p>
-<p>JetBrains IDEs started complaining though:</p>
+<p>Reading a language specification is not an easy thing. I thought it would be interesting to show how you can use it to explain some JavaScript questions.</p>
+<p>Here is one I encountered a few minutes ago on IRC:</p>
 <blockquote>
-<p> Filesystem Case-Sensitivity Mismatch<br> The project seems to be located on a case-sensitive file system.<br> This does not match the IDE setting (controlled by property “idea.case.sensitive.fs”)</p>
+<p>why can’t we access an array property as <code>xs.0</code> <code>xs.1</code> <code>xs.2</code>?</p>
 </blockquote>
-<p>Even if their doc on this subject is very, very poor, I found the following solution:</p>
-<pre><code>echo idea.case.sensitive.fs=true &gt;&gt; Library/Preferences/IntelliJIdea15/idea.properties
-</code></pre><p>It feels safer now though I cannot really understand why case insensitive file systems still exist in 2016. Probably because people like me buy macs, I know.</p>
+<p>Well, explaining the reason why &mdash; the design decisions which led to this “limitation” is not so easy. Finding what the specification says, on the other hand, is not so hard.</p>
+<p>We’ll start here: <a href="http://ecma-international.org/ecma-262/6.0/" target="_blank" rel="external">http://ecma-international.org/ecma-262/6.0/</a> and we’re looking for the part which talks about accessing properties (accessing any properties, in fact).</p>
+<p>If you don’t know where to look, quickly find the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#Left-hand-side_expressions" target="_blank" rel="external">corresponding MDN page</a> and see that it’s called a “property accessor” and that it’s a left-hand-side expression.</p>
+<p>Back to the ECMAScript specification, find the index at the beginning of the page. <code>12.3 Left-Hand-Side Expressions</code>, good. <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-property-accessors" target="_blank" rel="external"><code>12.3.2 Property Accessors</code></a>, perfect!</p>
+<p>Now, we want to know what can be used as <code>name</code> in the following syntax: <code>object.name</code>, right? It’s pretty clear:</p>
+<p><code>MemberExpression . IdentifierName</code>.</p>
+<p>But what is an <code>IdentifierName</code>? A quick search in the page brings us to the following section: <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-identifier-names" target="_blank" rel="external"><code>11.6.1 Identifier Names</code></a>.</p>
+<pre><code>IdentifierName ::
+    IdentifierStart
+    IdentifierName IdentifierPart
+</code></pre><p>We now know that an <code>IdentifierName</code> has to start with an <code>IdentifierStart</code>, let’s look for <code>IdentifierStart</code> in the page…</p>
+<pre><code>IdentifierStart ::
+    UnicodeIDStart
+    $
+    _
+    \ UnicodeEscapeSequence
+
+[...]
+
+UnicodeIDStart ::
+    any Unicode code point with the Unicode property “ID_Start”
+</code></pre><p>An <code>IdentifierStart</code> is either a Unicode code point with the Unicode property “ID_Start” or <code>$</code> or <code>_</code> or a Unicode escape sequence.</p>
+<p>Back to the original question: why can’t we do <code>xs.0</code>?</p>
+<p>Here, <code>&#39;0&#39;</code> is our <code>IdentifierName</code> and its <code>IdentifierStart</code> is <code>0</code>. Since <code>0</code> is not <code>$</code>, <code>_</code> or a Unicode escape sequence, it has to be a <code>UnicodeIDStart</code> to be a valid property accessor when used with the dot notation.</p>
+<p><code>0</code> is the Unicode code point <code>U+0030</code>. Let’s see what’s in there using <a href="https://codepoints.net/U+0030" target="_blank" rel="external">codepoints.net</a>:</p>
+<blockquote>
+<p>ID Start? ✘</p>
+</blockquote>
+<p>There it is. <code>0</code> does not have the property “ID_Start”. No ID_Start ⇒ not a valid <code>IdentifierStart</code> ⇒ not a valid <code>IdentifierName</code> ⇒ not a valid property accessor using the dot notation.</p>
+<p><em>I’m <a href="https://twitter.com/_vhf" target="_blank" rel="external">@_vhf</a> on Twitter, feel free to follow me there.</em></p>
 </div>
 <footer class="article-footer">
 <div class="row">
 <div class="col s6">
-<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/file-systems/">file systems</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/osx/">osx</a></li></ul>
+<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/es2015/">es2015</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li></ul>
 &nbsp;
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/" data-id="cika8dge0000t5gabzw017r49" class="article-share-link">
+<a data-url="https://vhf.github.io/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/" data-id="cikb2akks0000rvabiuhe6112" class="article-share-link">
 <span class="text">share</span>
 </a>
 or
-<a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-02-04-the-dangers-of-hfs-for-git-repositories.md" class="article-suggest-modification">
+<a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-02-06-navigating-the-ecmascript-2015-language-specification.md" class="article-suggest-modification">
 <span class="text">suggest a modification</span>
 </a>
 </div>
@@ -155,26 +146,14 @@ or
 </footer>
 </div>
 <div class="row post-navigation">
-<div class="col s12 m6 push-m6">
-<div class="post-nav">
-<div class="post-nav-title blue-grey darken-1 right center-align">
-<span class="white-text">Newer</span>
-</div>
-<div class="post-nav-content post-nav-prev clear right-align">
-<a href="/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/">
-Navigating the ECMAScript® 2015 Language Specification
-</a>
-</div>
-</div>
-</div>
-<div class="col s12 m6 pull-m6">
+<div class="col s12">
 <div class="post-nav">
 <div class="post-nav-title blue-grey darken-1 left center-align">
 <span class="white-text">Older</span>
 </div>
 <div class="post-nav-content post-nav-next clear">
-<a href="/blog/2016/02/02/fixing-hiring-through-rss/">
-Fixing Hiring through RSS
+<a href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/">
+The dangers of HFS+ for git repositories
 </a>
 </div>
 </div>

@@ -4,7 +4,7 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-02-04T19:06:07.000Z</updated>
+  <updated>2016-02-06T12:03:31.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -13,6 +13,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Navigating the ECMAScript® 2015 Language Specification]]></title>
+    <link href="https://vhf.github.io/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/"/>
+    <id>https://vhf.github.io/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/</id>
+    <published>2016-02-06T11:12:12.000Z</published>
+    <updated>2016-02-06T12:03:31.000Z</updated>
+    <content type="html"><![CDATA[<p>Reading a language specification is not an easy thing. I thought it would be interesting to show how you can use it to explain some JavaScript questions.</p>
+<p>Here is one I encountered a few minutes ago on IRC:</p>
+<blockquote>
+<p>why can’t we access an array property as <code>xs.0</code> <code>xs.1</code> <code>xs.2</code>?</p>
+</blockquote>
+<p>Well, explaining the reason why &mdash; the design decisions which led to this “limitation” is not so easy. Finding what the specification says, on the other hand, is not so hard.</p>
+<p>We’ll start here: <a href="http://ecma-international.org/ecma-262/6.0/" target="_blank" rel="external">http://ecma-international.org/ecma-262/6.0/</a> and we’re looking for the part which talks about accessing properties (accessing any properties, in fact).</p>
+<p>If you don’t know where to look, quickly find the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#Left-hand-side_expressions" target="_blank" rel="external">corresponding MDN page</a> and see that it’s called a “property accessor” and that it’s a left-hand-side expression.</p>
+<p>Back to the ECMAScript specification, find the index at the beginning of the page. <code>12.3 Left-Hand-Side Expressions</code>, good. <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-property-accessors" target="_blank" rel="external"><code>12.3.2 Property Accessors</code></a>, perfect!</p>
+<p>Now, we want to know what can be used as <code>name</code> in the following syntax: <code>object.name</code>, right? It’s pretty clear:</p>
+<p><code>MemberExpression . IdentifierName</code>.</p>
+<p>But what is an <code>IdentifierName</code>? A quick search in the page brings us to the following section: <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-identifier-names" target="_blank" rel="external"><code>11.6.1 Identifier Names</code></a>.</p>
+<pre><code>IdentifierName ::
+    IdentifierStart
+    IdentifierName IdentifierPart
+</code></pre><p>We now know that an <code>IdentifierName</code> has to start with an <code>IdentifierStart</code>, let’s look for <code>IdentifierStart</code> in the page…</p>
+<pre><code>IdentifierStart ::
+    UnicodeIDStart
+    $
+    _
+    \ UnicodeEscapeSequence
+
+[...]
+
+UnicodeIDStart ::
+    any Unicode code point with the Unicode property “ID_Start”
+</code></pre><p>An <code>IdentifierStart</code> is either a Unicode code point with the Unicode property “ID_Start” or <code>$</code> or <code>_</code> or a Unicode escape sequence.</p>
+<p>Back to the original question: why can’t we do <code>xs.0</code>?</p>
+<p>Here, <code>&#39;0&#39;</code> is our <code>IdentifierName</code> and its <code>IdentifierStart</code> is <code>0</code>. Since <code>0</code> is not <code>$</code>, <code>_</code> or a Unicode escape sequence, it has to be a <code>UnicodeIDStart</code> to be a valid property accessor when used with the dot notation.</p>
+<p><code>0</code> is the Unicode code point <code>U+0030</code>. Let’s see what’s in there using <a href="https://codepoints.net/U+0030" target="_blank" rel="external">codepoints.net</a>:</p>
+<blockquote>
+<p>ID Start? ✘</p>
+</blockquote>
+<p>There it is. <code>0</code> does not have the property “ID_Start”. No ID_Start ⇒ not a valid <code>IdentifierStart</code> ⇒ not a valid <code>IdentifierName</code> ⇒ not a valid property accessor using the dot notation.</p>
+<p><em>I’m <a href="https://twitter.com/_vhf" target="_blank" rel="external">@_vhf</a> on Twitter, feel free to follow me there.</em></p>]]></content>
+    <summary type="html">
+    <![CDATA[Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here's how.]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
+    
+      <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
+    
+      <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
+    
+      <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[The dangers of HFS+ for git repositories]]></title>
