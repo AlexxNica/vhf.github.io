@@ -10,7 +10,7 @@
 <meta property="og:url" content="https://vhf.github.io/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here&apos;s how.">
-<meta property="og:updated_time" content="2016-02-06T12:03:31.000Z">
+<meta property="og:updated_time" content="2016-02-08T19:58:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Navigating the ECMAScript® 2015 Language Specification">
 <meta name="twitter:description" content="Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here&apos;s how.">
@@ -95,12 +95,12 @@ Navigating the ECMAScript® 2015 Language Specification
 <p>why can’t we access an array property as <code>xs.0</code> <code>xs.1</code> <code>xs.2</code>?</p>
 </blockquote>
 <p>Well, explaining the reason why &mdash; the design decisions which led to this “limitation” is not so easy. Finding what the specification says, on the other hand, is not so hard.</p>
-<p>We’ll start here: <a href="http://ecma-international.org/ecma-262/6.0/" target="_blank" rel="external">http://ecma-international.org/ecma-262/6.0/</a> and we’re looking for the part which talks about accessing properties (accessing any properties, in fact).</p>
+<p>We’ll start here: <a href="https://tc39.github.io/ecma262/" target="_blank" rel="external">https://tc39.github.io/ecma262/</a> and we’re looking for the part which talks about accessing properties (accessing any properties, in fact).</p>
 <p>If you don’t know where to look, quickly find the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#Left-hand-side_expressions" target="_blank" rel="external">corresponding MDN page</a> and see that it’s called a “property accessor” and that it’s a left-hand-side expression.</p>
-<p>Back to the ECMAScript specification, find the index at the beginning of the page. <code>12.3 Left-Hand-Side Expressions</code>, good. <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-property-accessors" target="_blank" rel="external"><code>12.3.2 Property Accessors</code></a>, perfect!</p>
+<p>Back to the ECMAScript specification, find the index at the beginning of the page. <code>12.3 Left-Hand-Side Expressions</code>, good. <a href="https://tc39.github.io/ecma262/#sec-property-accessors" target="_blank" rel="external"><code>12.3.2 Property Accessors</code></a>, perfect!</p>
 <p>Now, we want to know what can be used as <code>name</code> in the following syntax: <code>object.name</code>, right? It’s pretty clear:</p>
 <p><code>MemberExpression . IdentifierName</code>.</p>
-<p>But what is an <code>IdentifierName</code>? A quick search in the page brings us to the following section: <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-identifier-names" target="_blank" rel="external"><code>11.6.1 Identifier Names</code></a>.</p>
+<p>But what is an <code>IdentifierName</code>? A quick search in the page brings us to the following section: <a href="https://tc39.github.io/ecma262/#sec-identifier-names" target="_blank" rel="external"><code>11.6.1 Identifier Names</code></a>.</p>
 <pre><code>IdentifierName ::
     IdentifierStart
     IdentifierName IdentifierPart
