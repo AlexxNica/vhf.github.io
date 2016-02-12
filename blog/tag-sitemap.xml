@@ -37,13 +37,6 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/programming-language-design/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhf.github.io/blog/tags/git/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -102,6 +95,13 @@
     <url>
         <loc>https://vhf.github.io/blog/tags/es2015/</loc>
         <lastmod>2016-02-08T19:58:17.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/programming-language-design/</loc>
+        <lastmod>2016-02-12T11:42:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
