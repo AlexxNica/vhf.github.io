@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-03-21T15:22:09.000Z</updated>
+  <updated>2016-03-21T15:41:14.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://vhf.github.io/blog/2016/03/21/rss-usage-on-the-web/"/>
     <id>https://vhf.github.io/blog/2016/03/21/rss-usage-on-the-web/</id>
     <published>2016-03-21T06:20:05.000Z</published>
-    <updated>2016-03-21T15:22:09.000Z</updated>
+    <updated>2016-03-21T15:41:14.000Z</updated>
     
-    <content type="html">&lt;p&gt;I became interested in web syndication feeds recently. It’s an old technology nobody talks about anymore, but everybody still provides them. Taking a look at Google Trends shows us how much people have lost interest in RSS since its popularity peak in 2006:&lt;/p&gt;
+    <content type="html">&lt;p&gt;I became interested in web syndication feeds recently. It’s an old technology nobody talks about anymore, but everybody still provides them. Taking a look at Google Trends shows us how much people have lost interest in RSS since its peak popularity in 2006:&lt;/p&gt;
 &lt;script type=&quot;text/javascript&quot; src=&quot;//www.google.com/trends/embed.js?hl=en-US&amp;q=RSS&amp;cmpt=q&amp;tz=Etc/GMT-1&amp;tz=Etc/GMT-1&amp;content=1&amp;cid=TIMESERIES_GRAPH_0&amp;export=5&amp;w=970&amp;h=330&quot;&gt;&lt;/script&gt;
 &lt;p&gt;It’s an old technology people seem to have lost interest in, but can we still rely on it? Are people abandoning web syndication? With the advent of CMS (eg. the huge popularity of WordPress), static website generators and publishing platforms (eg. Medium) which all provide syndication feeds &lt;em&gt;by default&lt;/em&gt;, RSS doesn’t look dead to me.&lt;/p&gt;
 &lt;p&gt;This is how I became interested in finding how many websites actually do provide at least one XML syndication feed. &lt;a href=&quot;http://trends.builtwith.com/feeds/RSS&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Builtwith&lt;/a&gt; has a pretty nifty “trends” section and it states that 33% of the 1 million most visited websites have an RSS feed. While this gives us a pretty good idea, let’s see what we could do by ourselves.&lt;/p&gt;
@@ -32,6 +32,7 @@
 &lt;li&gt;Relying on existing web crawl data&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Enters CommonCrawl. CommonCrawl is a non-profit founded on the exciting project of crawling tons of web pages and releasing the obtained dataset publicly and for free. Their latest dump was &lt;a href=&quot;http://commoncrawl.org/2015/12/november-2015-crawl-archive-now-available/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;published in November 2015&lt;/a&gt; and contains 1.82 billion web pages, amounting to over 151TB of highly compressed HTML. &lt;a href=&quot;/blog/2016/02/02/fixing-hiring-through-rss/#f1&quot;&gt;I half-jokingly said this before&lt;/a&gt;: why not mining CommonCrawl to answer my own question?&lt;/p&gt;
+&lt;p&gt;A few weeks ago two colleagues of mine mentioned over lunch their desire to mine Common Crawl for their research, and it was a coincidence that I had been thinking about doing the same (though mostly for fun) for a few months. Wouldn’t have we been able to combine our efforts into a single “Common Crawl run”, I most probably wouldn’t have mined this dataset all by myself only to satisfy my curiosity.&lt;/p&gt;
 &lt;h2 id=&quot;Working-with-CommonCrawl&quot;&gt;&lt;a href=&quot;#Working-with-CommonCrawl&quot; class=&quot;headerlink&quot; title=&quot;Working with CommonCrawl&quot;&gt;&lt;/a&gt;Working with CommonCrawl&lt;/h2&gt;&lt;p&gt;As mentioned before, the latest Common Crawl is 151TB of data hosted on S3. We decided to process it directly from a few EC2 spot instances using the &lt;a href=&quot;http://webdatacommons.org/framework/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;WDC Extraction Framework&lt;/a&gt;. Actually this choice was pretty obvious to us because the syndication feeds are not the only thing we wanted to extract from CommonCrawl. My colleagues were interested in extracting all &lt;a href=&quot;https://developers.google.com/structured-data/schema-org&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;structured data&lt;/a&gt; embedded in any HTML page which is exactly what the WDC framework was designed for. We also wanted to extract all HTML anchors pointing to a Wikipedia page. We &lt;a href=&quot;https://github.com/XI-lab/WDCFramework&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;forked the WDC framework&lt;/a&gt; and modified it to extract these different things all at once, thus only needing to go through the CommonCrawl dataset once.&lt;/p&gt;
 &lt;p&gt;Now, CommonCrawl dump consists of HTML web pages and we want to extract parts of it, eg. any &lt;code&gt;&amp;lt;link rel=&amp;quot;alternate&amp;quot; href=&amp;quot;/blog/atom.xml&amp;quot; title=&amp;quot;something&amp;quot; type=&amp;quot;application/atom+xml&amp;quot;&amp;gt;&lt;/code&gt; with either RSS/Atom &lt;code&gt;type&lt;/code&gt; attribute or &lt;code&gt;rel=&amp;quot;alternate&amp;quot;&lt;/code&gt; attribute. Although &lt;a href=&quot;http://stackoverflow.com/questions/1732348/regex-match-open-tags-except-xhtml-self-contained-tags/1732454#1732454&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;parsing HTML with regex is a bad idea&lt;/a&gt;, constructing a full-blown DOM tree out of each of these 1.82B pages would require far too much time and processing power.&lt;/p&gt;
 &lt;p&gt;Here’s the regular expression I used to match feeds:&lt;/p&gt;
