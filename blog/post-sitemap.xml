@@ -39,7 +39,7 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/blog/2015/10/27/javascript-promises/</loc>
+        <loc>https://vhf.github.io/blog/blog/2015/10/28/es6-destructuring/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,7 +47,7 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/blog/2015/10/28/es6-destructuring/</loc>
+        <loc>https://vhf.github.io/blog/blog/2015/10/27/javascript-promises/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -95,7 +95,7 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/blog/2016/01/30/enhancing-github-with-chrome-extensions/</loc>
+        <loc>https://vhf.github.io/blog/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -103,7 +103,7 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</loc>
+        <loc>https://vhf.github.io/blog/blog/2016/01/30/enhancing-github-with-chrome-extensions/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
