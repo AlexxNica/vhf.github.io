@@ -15,7 +15,7 @@
 <meta name="twitter:title" content="Enhancing GitHub with Chrome extensions">
 <meta name="twitter:description" content="GitHub lacks a few features which might be useful for popular projects maintainers. Here are some helpful Chrome extensions.">
 <meta name="twitter:creator" content="@_vhf">
-<link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
+<link rel="alternate" href="/blog/atom.xml" title="concise notes">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
 <link rel="icon" sizes="16x16 32x32 64x64" href="/favicons/favicon.ico">
 <link rel="icon" type="image/png" sizes="196x196" href="/favicons/favicon-192.png">
@@ -37,8 +37,10 @@
 <meta name="msapplication-TileImage" content="/favicons/favicon-144.png">
 <meta name="msapplication-config" content="/favicons/browserconfig.xml">
 <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="/blog/css/style.css" type="text/css">
-<script type="text/javascript">!function(e,a,n,t,c,i,o){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,i=a.createElement(n),o=a.getElementsByTagName(n)[0],i.async=1,i.src=t,o.parentNode.insertBefore(i,o)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-69443473-1","auto"),ga("require","linkid"),ga("send","pageview");</script></head><body>
+<link rel="stylesheet" href="/blog/css/style.css">
+<script type="text/javascript">!function(e,a,n,t,c,i,o){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,i=a.createElement(n),o=a.getElementsByTagName(n)[0],i.async=1,i.src=t,o.parentNode.insertBefore(i,o)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-69443473-1","auto"),ga("require","linkid"),ga("send","pageview")</script>
+</head>
+<body>
 <div class="container">
 <div class="page-wrap">
 <header class="page-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
@@ -91,19 +93,19 @@ Enhancing GitHub with Chrome extensions
 <div class="article-entry" itemprop="articleBody">
 <p>If you ever maintained a popular GitHub project, you might have suffered from a couple of things:</p>
 <ul>
-<li>Your GitHub news feed became <a href="/blog/images/github-feed.png">useless</a> because stars, issues/PR comments, wiki edits notifications were burying the notifications you were interested in in an endless flood.</li>
-<li>You spent a lot of time repeating the same things over and over on your project’s issues or PRs, such as <em>Thanks for your contribution! Please read the <a href="https://github.com/vhf/free-programming-books/blob/master/CONTRIBUTING.md#formatting" target="_blank" rel="external">Formatting section of our <code>CONTRIBUTING.md</code></a> and fix your PR accordingly.</em> (While still adding a custom comment to each contributor pointing them at what they did wrong or how they can fix it, of course.)</li>
+<li>Your GitHub news feed became <a href="/images/github-feed.png">useless</a> because stars, issues/PR comments, wiki edits notifications were burying the notifications you were interested in in an endless flood.</li>
+<li>You spent a lot of time repeating the same things over and over on your project’s issues or PRs, such as <em>Thanks for your contribution! Please read the <a href="https://github.com/vhf/free-programming-books/blob/master/CONTRIBUTING.md#formatting" target="_blank" rel="external">Formatting section of our <code>CONTRIBUTING.md</code></a>and fix your PR accordingly.</em> (While still adding a custom comment to each contributor pointing them at what they did wrong or how they can fix it, of course.)</li>
 </ul>
 <p>And since we spend so much time on GitHub, why not also customizing it in some fun ways?</p>
 <p>Here are four Chrome extensions for GitHub I enjoy using – and they are all compatible with each others.</p>
-<h3 id="dashboard__28src_29"><a href="#dashboard__28src_29" class="headerlink" title="dashboard (src)"></a><a href="https://chrome.google.com/webstore/detail/dashboard/pcnaddhmngnnpookfhhamkelhhakimdg" target="_blank" rel="external">dashboard</a> (<a href="https://github.com/muan/dashboard" target="_blank" rel="external">src</a>)</h3><p>dashboard inserts a row of checkboxes at the top of your GitHub feed. Toggling these checkboxes show/hide specific types of notifications. For example you could use it to hide all fork notifications. Or only show new issues/PR notifications.</p>
+<h3 id="dashboard-src"><a href="#dashboard-src" class="headerlink" title="dashboard (src)"></a><a href="https://chrome.google.com/webstore/detail/dashboard/pcnaddhmngnnpookfhhamkelhhakimdg" target="_blank" rel="external">dashboard</a> (<a href="https://github.com/muan/dashboard" target="_blank" rel="external">src</a>)</h3><p>dashboard inserts a row of checkboxes at the top of your GitHub feed. Toggling these checkboxes show/hide specific types of notifications. For example you could use it to hide all fork notifications. Or only show new issues/PR notifications.</p>
 <p>I use it to quickly navigate in my feed.</p>
-<h3 id="github-feed-blacklist__28src_29"><a href="#github-feed-blacklist__28src_29" class="headerlink" title="github-feed-blacklist (src)"></a><a href="https://chrome.google.com/webstore/detail/github-feed-blacklist/dbhboodpldcdeolligbmnhnjpkkolcnl" target="_blank" rel="external">github-feed-blacklist</a> (<a href="https://github.com/vhf/github-feed-blacklist" target="_blank" rel="external">src</a>)</h3><p>dashboard is great and all but what if you only want to hide star notifications and issues/PR comments coming from a specific repository? github-feed-blacklist got your back. It adds an icon to your extensions list, clicking it provides you with a way to add (remove) repositories to the list and blacklist notifications for each repo you added by checking boxes. (Keep in mind it’s a <em>blacklist</em>: check a box to hide, not the opposite.) To keep your feed “full”, it automatically loads the next notifications until 50 notifications are displayed. It also adds a counter at the top of your feed to tell you how many notifications have been hidden - clicking this counter will temporarily show them all. The UI is kinda ugly but heh, I’m no design ninja.</p>
+<h3 id="github-feed-blacklist-src"><a href="#github-feed-blacklist-src" class="headerlink" title="github-feed-blacklist (src)"></a><a href="https://chrome.google.com/webstore/detail/github-feed-blacklist/dbhboodpldcdeolligbmnhnjpkkolcnl" target="_blank" rel="external">github-feed-blacklist</a> (<a href="https://github.com/vhf/github-feed-blacklist" target="_blank" rel="external">src</a>)</h3><p>dashboard is great and all but what if you only want to hide star notifications and issues/PR comments coming from a specific repository? github-feed-blacklist got your back. It adds an icon to your extensions list, clicking it provides you with a way to add (remove) repositories to the list and blacklist notifications for each repo you added by checking boxes. (Keep in mind it’s a <em>blacklist</em>: check a box to hide, not the opposite.) To keep your feed “full”, it automatically loads the next notifications until 50 notifications are displayed. It also adds a counter at the top of your feed to tell you how many notifications have been hidden - clicking this counter will temporarily show them all. The UI is kinda ugly but heh, I’m no design ninja.</p>
 <p>I use it to mute specific notification types coming from specific repos.</p>
-<h3 id="GitHub_Canned_Responses__28src_29"><a href="#GitHub_Canned_Responses__28src_29" class="headerlink" title="GitHub Canned Responses (src)"></a><a href="https://chrome.google.com/webstore/detail/github-canned-responses/lhehmppafakahahobaibfcomknkhoina" target="_blank" rel="external">GitHub Canned Responses</a> (<a href="https://github.com/notwaldorf/github-canned-responses" target="_blank" rel="external">src</a>)</h3><p>GitHub Canned Responses adds a button inside the issues/PR comment form. Activating it will allow you to insert a predefined answer in the comment form. The saved canned answers list can be edited to modify the existing ones, add your own or delete the ones you don’t need.</p>
+<h3 id="GitHub-Canned-Responses-src"><a href="#GitHub-Canned-Responses-src" class="headerlink" title="GitHub Canned Responses (src)"></a><a href="https://chrome.google.com/webstore/detail/github-canned-responses/lhehmppafakahahobaibfcomknkhoina" target="_blank" rel="external">GitHub Canned Responses</a> (<a href="https://github.com/notwaldorf/github-canned-responses" target="_blank" rel="external">src</a>)</h3><p>GitHub Canned Responses adds a button inside the issues/PR comment form. Activating it will allow you to insert a predefined answer in the comment form. The saved canned answers list can be edited to modify the existing ones, add your own or delete the ones you don’t need.</p>
 <p>I intend to use it to insert repetitive answers to the PRs I got, I’m sure it will prove particularly useful to avoid having to explain the same stuff over and over again, for example to tell people that a failed Travis run on a PR means they should go check Travis’ logs and actually fix their commits or ask for help.</p>
-<h3 id="Isometric_Contributions__28src_29"><a href="#Isometric_Contributions__28src_29" class="headerlink" title="Isometric Contributions (src)"></a><a href="https://chrome.google.com/webstore/detail/isometric-contributions/mjoedlfflcchnleknnceiplgaeoegien" target="_blank" rel="external">Isometric Contributions</a> (<a href="https://github.com/jasonlong/isometric-contributions" target="_blank" rel="external">src</a>)</h3><p>Isometric Contributions is the fun one. It does not serve a particularly useful purpose. All it does is rendering a GitHub user contribution graph (the small squares you keep abusing to draw cat emojis or propose to your SO, you know) as isometric pixel art. And it’s beautiful.</p>
-<p>Please tweet me <a href="https://twitter.com/_vhf" target="_blank" rel="external"><code>@_vhf</code></a> if you think I forgot your favorite GitHub Chrome extension!</p>
+<h3 id="Isometric-Contributions-src"><a href="#Isometric-Contributions-src" class="headerlink" title="Isometric Contributions (src)"></a><a href="https://chrome.google.com/webstore/detail/isometric-contributions/mjoedlfflcchnleknnceiplgaeoegien" target="_blank" rel="external">Isometric Contributions</a> (<a href="https://github.com/jasonlong/isometric-contributions" target="_blank" rel="external">src</a>)</h3><p>Isometric Contributions is the fun one. It does not serve a particularly useful purpose. All it does is rendering a GitHub user contribution graph (the small squares you keep abusing to draw cat emojis or propose to your SO, you know) as isometric pixel art. And it’s beautiful.</p>
+<p>Please tweet me <a href="https://twitter.com/_vhf" target="_blank" rel="external"><code>@_vhf</code></a>if you think I forgot your favorite GitHub Chrome extension!</p>
 </div>
 <footer class="article-footer">
 <div class="row">
@@ -113,7 +115,7 @@ Enhancing GitHub with Chrome extensions
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2016/01/30/enhancing-github-with-chrome-extensions/" data-id="cika8dgdw000n5gababr1v3f0" class="article-share-link">
+<a data-url="https://vhf.github.io/blog/blog/2016/01/30/enhancing-github-with-chrome-extensions/" data-id="cim23lm6a000f2jabqi9ur5s0" class="article-share-link">
 <span class="text">share</span>
 </a>
 or
@@ -158,19 +160,22 @@ Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons
 <div class="row">
 <div class="col l3 m6 s12">
 <h5 class="white-text">Categories</h5>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/">project</a><span class="category-list-count">2</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/old-tech-new-ideas/">old tech new ideas</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/tools/">tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/">project</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/old-tech-new-ideas/">old tech new ideas</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/tools/">tools</a><span class="category-list-count">1</span></li></ul></li></ul>
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Tags</h5>
-<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/file-systems/">file systems</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hiring/">hiring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/osx/">osx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rss/">rss</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/v8/">v8</a><span class="tag-list-count">5</span></li></ul>
+<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/file-systems/">file systems</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hiring/">hiring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ipython/">ipython</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/osx/">osx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rss/">rss</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/v8/">v8</a><span class="tag-list-count">5</span></li></ul>
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Archives</h5>
-<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Recent posts</h5>
 <ul>
+<li>
+<a href="/blog/2016/03/21/rss-usage-on-the-web/">How Many Websites Provide RSS / Web Syndication Feeds</a>
+</li>
 <li>
 <a href="/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/">Navigating the ECMAScript® 2015 Language Specification</a>
 </li>
@@ -183,14 +188,11 @@ Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons
 <li>
 <a href="/blog/2016/01/30/enhancing-github-with-chrome-extensions/">Enhancing GitHub with Chrome extensions</a>
 </li>
-<li>
-<a href="/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/">Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons</a>
-</li>
 </ul>
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">13.8k words total</span><br>
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">19.7k words total</span><br>
 </div>
 </footer>
 </div>
@@ -203,4 +205,7 @@ unless otherwise stated, all content &amp; design &copy; copyright 2016 victor f
 <li><a id="mobile-menu-close" class="main-nav-link" href="#">Close the menu</a></li>
 </ul>
 </nav>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script><script src="/blog/js/script.js" type="text/javascript"></script></body></html>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/blog/js/script.js"></script>
+</body>
+</html>
