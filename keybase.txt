@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/vhf
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://vhf.github.io
+  * I am vhf (https://keybase.io/vhf) on keybase.
+  * I have a public key with fingerprint 6C95 1820 25A0 1436 298C  98B4 E451 BC76 90A3 9BBF
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01207f42b45a0c8f5f5a05b2fda468d868756dd9798a7d4bbdecb15401d2a87d8df20a",
+            "fingerprint": "6c95182025a01436298c98b4e451bc7690a39bbf",
+            "host": "keybase.io",
+            "key_id": "e451bc7690a39bbf",
+            "kid": "01012852112558957212940a401d938cb0314ea1113b2d245ba28eaaa387d426c8de0a",
+            "uid": "1c04460bc536373ef3adb8ddbd842719",
+            "username": "vhf"
+        },
+        "service": {
+            "hostname": "vhf.github.io",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1460480441,
+    "expire_in": 157680000,
+    "prev": "7e2a39e2ba8e6b714193180014b69bd86f5eb75e0ba0fba8ce89e2fcdee2eaa3",
+    "seqno": 9,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMNlAnicbZJ9TFVlHMdBEPMii2SEzoVwMIx2lfP+FhWE0phQUzIlYdfznPOcy+Hl
+XrhviIwlEg1TAmYJCLvMN8ANBDdwISKIbhnISxAzmEHGnQl/ODcLVl6t51Cufzr/
+PDvP8/l9n8/vt+dWkJ+Pwdez+5qr+lxDv+/wjZNOn31BMT3FGLAqRZhYjOXAlQXm
+KtDuMOVoCiZiOEHinEqTgGYkXOZVRkUrA0hVkWiWV3iW5xhWUQRO4CVOoQFQoAwI
+hsYJhZR4TuEVlcQlzIipmsUMbfk2zeJAsawsMARP4iRKI2iKJQVeFnhAQ5ohgMyx
+Ai5RAgAqKsyy2vUKJAckO9yuWdEe+jGt6P0P/8IbmfMMSRAkw/ACw5EEKdC4pIsJ
+FC8DnCJoKBEEQQFSIWkGSCQPJUmikDRNsjKvwBVv50ocIeM0zeJAZiiW4iioUpIC
+eEUBCk+THCHooB3aLFIeRLQrS8VKjBjacGky1GeqN/Hf4Xaz5shygn96ybdZHVbZ
+mouOshyOfLuolzqK8nW2EALTvykmoFkUNENU4YI2u2a1YCKBSNmh6bEEsqN5JEkY
+MXgoX7NBk6YTDMfyOPr0e6ALRXKQRKOCJJB4yAKOoAmBIhBC0IAVUDusykDAMRAH
+Eq4iSIY8olVZgZBE86Ewva8CixUTBaQpmVGkXTNbJIfTBrGSwRsZ/j6+Bp+A1av0
+t+VjWBv84sWdmX7Zu/Zd35CP1/WNSn9UXGlPSGHHMjMLXqmP2zt79djgg945x89T
+zxgx8YsNfFTwVmf3prLLFUnTzaWzC37xJQbD/PKR5OP+o1vZS9uiku/83j1YVRt5
+tslSLqa654rvvyl1vbS/rW7g003zyb/tSiUj8J4d7dd7Gk6/RYYUrVMjEycTO7rW
+RD/u9e7r2/zTwFVPe/1Z+sOIlCTh/ebOsPi8Z0MFY2M7nny0+/vWmNDDVYmLGeOL
+C26h2tOdoX09uRA/8dmrn/uf7FldGAvLRhi3e2hL2kPzhsXqCromyfegyBaFN9V+
+MxEFP6COe4+kP7jb+l1uVPye9IBPptomx41zNw+GnLr82ElHS0/x6DDaM99CLdVc
+qGqsF5Pg+XMbG3f+WB/yXHOXHPs2W9lYp9UvfxU2ElveeVccGSFH027XdvXeNz5K
+H6sabBTHDVxP2sCZQ7/mdgdoAVsqSvc+3HPptdqJOB53d/1w523jjPj8XsNwRMvF
+NcSB2ey+bNOqR/MDC6MHNJefPTVmzEgVTAeeSpjtiKtc78z7Zeetwvcqa7zDF6M3
+2z1DyU0jkefr+t7ZRrEngkIrq5OYUM/+ziZva3jO3KqZJ7dvpsSW3qsCQUvpNSGB
+1isRmEH78mjbjLnjsL0oIZBrOTp6IXOqLHy597o3uXbXX83rg/98Wh5+un/pja7+
+a6//DQ2Sv9k=
+=SPpp
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/vhf
+
+==================================================================
