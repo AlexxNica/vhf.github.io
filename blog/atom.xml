@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-05-16T17:45:53.000Z</updated>
+  <updated>2016-05-16T19:38:32.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://vhf.github.io/blog/2016/05/16/ngw-2016/"/>
     <id>https://vhf.github.io/blog/2016/05/16/ngw-2016/</id>
     <published>2016-05-16T15:36:41.000Z</published>
-    <updated>2016-05-16T17:45:53.000Z</updated>
+    <updated>2016-05-16T19:38:32.000Z</updated>
     
     <content type="html">&lt;p&gt;10 days ago I attended &lt;a href=&quot;http://bangbangcon.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;!!Con&lt;/a&gt;, the most excellent &lt;del&gt;dumpling house&lt;/del&gt; programming conference. I was blown away by the quality of the talks, the skills/knowledge/humor of the presenters, the diversity and kindness of both the organizers and the crowd, and the two incredible keynotes &lt;a href=&quot;http://cattsmall.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Catt Small&lt;/a&gt; and &lt;a href=&quot;http://nas.sr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ramsey Nasser&lt;/a&gt; gave. The whole conference was also captioned in realtime by &lt;a href=&quot;http://stenoknight.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mirabai Knight&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here are some &lt;a href=&quot;https://github.com/bangbangcon/bangbangcon.github.io/tree/master/2016-speaker-materials&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;slides&lt;/a&gt;, the &lt;a href=&quot;https://twitter.com/bangbangcon/status/730418049824608256&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;full video recordings&lt;/a&gt; of the live stream and the whole &lt;a href=&quot;http://aloft.nu/mkk/bangbangconsaturday&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;trans&lt;/a&gt;c&lt;a href=&quot;http://aloft.nu/mkk/bangbangconsunday&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ripts&lt;/a&gt;.&lt;/p&gt;
@@ -54,6 +54,7 @@
 &lt;li&gt;A few people expressed interest in my recent V8 elucubrations so I threw together a 30’ presentation. Almost 15 people showed up and I finally got to train explaining some of the material I spent weeks gathering!&lt;/li&gt;
 &lt;li&gt;I got a lot from a chat with Dan about jobs and career opportunities.&lt;/li&gt;
 &lt;li&gt;Jonathan proposed to pair on an IPFS/JavaScript related project. I didn’t know anything about IPFS, glad I had a glimpse of it. We proceeded to shave a huge yak named Webpack but unfortunately ran out of time.&lt;/li&gt;
+&lt;li&gt;Nemanja gave a presentation about graphql and the very cool &lt;a href=&quot;https://www.meldio.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Meldio&lt;/a&gt; he’s building. He also told us interesting anecdotes about statically compiling graphql queries at facebook and passing their IDs instead of the actual queries, and sending UDP packages to preload FB caches before TLS handshakes!&lt;/li&gt;
 &lt;li&gt;Michael Nielsen gave a research talk about augmenting cognition. What is a computer, what are the possible definitions for what they enable? How can video games or (data/math) visualizations modify our cognition?&lt;/li&gt;
 &lt;li&gt;Greg Price talked about his work on the upcoming PEP adding static type hints to Python.&lt;/li&gt;
 &lt;/ul&gt;
