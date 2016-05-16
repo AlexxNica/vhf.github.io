@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://vhf.github.io/blog/blog/2016/05/16/ngw-2016/</loc>
+        <lastmod>2016-05-16T17:45:53.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://vhf.github.io/blog/blog/2016/03/21/rss-usage-on-the-web/</loc>
         <lastmod>2016-03-21T22:38:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -39,7 +47,7 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/blog/2015/10/28/es6-destructuring/</loc>
+        <loc>https://vhf.github.io/blog/blog/2015/10/27/javascript-promises/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -47,7 +55,7 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/blog/2015/10/27/javascript-promises/</loc>
+        <loc>https://vhf.github.io/blog/blog/2015/10/28/es6-destructuring/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

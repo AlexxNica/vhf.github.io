@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-03-21T22:38:23.000Z</updated>
+  <updated>2016-05-16T17:45:53.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -14,6 +14,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>!!Con and a week back at the Recurse Center</title>
+    <link href="https://vhf.github.io/blog/2016/05/16/ngw-2016/"/>
+    <id>https://vhf.github.io/blog/2016/05/16/ngw-2016/</id>
+    <published>2016-05-16T15:36:41.000Z</published>
+    <updated>2016-05-16T17:45:53.000Z</updated>
+    
+    <content type="html">&lt;p&gt;10 days ago I attended &lt;a href=&quot;http://bangbangcon.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;!!Con&lt;/a&gt;, the most excellent &lt;del&gt;dumpling house&lt;/del&gt; programming conference. I was blown away by the quality of the talks, the skills/knowledge/humor of the presenters, the diversity and kindness of both the organizers and the crowd, and the two incredible keynotes &lt;a href=&quot;http://cattsmall.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Catt Small&lt;/a&gt; and &lt;a href=&quot;http://nas.sr&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ramsey Nasser&lt;/a&gt; gave. The whole conference was also captioned in realtime by &lt;a href=&quot;http://stenoknight.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Mirabai Knight&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Here are some &lt;a href=&quot;https://github.com/bangbangcon/bangbangcon.github.io/tree/master/2016-speaker-materials&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;slides&lt;/a&gt;, the &lt;a href=&quot;https://twitter.com/bangbangcon/status/730418049824608256&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;full video recordings&lt;/a&gt; of the live stream and the whole &lt;a href=&quot;http://aloft.nu/mkk/bangbangconsaturday&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;trans&lt;/a&gt;c&lt;a href=&quot;http://aloft.nu/mkk/bangbangconsunday&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;ripts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Besides (having breakfast and) meeting great people there, a few highlights include the following talks, in alphabetical order:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Sina Bahram presenting how he uses his phone and computer by listening to his screenreader at 1,000 words per minute. Multimodal interface: using pitch to differentiate uppercase from lowercase!&lt;/li&gt;
+&lt;li&gt;Sher Minn Chong generating fractal plants with L-Systems&lt;/li&gt;
+&lt;li&gt;Jake Levine talking about alphabetical ordering in Japanese:&lt;ul&gt;
+&lt;li&gt;it turns out Japanese words are usually ordered by how the first syllables sound&lt;/li&gt;
+&lt;li&gt;which is really tricky for kanjis, because they can be pronounced differently depending on the context in which the word is used&lt;/li&gt;
+&lt;li&gt;therefore only Japanese speaking humans can properly sort Japanese words!&lt;/li&gt;
+&lt;li&gt;Apologies to the contributors of &lt;a href=&quot;https://github.com/vhf/free-programming-books/blob/master/free-programming-books-ja.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;free-programming-books-ja&lt;/a&gt; to whom I might have asked to comply with my automatic JavaScript alphabetical ordering checker. :/&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Kamal Marhubi OOMing his computer after &lt;a href=&quot;https://twitter.com/lablayers/status/729022540358782976&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;holding a pipe in the air using his hands as file descriptors&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Allison Parrish generating poetry out of the first paragraph of the genesis by applying DST to Word2Vec, here is what I remember from her presentation:&lt;ul&gt;
+&lt;li&gt;take word2vec, train it&lt;/li&gt;
+&lt;li&gt;take an input text, get the vectors for its words&lt;/li&gt;
+&lt;li&gt;“simplify” or rather lossily compress each of these vectors using a discrete cosine transform&lt;/li&gt;
+&lt;li&gt;reconstruct the input text word after word by finding for each compressed vector the closest existing word vector&lt;/li&gt;
+&lt;li&gt;The idea is simply amazing in my opinion, I loved it. So much artistic/fun potential in this!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Mark Phillips showcasing his &lt;a href=&quot;http://watersheds.fernleafinteractive.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;amazing hydrological interactive map of the US&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I then spent the week at the &lt;a href=&quot;http://recurse.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;recurse center&lt;/a&gt; with around 100 smart passionate people, a few I already knew and was so glad to meet again and many I had never met.&lt;/p&gt;
+&lt;p&gt;I could probably spend a week writing about what I learned while talking with people there (or reviewing all the awesome food and drinks I had with Carlos). Instead, I’ll mention a few highlights of my week:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;In Chrome, the backspace key of my MacBook wouldn’t take me to the previous page anymore, so I went to closest person I could find using a Mac and asked him if the same thing was happening to him or if he knew what could be going on. Turns out this person, Sidney, is about to start working on Chrome for OS X at Google! Some digging later, &lt;a href=&quot;https://codereview.chromium.org/1922993002/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;here’s why&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;I met David who is building a fascinating HTTP proxy back/front-end in Elixir and was extremely motivated to help me fix my Elixir request thrower. We spent quite some time working on it together, and while facing some weird networking performance issues we turned to Julia who we knew is always keen to dive into weird things. She got interested in Elixir and Erlang, and we learned about stracing all the things!&lt;/li&gt;
+&lt;li&gt;A few people expressed interest in my recent V8 elucubrations so I threw together a 30’ presentation. Almost 15 people showed up and I finally got to train explaining some of the material I spent weeks gathering!&lt;/li&gt;
+&lt;li&gt;I got a lot from a chat with Dan about jobs and career opportunities.&lt;/li&gt;
+&lt;li&gt;Jonathan proposed to pair on an IPFS/JavaScript related project. I didn’t know anything about IPFS, glad I had a glimpse of it. We proceeded to shave a huge yak named Webpack but unfortunately ran out of time.&lt;/li&gt;
+&lt;li&gt;Michael Nielsen gave a research talk about augmenting cognition. What is a computer, what are the possible definitions for what they enable? How can video games or (data/math) visualizations modify our cognition?&lt;/li&gt;
+&lt;li&gt;Greg Price talked about his work on the upcoming PEP adding static type hints to Python.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I had a blast. Awesome week surrounded by awesome people. I kind of want to list everyone I met or hung out with but I won’t. I noticed that when you meet someone for the first time, staying in touch is really hard, almost always it’s like a good intention which takes a huge effort to fulfill. When you meet for the second time, it’s a bit easier to stay in touch afterwards.&lt;/p&gt;
+&lt;p&gt;I’d like to run a little experiment regarding this. I made a list of people when leaving NYC. Staying in touch with all of them looks impossible to me, I’m always way too cautious when writing emails, it takes me ages. Perhaps I could try writing (at least) once a month to a different person from this list? To check in on their projects/work/lives/etc? (I think answering a short email whenever someone replies to one of my emails is much more feasible than attempting to write to everyone, so I could probably keep the ball rolling?)&lt;/p&gt;</content>
+    
+    <summary type="html">
+    
+      People and programming. Mainly people.
+    
+    </summary>
+    
+      <category term="programming" scheme="https://vhf.github.io/blog/categories/programming/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>How Many Websites Provide RSS / Web Syndication Feeds</title>
@@ -401,15 +457,15 @@ A a
       <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
     
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
-    
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
   </entry>
   
@@ -438,15 +494,15 @@ A a
       <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
     
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
     
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
-    
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
   </entry>
   
@@ -553,13 +609,13 @@ A a
       <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
     
-      <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
-    
-      <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
       <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
     
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+      <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
+    
+      <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
   </entry>
   
@@ -633,6 +689,10 @@ A a
       <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
     
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
@@ -640,10 +700,6 @@ A a
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
       <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
-    
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
   </entry>
   
@@ -776,6 +832,10 @@ Fastest is #3 TCO/no default params
       <category term="JavaScript" scheme="https://vhf.github.io/blog/categories/programming/JavaScript/"/>
     
     
+      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
+    
+      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
+    
       <category term="javascript" scheme="https://vhf.github.io/blog/tags/javascript/"/>
     
       <category term="es2015" scheme="https://vhf.github.io/blog/tags/es2015/"/>
@@ -783,10 +843,6 @@ Fastest is #3 TCO/no default params
       <category term="nodejs" scheme="https://vhf.github.io/blog/tags/nodejs/"/>
     
       <category term="babel" scheme="https://vhf.github.io/blog/tags/babel/"/>
-    
-      <category term="crankshaft" scheme="https://vhf.github.io/blog/tags/crankshaft/"/>
-    
-      <category term="v8" scheme="https://vhf.github.io/blog/tags/v8/"/>
     
   </entry>
   
