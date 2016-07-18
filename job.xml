@@ -1,15 +1,35 @@
 <?xml version="1.0"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-   <channel>
-      <title>[Hire Me!] Victor Felder</title>
-      <link>https://vhf.github.io/</link>
-      <description>
-        Before subscribing to this feed, please read the following explanation:
-        https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/
-      </description>
-      <pubDate>Tue, 02 Feb 2016 17:17:17 GMT</pubDate>
-      <lastBuildDate>Tue, 02 Feb 2016 17:17:17 GMT</lastBuildDate>
-      <atom:link href="https://vhf.github.io/job.xml" rel="self" type="application/rss+xml" />
-      <ttl>360</ttl>
-   </channel>
+    <channel>
+        <title>[Hire Me!] Victor Felder</title>
+        <link>https://vhf.github.io/</link>
+        <description>
+            Before subscribing to this feed, please read the following explanation: https://vhf.github.io/blog/2016/02/02/fixing-hiring-through-rss/
+        </description>
+        <pubDate>Tue, 02 Feb 2016 17:17:17 GMT</pubDate>
+        <lastBuildDate>Tue, 02 Feb 2016 17:17:17 GMT</lastBuildDate>
+        <atom:link href="https://vhf.github.io/job.xml" rel="self" type="application/rss+xml"/>
+        <ttl>360</ttl>
+        <item>
+            <title>I'm looking for a job!</title>
+            <link>https://vhf.github.io/job.xml</link>
+            <description>
+              I am looking for a job. I'm a web backend software engineer. I
+              work mostly with JavaScript, Python and Elixir. I am willing to
+              relocate anywhere.
+              &lt;br&gt;
+              My email address is displayed on my github profile,
+              https://github.com/vhf
+              &lt;br&gt;
+              I am a passionate software engineer. I enjoy diving deep into the
+              technologies at hand, sharing knowledge and contributing to open
+              source infrastructure. Although my last jobs were in big data, I
+              am still fascinated by the field I have been exploring for the
+              past 10 years: the web. Reading the ECMAScript spec, explaining
+              strange V8 behaviours by digging into its codebase, getting
+              hands-on experience with promising technologies such as Elixir...
+            </description>
+            <pubDate>Mon, 18 Jul 2016 09:09:09 GMT</pubDate>
+        </item>
+    </channel>
 </rss>
