@@ -93,27 +93,6 @@
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/v8/</loc>
-        <lastmod>2016-11-28T19:21:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/crankshaft/</loc>
-        <lastmod>2016-11-28T19:21:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
-        <lastmod>2016-11-28T19:21:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhf.github.io/blog/tags/es2015/</loc>
         <lastmod>2016-11-28T19:21:43.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -123,6 +102,27 @@
     <url>
         <loc>https://vhf.github.io/blog/tags/nodejs/</loc>
         <lastmod>2016-11-28T19:21:43.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/v8/</loc>
+        <lastmod>2016-11-28T19:28:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/crankshaft/</loc>
+        <lastmod>2016-11-28T19:28:15.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
+        <lastmod>2016-11-28T19:28:15.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

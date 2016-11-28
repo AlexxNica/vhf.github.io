@@ -7,19 +7,19 @@
 <meta name="description" content="An introduction.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
-<meta property="og:url" content="https://vhf.github.io/blog/2016/09/10/javascript-engines-hidden-classes/index.html">
+<meta property="og:url" content="https://vhf.github.io/blog/2016/11/28/javascript-engines-hidden-classes/index.html">
 <meta property="og:site_name" content="concise notes">
 <meta property="og:description" content="An introduction.">
-<meta property="og:image" content="https://vhf.github.io/blog/hiddenclasses-step0.svg">
-<meta property="og:image" content="https://vhf.github.io/blog/hiddenclasses-step1.svg">
-<meta property="og:image" content="https://vhf.github.io/blog/hiddenclasses-step2.svg">
-<meta property="og:image" content="https://vhf.github.io/blog/hiddenclasses-snapshot.png">
-<meta property="og:image" content="https://vhf.github.io/blog/hiddenclasses-snapshot-hover.png">
-<meta property="og:updated_time" content="2016-09-11T13:33:03.000Z">
+<meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-step0.svg">
+<meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-step1.svg">
+<meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-step2.svg">
+<meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-snapshot.png">
+<meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-snapshot-hover.png">
+<meta property="og:updated_time" content="2016-11-28T19:28:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
 <meta name="twitter:description" content="An introduction.">
-<meta name="twitter:image" content="https://vhf.github.io/blog/hiddenclasses-step0.svg">
+<meta name="twitter:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-step0.svg">
 <meta name="twitter:creator" content="@_vhf">
 <link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
 <link rel="shortcut icon" href="/favicons/favicon.ico">
@@ -70,13 +70,13 @@
 <div class="pattern"></div>
 <main class="page-main" role="main" tabindex="-1">
 <article id="post-javascript-engines-hidden-classes" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-<link itemprop="mainEntityOfPage" href="/blog/2016/09/10/javascript-engines-hidden-classes/">
+<link itemprop="mainEntityOfPage" href="/blog/2016/11/28/javascript-engines-hidden-classes/">
 <nav class="hide-on-small-only">
 <div class="nav-wrapper">
 <div class="col s12">
-<a href="/blog/2016/09/10/javascript-engines-hidden-classes/" class="breadcrumb">
-<time datetime="2016-09-10T16:40:48.000Z" itemprop="datePublished">2016-09-10</time>
-<time class="hide" datetime="2016-09-10T16:40:48.000Z" itemprop="dateModified">2016-09-10</time>
+<a href="/blog/2016/11/28/javascript-engines-hidden-classes/" class="breadcrumb">
+<time datetime="2016-11-28T17:40:48.000Z" itemprop="datePublished">2016-11-28</time>
+<time class="hide" datetime="2016-11-28T17:40:48.000Z" itemprop="dateModified">2016-11-28</time>
 </a>
 <a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a><a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
 <span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -156,20 +156,20 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 <p>At this point in time V8 puts our function in memory but we don’t really care about this, our point is what happens when <em>create</em> a point:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div></pre></td></tr></table></figure>
 <p>When V8 sees our first usage of the <code>Point</code> function (or constructor) to create a new object based on this <code>Point</code> prototype it doesn’t yet know what a Point really looks like, all it knows is <code>function Point</code> so it creates an initial version <code>C0</code> of the hidden class <code>p1</code> needs.</p>
-<p><img src="hiddenclasses-step0.svg" alt=""></p>
+<p><img src="/blog/images/hiddenclasses-step0.svg" alt=""></p>
 <p>This first hidden class <code>C0</code> represents a <code>Point</code> object without any property (<code>{}</code>). At the same time, V8 allocates our <code>p1</code> variable as some memory object containing nothing but a <em>class pointer</em> to store the fact that <code>p1</code>‘s hidden class will be <code>C0</code> for now.</p>
 <p>Entering the <code>Point</code> function with our arguments <code>13</code> and <code>37</code>, the next thing V8 encounters is <code>this.x = x;</code>, which resolves to <code>this.x = 13;</code>. Aha! The point <code>p1</code> (which is <code>this</code> here) has a property called <code>x</code> and this property is not part of the map <code>C0</code>! First thing first, <code>13</code> is put in memory at this object’s first memory offset (the spots where all the data contained in an object is stored) - we’ll call it <code>offset 0</code>. V8 then creates a new hidden class <code>C1</code> based on <code>C0</code>. What <code>C1</code> brings to the table is a reference to a property named <code>x</code>, for which the data is stored at the object’s <code>offset 0</code>.</p>
 <p>V8 modifies <code>C0</code> to tell it that each time an object with the hidden class <code>C0</code> gets a property named <code>x</code> added to it, this object will have to <em>transition</em> to using <code>C1</code> instead as its hidden class.</p>
-<p><img src="hiddenclasses-step1.svg" alt=""></p>
+<p><img src="/blog/images/hiddenclasses-step1.svg" alt=""></p>
 <p>Next line is <code>this.y = y;</code>, ie. <code>this.y = 37</code>. Here is what happens internally: First <code>37</code> is stored at the next memory offset, <code>offset 1</code>. Then a new hidden class <code>C2</code> is created by cloning <code>C1</code> (I say <em>cloning</em> because <code>C2</code> is the same as <code>C1</code> at this point: it has a reference to a property named <code>x</code> for which the data is at <code>offset 0</code>). <code>C2</code> receives the additional ability to have a property named <code>y</code>, for which the data can be found at its object’s <code>offset 1</code>.</p>
 <p>Now that we have a more capable hidden class than <code>C1</code>, <code>C1</code>‘s <em>transition plan</em> is updated to tell all <code>C1</code> objects that they can transition to using <code>C2</code> should they get a property named <code>y</code> set to them.</p>
-<p><img src="hiddenclasses-step2.svg" alt=""></p>
+<p><img src="/blog/images/hiddenclasses-step2.svg" alt=""></p>
 <p>This might all seem a bit schematic and by now you are probably wondering if you could observe this behaviour all by yourself. Fortunately, Chrome developer tools allows us to do just that. Kudos to their team for exposing hidden classes to the end users. Someone at Mozilla told me they considered adding this capability to their own developer tools but nobody implemented it… yet.</p>
 <p>If you want to play along, open a tab in Google Chrome or Chromium, fire up the devtools, open the devtools settings (focus the devtools and hit <code>F1</code>) and enable <em>Show advanced heap snapshot properties</em> in the <em>Profiler</em> section of the <em>Preferences</em> tab.</p>
 <p>Close the settings, go to the console, copy the following code and evaluate it:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p0 = <span class="keyword">new</span> Point();       <span class="comment">// C0</span></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>);     <span class="comment">// C1 ← C0</span></div><div class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>); <span class="comment">// C2 ← C1 ← C0</span></div></pre></td></tr></table></figure>
 <p>Switch to the <em>Profiles</em> tab, select <em>Take Heap Snapshot</em> and hit the <em>Take Snapshot</em> button. Once this done, a couple MB of data have been collected and we can use the <em>Class filter</em> box to filter our objects. Just type <em>Point</em>, the name of our function. You should be able to see the three points we just created. I uncollapsed a few object properties, here’s what I see:</p>
-<p><img src="hiddenclasses-snapshot.png" alt=""></p>
+<p><img src="/blog/images/hiddenclasses-snapshot.png" alt=""></p>
 <p>A few basics to get us started:</p>
 <ul>
 <li><code>Point @81129</code>: an object with id <code>81129</code>, its prototype is <code>Point</code>. This is <code>p0</code> by the way. Next one is <code>p1</code>, then <code>p2</code>.<ul>
@@ -178,7 +178,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 </li>
 </ul>
 <p>Note that you can “preview” some objects by hovering their id (eg. <code>@123</code>):</p>
-<p><img src="hiddenclasses-snapshot-hover.png" alt=""></p>
+<p><img src="/blog/images/hiddenclasses-snapshot-hover.png" alt=""></p>
 <p>Remember when I said that internally V8 hidden classes were named <em>maps</em>? Yep, that’s what we’re looking at, how exciting!</p>
 <ul>
 <li><code>Point @81129</code><ul>
@@ -206,10 +206,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 </ul>
 </li>
 </ul>
-<p>&lt;- Talk about V8 devtools Maps with examples, then say a few words about #jsapi saved buffer wrt. linked lists and hashmaps -&gt;</p>
-<h3 id="deleting-properties"><a href="#deleting-properties" class="headerlink" title="deleting properties"></a>deleting properties</h3><p>–&gt; STRONG MODE</p>
 <hr>
-<p>READ THIS: <a href="http://jayconrod.com/posts/52/a-tour-of-v8-object-representation" target="_blank" rel="external">http://jayconrod.com/posts/52/a-tour-of-v8-object-representation</a><br>READ THIS: <a href="http://floitsch.blogspot.ch/2012/03/optimizing-for-v8-inlining.html" target="_blank" rel="external">http://floitsch.blogspot.ch/2012/03/optimizing-for-v8-inlining.html</a><br>READ THIS: <a href="http://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html" target="_blank" rel="external">http://mrale.ph/blog/2015/01/11/whats-up-with-monomorphism.html</a></p>
 <p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpo, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="http://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
 </div>
 <footer class="article-footer">
@@ -220,7 +217,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2016/09/10/javascript-engines-hidden-classes/" data-id="cisynrgza00019zabekinja2w" class="article-share-link">
+<a data-url="https://vhf.github.io/blog/2016/11/28/javascript-engines-hidden-classes/" data-id="cisynrgza00019zabekinja2w" class="article-share-link">
 <span class="text">share</span>
 </a>
 or
@@ -261,13 +258,13 @@ or
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Archives</h5>
-<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/09/">September 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Recent posts</h5>
 <ul>
 <li>
-<a href="/blog/2016/09/10/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
+<a href="/blog/2016/11/28/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
 </li>
 <li>
 <a href="/blog/2016/05/16/ngw-2016/">!!Con and a week back at the Recurse Center</a>
@@ -285,7 +282,7 @@ or
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">26.0k words total</span><br>
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">25.9k words total</span><br>
 </div>
 </footer>
 </div>
