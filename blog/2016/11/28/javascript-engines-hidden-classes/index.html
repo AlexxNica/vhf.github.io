@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-step2.svg">
 <meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-snapshot.png">
 <meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-snapshot-hover.png">
-<meta property="og:updated_time" content="2016-11-28T19:28:15.000Z">
+<meta property="og:updated_time" content="2016-11-28T19:31:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
 <meta name="twitter:description" content="An introduction.">
@@ -153,7 +153,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 <p>From what we read about hidden classes (or maps) we could expect our engine to create a map for <code>Point</code> as soon as it assigns <code>p1</code> and reuse this same map for <code>p2</code>, <code>p3</code> and <code>p4</code>. Not quite. We are in fact looking at 3 related but different maps here. (Although this part is well illustrated in <a href="https://developers.google.com/v8/design" target="_blank" rel="external">V8 design reference</a>, their documentation hasn’t been updated for almost 4 years and it’s worth paraphrasing.)</p>
 <p>Let’s start with the first part of our code. We define a function <code>Point</code> which we’ll use as constructor for many points. It has two parameters, <code>x</code> and <code>y</code>, and its objects will remember the arguments we pass to this Point constructor.</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>At this point in time V8 puts our function in memory but we don’t really care about this, our point is what happens when <em>create</em> a point:</p>
+<p>At this point in time V8 puts our function in memory but we don’t really care about this, our point is what happens when we <em>create</em> a point:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div></pre></td></tr></table></figure>
 <p>When V8 sees our first usage of the <code>Point</code> function (or constructor) to create a new object based on this <code>Point</code> prototype it doesn’t yet know what a Point really looks like, all it knows is <code>function Point</code> so it creates an initial version <code>C0</code> of the hidden class <code>p1</code> needs.</p>
 <p><img src="/blog/images/hiddenclasses-step0.svg" alt=""></p>
@@ -207,7 +207,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 </li>
 </ul>
 <hr>
-<p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpo, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="http://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
+<p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpot, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="http://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
 </div>
 <footer class="article-footer">
 <div class="row">
@@ -282,7 +282,7 @@ or
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">25.9k words total</span><br>
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.0k words total</span><br>
 </div>
 </footer>
 </div>
