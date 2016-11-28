@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-step2.svg">
 <meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-snapshot.png">
 <meta property="og:image" content="https://vhf.github.io/blog/blog/images/hiddenclasses-snapshot-hover.png">
-<meta property="og:updated_time" content="2016-11-28T19:31:14.000Z">
+<meta property="og:updated_time" content="2016-11-28T19:43:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
 <meta name="twitter:description" content="An introduction.">
@@ -103,8 +103,8 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 <li>cover fast property access because it’s something hidden classes make possible,</li>
 <li>explain what hidden classes are and where they come from,</li>
 <li>tell you how you can observe them in their natural habitat because Chromium provides us with an awesome microscope,</li>
-<li>say a few things about inline caching because here as well using hidden classes can lead to big performance boost,</li>
-<li>show you why keeping them in mind can improve your JavaScript performance eg. by avoiding property deletion or polymorphic call-sites.</li>
+<li><del>say a few things about inline caching because here as well using hidden classes can lead to big performance boost,</del></li>
+<li><del>show you why keeping them in mind can improve your JavaScript performance eg. by avoiding property deletion or polymorphic call-sites.</del><sup id="a2"><a href="#f2" title="Jump to footnote">2</a></sup></li>
 </ol>
 <h3 id="Properties-in-an-OO-World"><a href="#Properties-in-an-OO-World" class="headerlink" title="Properties in an OO World"></a>Properties in an OO World</h3><p>In a class-based object-oriented language such as Smalltalk or Java in which you cannot add or delete properties from an object on the fly, accessing properties is generally not costly. You can store object properties at fixed memory offsets because the object layout for an instance of a given class will never change. In this case, accessing a property can often be done with a single instruction: load the thing located at the given memory offset.</p>
 <p>In an imaginary Java virtual machine, a Java object could be stored in memory as a simple structure which is the exact same for all instances of a same class. The properties (attributes, methods, …) are either primitive Java types (int, float, …) or pointers (to arrays, functions, …). This structure doesn’t hold the “whole” object data, it merely holds references (memory offsets) to where the “real” data is stored. Or as another JVM could do, an object could be stored as three simple pointers: the first one to the class object representing the type of the object, the second one to a table holding pointers to the object’s methods, the third one to the memory allocated for the object data.</p>
@@ -208,6 +208,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 </ul>
 <hr>
 <p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpot, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="http://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
+<p><b id="f2">2</b> This was my initial plan. I got lost on my way. The draft of this blog post has been sitting on my hard drive since February. I might publish a follow-up someday. :) <a href="#a2" title="Jump back to footnote reference">↩</a></p>
 </div>
 <footer class="article-footer">
 <div class="row">
@@ -217,11 +218,11 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://vhf.github.io/blog/2016/11/28/javascript-engines-hidden-classes/" data-id="cisynrgza00019zabekinja2w" class="article-share-link">
+<a data-url="https://vhf.github.io/blog/2016/11/28/javascript-engines-hidden-classes/" data-id="ciw2hg3jz0000h9ab0mlwbt6l" class="article-share-link">
 <span class="text">share</span>
 </a>
 or
-<a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-02-25-javascript-engines-hidden-classes.md" class="article-suggest-modification">
+<a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-11-28-javascript-engines-hidden-classes.md" class="article-suggest-modification">
 <span class="text">suggest a modification</span>
 </a>
 </div>
@@ -282,7 +283,7 @@ or
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.0k words total</span><br>
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.1k words total</span><br>
 </div>
 </footer>
 </div>
