@@ -2,127 +2,127 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/hiring/</loc>
+        <loc>https://draft.li/blog/tags/promises/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/promises/</loc>
+        <loc>https://draft.li/blog/tags/git/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/babel/</loc>
+        <loc>https://draft.li/blog/tags/chrome/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/git/</loc>
+        <loc>https://draft.li/blog/tags/github/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/chrome/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/github/</loc>
-        <lastmod>2016-02-03T22:50:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhf.github.io/blog/tags/osx/</loc>
+        <loc>https://draft.li/blog/tags/osx/</loc>
         <lastmod>2016-02-04T19:06:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/file-systems/</loc>
+        <loc>https://draft.li/blog/tags/file-systems/</loc>
         <lastmod>2016-02-04T19:06:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/programming-language-design/</loc>
+        <loc>https://draft.li/blog/tags/programming-language-design/</loc>
         <lastmod>2016-02-12T11:42:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/rss/</loc>
+        <loc>https://draft.li/blog/tags/spark/</loc>
         <lastmod>2016-03-21T22:38:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/spark/</loc>
+        <loc>https://draft.li/blog/tags/ipython/</loc>
         <lastmod>2016-03-21T22:38:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/ipython/</loc>
+        <loc>https://draft.li/blog/tags/scala/</loc>
         <lastmod>2016-03-21T22:38:23.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/scala/</loc>
-        <lastmod>2016-03-21T22:38:23.000Z</lastmod>
+        <loc>https://draft.li/blog/tags/v8/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/es2015/</loc>
-        <lastmod>2016-11-28T19:21:43.000Z</lastmod>
+        <loc>https://draft.li/blog/tags/crankshaft/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/nodejs/</loc>
-        <lastmod>2016-11-28T19:21:43.000Z</lastmod>
+        <loc>https://draft.li/blog/tags/javascript/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/v8/</loc>
-        <lastmod>2016-11-30T07:59:59.000Z</lastmod>
+        <loc>https://draft.li/blog/tags/rss/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/crankshaft/</loc>
-        <lastmod>2016-11-30T07:59:59.000Z</lastmod>
+        <loc>https://draft.li/blog/tags/hiring/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhf.github.io/blog/tags/javascript/</loc>
-        <lastmod>2016-11-30T07:59:59.000Z</lastmod>
+        <loc>https://draft.li/blog/tags/es2015/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://draft.li/blog/tags/nodejs/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://draft.li/blog/tags/babel/</loc>
+        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
