@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://vhf.github.io/blog/"/>
-  <updated>2016-11-28T21:06:51.000Z</updated>
+  <updated>2016-11-30T07:59:59.000Z</updated>
   <id>https://vhf.github.io/blog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://vhf.github.io/blog/2016/11/28/javascript-engines-hidden-classes/"/>
     <id>https://vhf.github.io/blog/2016/11/28/javascript-engines-hidden-classes/</id>
     <published>2016-11-28T17:40:48.000Z</published>
-    <updated>2016-11-28T21:06:51.000Z</updated>
+    <updated>2016-11-30T07:59:59.000Z</updated>
     
     <content type="html"><![CDATA[<p>When V8 lead engineer Lars Bak<sup id="a1"><a href="#f1" title="Jump to footnote">1</a></sup> <a href="https://www.youtube.com/watch?v=hWhMKalEicY" target="_blank" rel="external">describes</a> V8 design decisions, the first thing he talks about are hidden classes.</p>
 <p>To better understand hidden classes we need to know what problem they solve. This article is a first introduction to this concept. It will:</p>
@@ -31,7 +31,7 @@
 <li><del>say a few things about inline caching because here as well using hidden classes can lead to big performance boost,</del></li>
 <li><del>show you why keeping them in mind can improve your JavaScript performance eg. by avoiding property deletion or polymorphic call-sites.</del><sup id="a2"><a href="#f2" title="Jump to footnote">2</a></sup></li>
 </ol>
-<h3 id="Properties-in-an-OO-World"><a href="#Properties-in-an-OO-World" class="headerlink" title="Properties in an OO World"></a>Properties in an OO World</h3><p>In a class-based object-oriented language such as Smalltalk or Java in which you cannot add or delete properties from an object on the fly, accessing properties is generally not costly. You can store object properties at fixed memory offsets because the object layout for an instance of a given class will never change. In this case, accessing a property can often be done with a single instruction: load the thing located at the given memory offset.</p>
+<h3 id="Properties-in-an-OO-World"><a href="#Properties-in-an-OO-World" class="headerlink" title="Properties in an OO World"></a>Properties in an OO World</h3><p>In a class-based object-oriented language such as C++, Java or C# in which you cannot add or delete methods and properties from an object on the fly, accessing properties is generally not costly. You can store object properties at fixed memory offsets because the object layout for an instance of a given class will never change.<sup id="a3"><a href="#f3" title="Jump to footnote">3</a></sup> In this case, accessing a property can often be done with a single instruction: load the thing located at the given memory offset.</p>
 <p>In an imaginary Java virtual machine, a Java object could be stored in memory as a simple structure which is the exact same for all instances of a same class. The properties (attributes, methods, …) are either primitive Java types (int, float, …) or pointers (to arrays, functions, …). This structure doesn’t hold the “whole” object data, it merely holds references (memory offsets) to where the “real” data is stored. Or as another JVM could do, an object could be stored as three simple pointers: the first one to the class object representing the type of the object, the second one to a table holding pointers to the object’s methods, the third one to the memory allocated for the object data.</p>
 <p>At this point, you noticed I’m mainly talking about strategies to store an object in memory and access their properties. We call this <strong>property access</strong> which means retrieving the value of an object property. It’s a mechanism we use all the time, here is how we leverage it in JavaScript:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> o = &#123; <span class="comment">// object</span></div><div class="line">  f: <span class="function">(<span class="params">x</span>) =&gt;</span> <span class="built_in">parseInt</span>(x, <span class="number">13</span>),</div><div class="line">  <span class="number">1337</span>: <span class="number">13.37</span> + <span class="number">20</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">o.f <span class="comment">// property access =&gt; function f</span></div><div class="line">o[<span class="number">1337</span>] <span class="comment">// property access =&gt; 33.37</span></div><div class="line">o.f(o[<span class="number">1337</span>]) <span class="comment">// performs two property accesses and one function call =&gt; 42</span></div></pre></td></tr></table></figure>
@@ -133,7 +133,8 @@
 </ul>
 <hr>
 <p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpot, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="http://vhf.github.io/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
-<p><b id="f2">2</b> This was my initial plan. I got lost on my way. The draft of this blog post has been sitting on my hard drive since February. I might publish a follow-up someday. :) <a href="#a2" title="Jump back to footnote reference">↩</a></p>]]></content>
+<p><b id="f2">2</b> This was my initial plan. I got lost on my way. The draft of this blog post has been sitting on my hard drive since February. I might publish a follow-up someday. :) <a href="#a2" title="Jump back to footnote reference">↩</a></p>
+<p><b id="f3">3</b> edited 2016/11/30: I incorrectly compared Java and Smalltalk. In Smalltalk, it is possible to add methods or properties to objects instantiated from a class, as pointed out by <a href="https://www.reddit.com/r/javascript/comments/5fkau7/javascript_engines_hidden_classes/dakylng/" target="_blank" rel="external">MoTTs_</a>. Their comment introduces a very relevant distinction between <em>compile-time classes and inheritance</em> and <em>runtime classes and inheritance</em>. <a href="#a3" title="Jump back to footnote reference">↩</a></p>]]></content>
     
     <summary type="html">
     
