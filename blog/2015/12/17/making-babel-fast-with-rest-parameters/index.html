@@ -91,7 +91,7 @@ Making Babel fast with ES2015 rest parameters
 </h1>
 </header>
 <div class="article-entry" itemprop="articleBody">
-<p>This post is a follow-up of <a href="http://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>. At the time, Babel 6 had only been published for a few hours.</p>
+<p>This post is a follow-up of <a href="https://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>. At the time, Babel 6 had only been published for a few hours.</p>
 <p>When Babel 6 was released, I quickly realised that I kind of missed my target: tail call optimisation had been dropped in the process. But all was not lost, I could still investigate Babel’s use of <code>arguments</code>.</p>
 <h1 id="Fixture-tests"><a href="#Fixture-tests" class="headerlink" title="Fixture tests"></a>Fixture tests</h1><p>First, I looked at a lot of fixture tests. These are files meant to test if a particular Babel transform or plug-in works properly. They consist of two files: <code>actual.js</code> (ES2015 code) and <code>expected.js</code>. The goal of this test is to check if the output of <code>babel actual.js</code> matches the content of <code>expected.js</code>.</p>
 <p>I noticed something about a particular transform : <code>babel-plugin-transform-es2015-parameters</code>, more precisely about its handling of <code>rest</code> parameters:</p>
