@@ -72,27 +72,6 @@
     </url>
 
     <url>
-        <loc>https://draft.li/blog/tags/v8/</loc>
-        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://draft.li/blog/tags/crankshaft/</loc>
-        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://draft.li/blog/tags/javascript/</loc>
-        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://draft.li/blog/tags/rss/</loc>
         <lastmod>2016-11-30T17:46:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -108,21 +87,42 @@
 
     <url>
         <loc>https://draft.li/blog/tags/es2015/</loc>
-        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
+        <lastmod>2016-11-30T18:27:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://draft.li/blog/tags/nodejs/</loc>
-        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
+        <lastmod>2016-11-30T18:27:08.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://draft.li/blog/tags/babel/</loc>
-        <lastmod>2016-11-30T17:46:07.000Z</lastmod>
+        <lastmod>2016-11-30T18:27:08.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://draft.li/blog/tags/v8/</loc>
+        <lastmod>2016-12-05T13:17:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://draft.li/blog/tags/crankshaft/</loc>
+        <lastmod>2016-12-05T13:17:39.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://draft.li/blog/tags/javascript/</loc>
+        <lastmod>2016-12-05T13:17:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

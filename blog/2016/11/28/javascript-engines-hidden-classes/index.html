@@ -15,7 +15,7 @@
 <meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-step2.svg">
 <meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-snapshot.png">
 <meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-snapshot-hover.png">
-<meta property="og:updated_time" content="2016-11-30T17:46:07.000Z">
+<meta property="og:updated_time" content="2016-12-05T13:17:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
 <meta name="twitter:description" content="An introduction.">
@@ -142,7 +142,7 @@ JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
 <p><strong>To compensate for the absence of classes, our system uses implementation-level <em>maps</em> to transparently group objects cloned from the same prototype</strong> […]</p>
 <p class="quote-author"><a href="http://dl.acm.org/citation.cfm?doid=74878.74884" target="_blank" rel="external">C. Chambers, D. Ungar, and E. Lee. “An Efficient Implementation Of SELF, a Dynamically-Typed Object-Oriented Language Based on Prototypes.” <em>SIGPLAN Not. 24</em>, no. 10 (September 1989): 49–70.</a></p>
 </blockquote>
-<p><em>Hidden class</em> is a better, more explicit name for what this paper calls a <em>map</em>. It makes reference to SELF and avoids confusion with the <em>Map</em> data structures and their JavaScript implementation <em><a href="ecmamap">Map Objects</a></em>, although in fact they really are named <em>maps</em> in V8. This short vocabulary brief will prove handy when we’ll start digging into V8. I’ll mostly stick to the <em>hidden classes</em> terminology but don’t be surprised if I drop a <em>map</em> here and there for variety.</p>
+<p><em>Hidden class</em> is a better, more explicit name for what this paper calls a <em>map</em>. It makes reference to SELF and avoids confusion with the <em>Map</em> data structures and their JavaScript implementation <em><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-map-objects" target="_blank" rel="external">Map Objects</a></em>, although in fact they really are named <em>maps</em> in V8. This short vocabulary brief will prove handy when we’ll start digging into V8. I’ll mostly stick to the <em>hidden classes</em> terminology but don’t be surprised if I drop a <em>map</em> here and there for variety.</p>
 <p>Most of the modern JavaScript engines we use today implement similar approaches or hidden classes variants. Safari <a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore" target="_blank" rel="external">JavaScriptCore</a> has <em>structures</em>. Microsoft Edge’s ChakraCore has <em><a href="http://abchatra.github.io/Type/" target="_blank" rel="external">type</a>s</em>. Firefox’ SpiderMonkey has <em>shapes</em>:</p>
 <blockquote>
 <p>There are a number of data structures within SpiderMonkey dedicated to making object property accesses fast. The most important of these are Shapes. […] Shapes are linked into linear sequences called “shape lineages”, which describe object layouts. Some shape lineages are shared and live in “property trees”. Other shape lineages are unshared and belong to a single JS object; these are “in dictionary mode”.</p>

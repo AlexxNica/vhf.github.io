@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>concise notes</title>
-
+  
   <link href="/blog/atom.xml" rel="self"/>
-
+  
   <link href="https://draft.li/blog/"/>
-  <updated>2016-11-30T17:46:07.000Z</updated>
+  <updated>2016-12-05T13:17:39.000Z</updated>
   <id>https://draft.li/blog/</id>
-
+  
   <author>
     <name>victor felder</name>
-
+    
   </author>
-
+  
   <generator uri="http://hexo.io/">Hexo</generator>
-
+  
   <entry>
     <title>JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</title>
     <link href="https://draft.li/blog/2016/11/28/javascript-engines-hidden-classes/"/>
     <id>https://draft.li/blog/2016/11/28/javascript-engines-hidden-classes/</id>
     <published>2016-11-28T17:40:48.000Z</published>
-    <updated>2016-11-30T17:46:07.000Z</updated>
-
+    <updated>2016-12-05T13:17:39.000Z</updated>
+    
     <content type="html"><![CDATA[<p>When V8 lead engineer Lars Bak<sup id="a1"><a href="#f1" title="Jump to footnote">1</a></sup> <a href="https://www.youtube.com/watch?v=hWhMKalEicY" target="_blank" rel="external">describes</a> V8 design decisions, the first thing he talks about are hidden classes.</p>
 <p>To better understand hidden classes we need to know what problem they solve. This article is a first introduction to this concept. It will:</p>
 <ol>
@@ -67,7 +67,7 @@
 <p><strong>To compensate for the absence of classes, our system uses implementation-level <em>maps</em> to transparently group objects cloned from the same prototype</strong> […]</p>
 <p class="quote-author"><a href="http://dl.acm.org/citation.cfm?doid=74878.74884" target="_blank" rel="external">C. Chambers, D. Ungar, and E. Lee. “An Efficient Implementation Of SELF, a Dynamically-Typed Object-Oriented Language Based on Prototypes.” <em>SIGPLAN Not. 24</em>, no. 10 (September 1989): 49–70.</a></p>
 </blockquote>
-<p><em>Hidden class</em> is a better, more explicit name for what this paper calls a <em>map</em>. It makes reference to SELF and avoids confusion with the <em>Map</em> data structures and their JavaScript implementation <em><a href="ecmamap">Map Objects</a></em>, although in fact they really are named <em>maps</em> in V8. This short vocabulary brief will prove handy when we’ll start digging into V8. I’ll mostly stick to the <em>hidden classes</em> terminology but don’t be surprised if I drop a <em>map</em> here and there for variety.</p>
+<p><em>Hidden class</em> is a better, more explicit name for what this paper calls a <em>map</em>. It makes reference to SELF and avoids confusion with the <em>Map</em> data structures and their JavaScript implementation <em><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-map-objects" target="_blank" rel="external">Map Objects</a></em>, although in fact they really are named <em>maps</em> in V8. This short vocabulary brief will prove handy when we’ll start digging into V8. I’ll mostly stick to the <em>hidden classes</em> terminology but don’t be surprised if I drop a <em>map</em> here and there for variety.</p>
 <p>Most of the modern JavaScript engines we use today implement similar approaches or hidden classes variants. Safari <a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore" target="_blank" rel="external">JavaScriptCore</a> has <em>structures</em>. Microsoft Edge’s ChakraCore has <em><a href="http://abchatra.github.io/Type/" target="_blank" rel="external">type</a>s</em>. Firefox’ SpiderMonkey has <em>shapes</em>:</p>
 <blockquote>
 <p>There are a number of data structures within SpiderMonkey dedicated to making object property accesses fast. The most important of these are Shapes. […] Shapes are linked into linear sequences called “shape lineages”, which describe object layouts. Some shape lineages are shared and live in “property trees”. Other shape lineages are unshared and belong to a single JS object; these are “in dictionary mode”.</p>
@@ -135,33 +135,33 @@
 <p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpot, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="https://draft.li/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
 <p><b id="f2">2</b> This was my initial plan. I got lost on my way. The draft of this blog post has been sitting on my hard drive since February. I might publish a follow-up someday. :) <a href="#a2" title="Jump back to footnote reference">↩</a></p>
 <p><b id="f3">3</b> edited 2016/11/30: I incorrectly compared Java and Smalltalk. In Smalltalk, it is possible to add methods or properties to objects instantiated from a class, as pointed out by <a href="https://www.reddit.com/r/javascript/comments/5fkau7/javascript_engines_hidden_classes/dakylng/" target="_blank" rel="external">MoTTs_</a>. Their comment introduces a very relevant distinction between <em>compile-time classes and inheritance</em> and <em>runtime classes and inheritance</em>. <a href="#a3" title="Jump back to footnote reference">↩</a></p>]]></content>
-
+    
     <summary type="html">
-
+    
       An introduction.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="v8" scheme="https://draft.li/blog/tags/v8/"/>
-
+    
       <category term="crankshaft" scheme="https://draft.li/blog/tags/crankshaft/"/>
-
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>!!Con and a week back at the Recurse Center</title>
     <link href="https://draft.li/blog/2016/05/16/ngw-2016/"/>
     <id>https://draft.li/blog/2016/05/16/ngw-2016/</id>
     <published>2016-05-16T15:36:41.000Z</published>
     <updated>2016-05-16T19:38:32.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>10 days ago I attended <a href="http://bangbangcon.com" target="_blank" rel="external">!!Con</a>, the most excellent <del>dumpling house</del> programming conference. I was blown away by the quality of the talks, the skills/knowledge/humor of the presenters, the diversity and kindness of both the organizers and the crowd, and the two incredible keynotes <a href="http://cattsmall.com" target="_blank" rel="external">Catt Small</a> and <a href="http://nas.sr" target="_blank" rel="external">Ramsey Nasser</a> gave. The whole conference was also captioned in realtime by <a href="http://stenoknight.com" target="_blank" rel="external">Mirabai Knight</a>.</p>
 <p>Here are some <a href="https://github.com/bangbangcon/bangbangcon.github.io/tree/master/2016-speaker-materials" target="_blank" rel="external">slides</a>, the <a href="https://twitter.com/bangbangcon/status/730418049824608256" target="_blank" rel="external">full video recordings</a> of the live stream and the whole <a href="http://aloft.nu/mkk/bangbangconsaturday" target="_blank" rel="external">trans</a>c<a href="http://aloft.nu/mkk/bangbangconsunday" target="_blank" rel="external">ripts</a>.</p>
 <p>Besides (having breakfast and) meeting great people there, a few highlights include the following talks, in alphabetical order:</p>
@@ -200,25 +200,25 @@
 </ul>
 <p>I had a blast. Awesome week surrounded by awesome people. I kind of want to list everyone I met or hung out with but I won’t. I noticed that when you meet someone for the first time, staying in touch is really hard, almost always it’s like a good intention which takes a huge effort to fulfill. When you meet for the second time, it’s a bit easier to stay in touch afterwards.</p>
 <p>I’d like to run a little experiment regarding this. I made a list of people when leaving NYC. Staying in touch with all of them looks impossible to me, I’m always way too cautious when writing emails, it takes me ages. Perhaps I could try writing (at least) once a month to a different person from this list? To check in on their projects/work/lives/etc? (I think answering a short email whenever someone replies to one of my emails is much more feasible than attempting to write to everyone, so I could probably keep the ball rolling?)</p>]]></content>
-
+    
     <summary type="html">
-
+    
       People and programming. Mainly people.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
-
+    
+    
   </entry>
-
+  
   <entry>
     <title>How Many Websites Provide RSS / Web Syndication Feeds</title>
     <link href="https://draft.li/blog/2016/03/21/rss-usage-on-the-web/"/>
     <id>https://draft.li/blog/2016/03/21/rss-usage-on-the-web/</id>
     <published>2016-03-21T06:20:05.000Z</published>
     <updated>2016-03-21T22:38:23.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>I became interested in web syndication feeds recently. It’s an old technology nobody talks about anymore, but everybody still provides them. Taking a look at Google Trends shows us how much people have lost interest in RSS since its peak popularity in 2006:</p>
 <script type="text/javascript" src="//www.google.com/trends/embed.js?hl=en-US&q=RSS&cmpt=q&tz=Etc/GMT-1&tz=Etc/GMT-1&content=1&cid=TIMESERIES_GRAPH_0&export=5&w=970&h=330"></script>
 <p>It’s an old technology people seem to have lost interest in, but can we still rely on it? Are people abandoning web syndication? With the advent of CMS (eg. the huge popularity of WordPress), static website generators and publishing platforms (eg. Medium) which all provide syndication feeds <em>by default</em>, RSS doesn’t look dead to me.</p>
@@ -332,35 +332,35 @@
 <li>RSS is the most popular syndication format by far with 76.6%, Atom is at 18.8%.</li>
 <li>97.09% of the <code>&lt;link</code> tags pointing to an RSS or Atom feed also specify <code>rel=&quot;alternate&quot;</code>, as the HTML standard recommends.</li>
 </ul>]]></content>
-
+    
     <summary type="html">
-
+    
       How to find out? Let&#39;s dig.
-
+    
     </summary>
-
+    
       <category term="project" scheme="https://draft.li/blog/categories/project/"/>
-
+    
       <category term="old tech new ideas" scheme="https://draft.li/blog/categories/project/old-tech-new-ideas/"/>
-
-
+    
+    
       <category term="rss" scheme="https://draft.li/blog/tags/rss/"/>
-
+    
       <category term="spark" scheme="https://draft.li/blog/tags/spark/"/>
-
+    
       <category term="ipython" scheme="https://draft.li/blog/tags/ipython/"/>
-
+    
       <category term="scala" scheme="https://draft.li/blog/tags/scala/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Navigating the ECMAScript® 2015 Language Specification</title>
     <link href="https://draft.li/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/"/>
     <id>https://draft.li/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/</id>
     <published>2016-02-06T11:12:12.000Z</published>
     <updated>2016-02-08T19:58:17.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>Reading a language specification is not an easy thing. I thought it would be interesting to show how you can use it to explain some JavaScript questions.</p>
 <p>Here is one I encountered a few minutes ago on IRC:</p>
 <blockquote>
@@ -396,31 +396,31 @@ UnicodeIDStart ::
 </blockquote>
 <p>There it is. <code>0</code> does not have the property “ID_Start”. No ID_Start ⇒ not a valid <code>IdentifierStart</code> ⇒ not a valid <code>IdentifierName</code> ⇒ not a valid property accessor using the dot notation.</p>
 <p><em>I’m <a href="https://twitter.com/_vhf" target="_blank" rel="external">@_vhf</a> on Twitter, feel free to follow me there.</em></p>]]></content>
-
+    
     <summary type="html">
-
+    
       Finding answers to your JavaScript questions with the help of the official ECMAScript specification. Here&#39;s how.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>The dangers of HFS+ for git repositories</title>
     <link href="https://draft.li/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/"/>
     <id>https://draft.li/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/</id>
     <published>2016-02-04T19:00:00.000Z</published>
     <updated>2016-02-04T19:06:07.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>HFS+ is not case sensitive. It took me 6 months to realize this basic fact. It’s one of these things you never bother researching when you consider buying a mac. Last week it hit me hard. I spent 30 minutes trying to fix something that should have been fixed in 30 seconds at most.</p>
 <p>A colleague had created <code>File.ext</code> on our website hosted on github pages but printed <code>url/file.ext</code> on important documents they were supposed to hand over to someone. Without access to either Internet or a printer, they asked me to fix this. Easy as pie. Except…</p>
 <pre><code>$ mkdir gittest &amp;&amp; cd gittest
@@ -465,29 +465,29 @@ A a
 <p>Even if their doc on this subject is very, very poor, I found the following solution:</p>
 <pre><code>echo idea.case.sensitive.fs=true &gt;&gt; Library/Preferences/IntelliJIdea15/idea.properties
 </code></pre><p>It feels safer now though I cannot really understand why case insensitive file systems still exist in 2016. Probably because people like me buy macs, I know.</p>]]></content>
-
+    
     <summary type="html">
-
+    
       OSX file system, HFS+, is case insensitive.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
-
+    
+    
       <category term="osx" scheme="https://draft.li/blog/tags/osx/"/>
-
+    
       <category term="file systems" scheme="https://draft.li/blog/tags/file-systems/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Fixing Hiring through RSS</title>
     <link href="https://draft.li/blog/2016/02/02/fixing-hiring-through-rss/"/>
     <id>https://draft.li/blog/2016/02/02/fixing-hiring-through-rss/</id>
     <published>2016-02-02T16:17:17.000Z</published>
     <updated>2016-11-30T17:46:07.000Z</updated>
-
+    
     <content type="html"><![CDATA[<blockquote>
 <p><code>From: Victor Felder &lt;me@example.com&gt;</code><br><code>To: &lt;you@example.com&gt;</code></p>
 <h2 id="I’m-not-looking-for-work-thanks-for-asking"><a href="#I’m-not-looking-for-work-thanks-for-asking" class="headerlink" title="I’m not looking for work, thanks for asking!"></a>I’m not looking for work, thanks for asking!</h2><p>Really, I appreciate your attention. Both you and I know that sooner or later I’ll be looking for a job again. I understand you might need to hire someone right now. In this case, and if you’re not a recruiter, you could still find my email address on the web and take your chance if you really believe I would be a good fit. Otherwise, if you’re not in a hurry and if you consider I would still be worth hiring in a few months/years/decades or if you think I’d be an awesome colleague, here’s what you could do: Subscribe to <a href="https://draft.li/job.xml">this RSS feed</a> to get notified as soon as I’m back on the job market.</p>
@@ -504,31 +504,31 @@ A a
 <p><em>I’m <a href="https://twitter.com/_vhf" target="_blank" rel="external">@_vhf</a> on Twitter, please feel free to follow me. I’ll probably be blogging again about other RSS-related things because unlike a Norwegian Blue parrot, web feed are not dead<sup id="a1"><a href="#f1" title="Jump to footnote">1</a></sup>.</em></p>
 <hr>
 <p><b id="f1">1</b> Although (according to <a href="https://www.google.com/trends/explore#q=%2Fm%2F035c93%2C%20%2Fm%2F0n5tx&amp;cmpt=q&amp;tz=Etc%2FGMT-1" target="_blank" rel="external">Google Trends</a>) interest for web feeds in the general public has been steadily declining since December 2005, more than a third of the top 1,000,000 most visited websites are providing an XML feed according to <a href="http://trends.builtwith.com/feeds/" target="_blank" rel="external">builtwith</a>. Please get in touch if you have relevant data, e.g. if you know whether this &gt;33% statistic is in a down- or uptrend. We could even mine <a href="https://commoncrawl.org/" target="_blank" rel="external">Common Crawl</a> for XML feeds presence with subdomain granularity. Any help much appreciated. <a href="#a1" title="Jump back to footnote reference">↩</a></p>]]></content>
-
+    
     <summary type="html">
-
+    
       What if people had feeds companies could subscribe to, to be notified when start looking for work?
-
+    
     </summary>
-
+    
       <category term="project" scheme="https://draft.li/blog/categories/project/"/>
-
+    
       <category term="old tech new ideas" scheme="https://draft.li/blog/categories/project/old-tech-new-ideas/"/>
-
-
+    
+    
       <category term="rss" scheme="https://draft.li/blog/tags/rss/"/>
-
+    
       <category term="hiring" scheme="https://draft.li/blog/tags/hiring/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Enhancing GitHub with Chrome extensions</title>
     <link href="https://draft.li/blog/2016/01/30/enhancing-github-with-chrome-extensions/"/>
     <id>https://draft.li/blog/2016/01/30/enhancing-github-with-chrome-extensions/</id>
     <published>2016-01-30T17:18:18.000Z</published>
     <updated>2016-02-03T22:50:28.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>If you ever maintained a popular GitHub project, you might have suffered from a couple of things:</p>
 <ul>
 <li>Your GitHub news feed became <a href="/images/github-feed.png">useless</a> because stars, issues/PR comments, wiki edits notifications were burying the notifications you were interested in in an endless flood.</li>
@@ -544,31 +544,31 @@ A a
 <p>I intend to use it to insert repetitive answers to the PRs I got, I’m sure it will prove particularly useful to avoid having to explain the same stuff over and over again, for example to tell people that a failed Travis run on a PR means they should go check Travis’ logs and actually fix their commits or ask for help.</p>
 <h3 id="Isometric-Contributions-src"><a href="#Isometric-Contributions-src" class="headerlink" title="Isometric Contributions (src)"></a><a href="https://chrome.google.com/webstore/detail/isometric-contributions/mjoedlfflcchnleknnceiplgaeoegien" target="_blank" rel="external">Isometric Contributions</a> (<a href="https://github.com/jasonlong/isometric-contributions" target="_blank" rel="external">src</a>)</h3><p>Isometric Contributions is the fun one. It does not serve a particularly useful purpose. All it does is rendering a GitHub user contribution graph (the small squares you keep abusing to draw cat emojis or propose to your SO, you know) as isometric pixel art. And it’s beautiful.</p>
 <p>Please tweet me <a href="https://twitter.com/_vhf" target="_blank" rel="external"><code>@_vhf</code></a>if you think I forgot your favorite GitHub Chrome extension!</p>]]></content>
-
+    
     <summary type="html">
-
+    
       GitHub lacks a few features which might be useful for popular projects maintainers. Here are some helpful Chrome extensions.
-
+    
     </summary>
-
+    
       <category term="project" scheme="https://draft.li/blog/categories/project/"/>
-
+    
       <category term="tools" scheme="https://draft.li/blog/categories/project/tools/"/>
-
-
+    
+    
       <category term="chrome" scheme="https://draft.li/blog/tags/chrome/"/>
-
+    
       <category term="github" scheme="https://draft.li/blog/tags/github/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Chromium, Chrome, Node.js, V8, Crankshaft and bailout reasons</title>
     <link href="https://draft.li/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/"/>
     <id>https://draft.li/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/</id>
     <published>2016-01-22T19:20:20.000Z</published>
     <updated>2016-11-28T19:21:43.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>This post is a short summary about all these terms, with a rough description of how V8 works. (It’s rather an overview of how Crankshaft works, really.)</p>
 <h2 id="Chromium-Chrome-Node-js"><a href="#Chromium-Chrome-Node-js" class="headerlink" title="Chromium, Chrome, Node.js"></a>Chromium, Chrome, Node.js</h2><p>The Chromium Project is responsible for Chromium’s development. Chromium, released in 2008, is the open-source web browser on which Google Chrome is based. Chromium’s JavaScript engine is V8. Other projects such as the Opera web browser and the Node.js runtime use V8 as their JavaScript engine.</p>
 <h2 id="V8"><a href="#V8" class="headerlink" title="V8"></a>V8</h2><p>V8 compiles JavaScript to native machine code and executes it right away. In 2010, the Chromium Project released a new version of V8 including a new compiling infrastructure named Crankshaft (<a href="https://en.wikipedia.org/wiki/Chromium_(web_browser)" target="_blank" rel="external">#1</a>, <a href="https://en.wikipedia.org/wiki/V8_(JavaScript_engine)" target="_blank" rel="external">#2</a>).</p>
@@ -586,74 +586,74 @@ A a
 <p>A function which gets optimized can run 100x faster, meaning that it’s kind of wise to learn about these bailout patterns to best avoid them if you care about the JavaScript performances of the code you run on V8 (for instance if you target Chromium/Chrome, Node.js or Opera).</p>
 <p>I’ll most probably write a follow up about TurboFan -the new V8 JavaScript optimizing compiler- and what it brings to the table.</p>
 <p><em>References on this subject: <a href="http://blog.chromium.org/2010/12/new-crankshaft-for-v8.html" target="_blank" rel="external">#3</a>, <a href="https://github.com/GoogleChrome/devtools-docs/issues/53" target="_blank" rel="external">#4</a>, <a href="https://github.com/petkaantonov/bluebird/wiki/Optimization-killers" target="_blank" rel="external">#5</a>, <a href="http://thibaultlaurens.github.io/javascript/2013/04/29/how-the-v8-engine-works/" target="_blank" rel="external">#6</a></em></p>]]></content>
-
+    
     <summary type="html">
-
+    
       A short summary about these terms, an overview of how V8 / Crankshaft works.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="v8" scheme="https://draft.li/blog/tags/v8/"/>
-
+    
       <category term="crankshaft" scheme="https://draft.li/blog/tags/crankshaft/"/>
-
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
       <category term="nodejs" scheme="https://draft.li/blog/tags/nodejs/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Chrome 49 is coming, with 92% ES2015 coverage!</title>
     <link href="https://draft.li/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/"/>
     <id>https://draft.li/blog/2016/01/21/Chrome-49-is-coming-with-92-ES2015-coverage/</id>
     <published>2016-01-21T20:53:35.000Z</published>
     <updated>2016-11-30T17:46:07.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>December 11, Chrome 49 landed on the Dev channel. This week, with already <a href="https://googlechromereleases.blogspot.com" target="_blank" rel="external">two new releases of Chrome 49</a> to the Dev channel, the process seems to intensify.</p>
 <p>On Tuesday <a href="http://seththompson.org" target="_blank" rel="external">Seth Thompson</a>, who works on V8, <a href="https://news.ycombinator.com/item?id=10932790" target="_blank" rel="external">wrote on HN</a> that “V8 now has 92% ES6 coverage in Chrome Canary (on track for shipping in Chrome M49)!”</p>
 <p>kangax’ awesome <a href="http://kangax.github.io/compat-table/es6/#chrome49" target="_blank" rel="external">ECMAScript compatibility table</a> is already up to date, and Chrome 49’s column looks very green indeed.</p>
 <p>Since I talked about both optimizing <strong>rest parameters</strong> in Babel (<a href="https://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">#1</a>, <a href="https://draft.li/blog/2015/12/17/making-babel-fast-with-rest-parameters/">#2</a>) and <strong><a href="https://github.com/vhf/v8-bailout-reasons" target="_blank" rel="external">V8 bailout reasons</a></strong> (<a href="https://draft.li/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/">#3</a>, <a href="https://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">#1</a>, <a href="https://draft.li/blog/2015/12/17/making-babel-fast-with-rest-parameters/">#2</a>) on this blog, I thought I would look into it again.</p>
 <p>The upcoming version of V8 does support rest parameters, and that’s awesome! But Crankshaft bails out when it encounters one of them (<a href="https://chromium.googlesource.com/v8/v8/+/d3f074b23195a2426d14298dca30c4cf9183f203%5E%21/src/bailout-reason.h" target="_blank" rel="external">#4</a>) instead of optimizing your function, and that’s less awesome. But the engineer who introduced this bailout said (<a href="https://codereview.chromium.org/1272673003" target="_blank" rel="external">#5</a>) they will be optimized by TurboFan instead, awesome again! (He even hinted that all currently “unsafe” usages of the <code>arguments</code> object will be optimized, and that’s <em>very awesome</em>!)</p>
 <p>In the meantime, before all of these ES2015 features land in Node, before TurboFan comes in handy, I guess I’ll keep using Babel’s <code>transform-es2015-parameters</code> for my Node code.</p>]]></content>
-
+    
     <summary type="html">
-
+    
       It&#39;s coming, it&#39;s awesome, but some features might still be worth transpiling.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="v8" scheme="https://draft.li/blog/tags/v8/"/>
-
+    
       <category term="crankshaft" scheme="https://draft.li/blog/tags/crankshaft/"/>
-
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
       <category term="nodejs" scheme="https://draft.li/blog/tags/nodejs/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Modifying or Deleting a Line from an Old Commit</title>
     <link href="https://draft.li/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/"/>
     <id>https://draft.li/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</id>
     <published>2016-01-20T22:59:59.000Z</published>
     <updated>2016-02-03T22:50:28.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>I’ll spare you and assume you know what you’re doing, so here’s the short version. Keep reading for a more comprehensive one.</p>
 <ol>
 <li>Find the commit you want to change or delete</li>
@@ -704,25 +704,25 @@ A a
 <p>The first time I had to do that it took me quite some time to figure it out, and search engines weren’t that helpful.</p>
 <p>If you have a complex history and would like to edit a bad merge or other weird cases AND if you like <em>choose your own adventure</em> books, take a look at this: <a href="http://sethrobertson.github.io/GitFixUm/fixup.html" target="_blank" rel="external">http://sethrobertson.github.io/GitFixUm/fixup.html</a>. It’s as awesome as it’s hard to navigate! :)</p>
 <p>PS: I’m not responsible if you rewrite the history of a publicly traded github repository.<br>PPS: I’m now the very proud owner of a very useless domain name: <a href="http://☑.ml" target="_blank" rel="external">☑.ml</a>. (You can even append <code>/blog/</code> to get here. UTF-8 works!) Finally a URL I could handwrite without worrying about my handwriting (while worrying about the poor people who will try to type it in their browser instead)!</p>]]></content>
-
+    
     <summary type="html">
-
+    
       Here&#39;s how. But seriously, you probably shouldn&#39;t do it.
-
+    
     </summary>
-
-
+    
+    
       <category term="git" scheme="https://draft.li/blog/tags/git/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>One Simple Trick for JavaScript Performance Optimization</title>
     <link href="https://draft.li/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/"/>
     <id>https://draft.li/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</id>
     <published>2016-01-15T00:20:12.000Z</published>
     <updated>2016-02-03T22:50:28.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>Sorry for the clickbait. It’s so omnipresent these days, I <em>had</em> to try it. 90% of my daily Medium digest and 90% of my Pocket recommendations are like this. Note to self: write some kind of clickbait filtering software. Obtaining a huge training set should <strong>not</strong> be an issue. (We could even crowdsource these! How fun!)</p>
 <p>Anyway. If you follow my blog (and I’m not sure you should), you might have guessed that I’m currently having fun with V8’s optimizing compiler, an awesome piece of software romantically called Crankshaft. Basically, it’s what makes JavaScript fast on Chrome/nodejs.</p>
 <p>Most of the time Crankshaft is able to optimize JavaScript functions. They then run really fast.</p>
@@ -738,35 +738,35 @@ A a
 <li>A function with 511 parameters always looks better than a function with 512 parameters. (I have discovered a truly remarkable proof which this margin is too small to contain.)</li>
 </ul>
 <p><em>Note: I originally wrote this article with 65535 instead of 512. I did not pay enough attention while reading V8 source code. It was 65535 bits, i.e. 512 bytes, or 512 parameters. Not 65535 parameters. <a href="https://github.com/vhf/concise-notes/commit/88fc535cbe23a567ddd3e65f8f64c6590936a51b" target="_blank" rel="external">Review the diff</a>.</em></p>]]></content>
-
+    
     <summary type="html">
-
+    
       My attempt at clickbait. Also, an interesting (who said &quot;useless&quot;) JS performance tip.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="v8" scheme="https://draft.li/blog/tags/v8/"/>
-
+    
       <category term="crankshaft" scheme="https://draft.li/blog/tags/crankshaft/"/>
-
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="nodejs" scheme="https://draft.li/blog/tags/nodejs/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Comment Syntax in Programming Languages (and the Eye of Osiris)</title>
     <link href="https://draft.li/blog/2016/01/13/comment-syntax-in-programming-languages/"/>
     <id>https://draft.li/blog/2016/01/13/comment-syntax-in-programming-languages/</id>
     <published>2016-01-13T18:19:19.000Z</published>
     <updated>2016-02-12T11:42:06.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>I witnessed an uncommon debate the other day. Someone was asking why programming languages don’t agree on a common syntax for comments.</p>
 <p>Besides the usual indifferent answers such as “why would they”, “why should they”, and “it doesn’t matter in the least”, a couple of points were made:</p>
 <ol>
@@ -776,27 +776,27 @@ A a
 <p>In conclusion, why not just rip off <a href="https://vimeo.com/111122950" target="_blank" rel="external">Sketchy JS</a>‘ “Eye of Osiris” operator syntax introduced by James Mickens?</p>
 <p class="pre-fake">{[~æ<br>this is a comment<br>*$€<img src="/blog/images/beyonce.jpg" alt="Beyonce" style="margin:none!important;display:inline-block;height:37px;width:39px;vertical-align:text-top"></p>
 <p>(A curly brace, a square brace, a squiggle, and the combined AE character. Place your comment after the first part of the Eye of Osiris and close the Eye of Osiris using an asterisk, a dollar sign, a euro sign, and a tiny picture of Beyonce.)</p>]]></content>
-
+    
     <summary type="html">
-
+    
       Wadler&#39;s law is bikeshedding applied to programming languages design.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
-
+    
+    
       <category term="programming language design" scheme="https://draft.li/blog/tags/programming-language-design/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>Making Babel fast with ES2015 rest parameters</title>
     <link href="https://draft.li/blog/2015/12/17/making-babel-fast-with-rest-parameters/"/>
     <id>https://draft.li/blog/2015/12/17/making-babel-fast-with-rest-parameters/</id>
     <published>2015-12-17T12:36:59.000Z</published>
-    <updated>2016-11-30T17:46:07.000Z</updated>
-
+    <updated>2016-11-30T18:27:08.000Z</updated>
+    
     <content type="html"><![CDATA[<p>This post is a follow-up of <a href="https://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/">JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</a>. At the time, Babel 6 had only been published for a few hours.</p>
 <p>When Babel 6 was released, I quickly realised that I kind of missed my target: tail call optimisation had been dropped in the process. But all was not lost, I could still investigate Babel’s use of <code>arguments</code>.</p>
 <h1 id="Fixture-tests"><a href="#Fixture-tests" class="headerlink" title="Fixture tests"></a>Fixture tests</h1><p>First, I looked at a lot of fixture tests. These are files meant to test if a particular Babel transform or plug-in works properly. They consist of two files: <code>actual.js</code> (ES2015 code) and <code>expected.js</code>. The goal of this test is to check if the output of <code>babel actual.js</code> matches the content of <code>expected.js</code>.</p>
@@ -818,39 +818,39 @@ A a
 <figure class="highlight js"><figcaption><span>actual.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">u</span>(<span class="params">f, g, ...items</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = f;</div><div class="line">    <span class="keyword">var</span> y = g;</div><div class="line">    x[<span class="number">12</span>] = items[<span class="number">0</span>];</div><div class="line">    y.prop = items[<span class="number">1</span>];</div><div class="line">    <span class="keyword">var</span> z = items[<span class="number">2</span>] | <span class="number">0</span> || <span class="number">12</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight js"><figcaption><span>expected.js</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">u</span>(<span class="params">f, g</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> x = f;</div><div class="line">    <span class="keyword">var</span> y = g;</div><div class="line">    x[<span class="number">12</span>] = <span class="built_in">arguments</span>.length &lt;= <span class="number">2</span> ? <span class="literal">undefined</span> : <span class="built_in">arguments</span>[<span class="number">2</span>];</div><div class="line">    y.prop = <span class="built_in">arguments</span>.length &lt;= <span class="number">3</span> ? <span class="literal">undefined</span> : <span class="built_in">arguments</span>[<span class="number">3</span>];</div><div class="line">    <span class="keyword">var</span> z = (<span class="built_in">arguments</span>.length &lt;= <span class="number">4</span> ? <span class="literal">undefined</span> : <span class="built_in">arguments</span>[<span class="number">4</span>]) | <span class="number">0</span> || <span class="number">12</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>Hopefully, this part is done. I’ll try to find some other Crankshaft-related-JS-anti-patterns in what Babel generates.</p>]]></content>
-
+    
     <summary type="html">
-
+    
       What I did to help avoid bailouts on rest parameters transpilation.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="v8" scheme="https://draft.li/blog/tags/v8/"/>
-
+    
       <category term="crankshaft" scheme="https://draft.li/blog/tags/crankshaft/"/>
-
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
       <category term="nodejs" scheme="https://draft.li/blog/tags/nodejs/"/>
-
+    
       <category term="babel" scheme="https://draft.li/blog/tags/babel/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>JavaScript performance with Babel and Node.js: a case against default parameters in tail call optimizations</title>
     <link href="https://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/"/>
     <id>https://draft.li/blog/2015/11/02/javascript-performance-with-babel-and-node-js/</id>
     <published>2015-11-02T12:36:59.000Z</published>
     <updated>2016-02-03T22:50:28.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>Disclaimer:</p>
 <ul>
 <li>Babel 5.8.29 (babel-core 5.8.33)</li>
@@ -961,39 +961,39 @@ Fastest is #3 TCO/no default params
 <li>How did you come up with this thing? One of might projects depends on underscore, which does not have an equivalent of <a href="https://lodash.com/docs#get" target="_blank" rel="external"><code>get</code></a>. So I quickly drafted the tail rec <code>_.get</code> I was dreaming of, then googled for a bit and found John-David Dalton’s <a href="https://github.com/jashkenas/underscore/issues/2268#issuecomment-128731431" target="_blank" rel="external"><code>_.reduce(path, _.partial(_.result, _, _, void 0), object)</code></a>(which felt like too much black magic for me). But me being curious and it being a cold evening, I benchmarked both solutions. And mine was awfully slow. So I asked V8 about it, discovered the <em>phi</em> thing, reimplemented my recursive <code>get</code> without its default parameter, ran the benchmark again and got this: <code>TCO 676,411(±0.43%) | 674,426(±0.49%) JDD</code>. So, basically the same performances. Underscore never fails to impress me! Which led to two things: 1/ I kept my nice recursive <code>get</code> because it’s more readable, 2/ I spent my weekend researching+writing this blog post.</li>
 <li>I know I should probably not rely on this benchmark package and should do cpu profiling instead, and that it’s easy to do with V8, etc. I think the timing differences shown here are big enough to decide that for this particular post, benchmark is good enough. But I’ll do better next time.</li>
 </ul>]]></content>
-
+    
     <summary type="html">
-
+    
       Babel might prevent some V8 optimizations to happen. Also, have you heard about Unsupported Phi Use of Arguments?
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="v8" scheme="https://draft.li/blog/tags/v8/"/>
-
+    
       <category term="crankshaft" scheme="https://draft.li/blog/tags/crankshaft/"/>
-
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
       <category term="nodejs" scheme="https://draft.li/blog/tags/nodejs/"/>
-
+    
       <category term="babel" scheme="https://draft.li/blog/tags/babel/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>ES6 Destructuring</title>
     <link href="https://draft.li/blog/2015/10/28/es6-destructuring/"/>
     <id>https://draft.li/blog/2015/10/28/es6-destructuring/</id>
     <published>2015-10-28T14:29:42.000Z</published>
     <updated>2016-02-03T22:50:28.000Z</updated>
-
+    
     <content type="html"><![CDATA[<ul>
 <li>Destructuring works exactly as its syntax suggests</li>
 <li>The only tricky point is object destructuring without variable declaration<ul>
@@ -1013,31 +1013,31 @@ Fastest is #3 TCO/no default params
 <li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123; b: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>]]></content>
-
+    
     <summary type="html">
-
+    
       A few things about destructuring and assigning default values.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
   </entry>
-
+  
   <entry>
     <title>JavaScript Promises</title>
     <link href="https://draft.li/blog/2015/10/27/javascript-promises/"/>
     <id>https://draft.li/blog/2015/10/27/javascript-promises/</id>
     <published>2015-10-27T18:37:41.000Z</published>
     <updated>2016-02-03T22:50:28.000Z</updated>
-
+    
     <content type="html"><![CDATA[<p>I read <a href="https://60devs.com/best-practices-for-using-promises-in-js.html" target="_blank" rel="external">Best Practices for Using Promises in JS</a>. Here are some concise notes expanding on this topic.</p>
 <ul>
 <li>Let’s use bluebird as Promise implementation for node</li>
@@ -1065,26 +1065,26 @@ Fastest is #3 TCO/no default params
 <li><a href="http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html" target="_blank" rel="external">http://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html</a></li>
 <li><a href="https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md" target="_blank" rel="external">https://github.com/getify/You-Dont-Know-JS/blob/master/async%20%26%20performance/ch3.md</a></li>
 </ul>]]></content>
-
+    
     <summary type="html">
-
+    
       Promises, and what bluebird can do to help.
-
+    
     </summary>
-
+    
       <category term="programming" scheme="https://draft.li/blog/categories/programming/"/>
-
+    
       <category term="JavaScript" scheme="https://draft.li/blog/categories/programming/JavaScript/"/>
-
-
+    
+    
       <category term="javascript" scheme="https://draft.li/blog/tags/javascript/"/>
-
+    
       <category term="es2015" scheme="https://draft.li/blog/tags/es2015/"/>
-
+    
       <category term="promises" scheme="https://draft.li/blog/tags/promises/"/>
-
+    
       <category term="nodejs" scheme="https://draft.li/blog/tags/nodejs/"/>
-
+    
   </entry>
-
+  
 </feed>
