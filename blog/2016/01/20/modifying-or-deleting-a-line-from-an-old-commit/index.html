@@ -102,7 +102,7 @@ Modifying or Deleting a Line from an Old Commit
 </ol>
 <p>I work alone on most of my side projects. They are experiments, personal documentations, <del>stupid</del> ideas… they have something in common though, they are versioned using git and I’m often their only contributor. Which means that if I want to rewrite the history and <code>git push --force</code>, I can! It won’t break someone else’s work!</p>
 <p>Maybe I shouldn’t have stricken out <em>stupid</em> here. Two months ago I had an idea. It came out of nowhere and was very easy to do, so I did it. <em>Let’s log the content of my clipboard every minute!</em></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * <span class="built_in">cd</span> ~/repositories/clipboard/ &amp;&amp; pbpaste &gt; clipboard.txt &amp;&amp; git aa &amp;&amp; git commit -m <span class="string">"`date`"</span> 2&gt;&amp;1 &gt;/dev/null</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">* * * * * <span class="built_in">cd</span> ~/repositories/clipboard/ &amp;&amp; pbpaste &gt; clipboard.txt &amp;&amp; git aa &amp;&amp; git commit -m <span class="string">"`date`"</span> 2&gt;&amp;1 &gt;/dev/null</div></pre></td></tr></table></figure>
 <p>This idea being stupid and/or useless does not mean I <em>am</em> stupid or useless, I was obviously not going to push this to a remote server.</p>
 <p>But let’s pretend I’d like to anyway. We can very safely assume that doing so would be very unsafe: there are probably a bunch of my passwords in the repo (copy-pasted from my password manager), and private emails (written in my text editor and copy-pasted to my webmail), and kilobytes of source code I wrote at work, etc.</p>
 <p>Obviously, trying to delete all potential private data from my clipboard repo would be a hard and painful process of carefully reviewing the content of each of the thousands of commits it contains.</p>
@@ -149,7 +149,7 @@ Modifying or Deleting a Line from an Old Commit
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://draft.li/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/" data-id="cioa6p5my0013zzabxrv0573z" class="article-share-link">
+<a data-url="https://draft.li/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/" data-id="ciwvxj1mu000kefab3cxuvpus" class="article-share-link">
 <span class="text">share</span>
 </a>
 or
@@ -202,13 +202,13 @@ One Simple Trick for JavaScript Performance Optimization
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Archives</h5>
-<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Recent posts</h5>
 <ul>
 <li>
-<a href="/blog/2016/11/28/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
+<a href="/blog/2016/12/20/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
 </li>
 <li>
 <a href="/blog/2016/05/16/ngw-2016/">!!Con and a week back at the Recurse Center</a>
@@ -226,7 +226,7 @@ One Simple Trick for JavaScript Performance Optimization
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.1k words total</span><br>
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.9k words total</span><br>
 </div>
 </footer>
 </div>

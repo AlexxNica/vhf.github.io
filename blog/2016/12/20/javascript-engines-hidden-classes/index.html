@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind) | concise notes</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta name="description" content="Augmented edition!">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
+<meta property="og:url" content="https://draft.li/blog/2016/12/20/javascript-engines-hidden-classes/index.html">
+<meta property="og:site_name" content="concise notes">
+<meta property="og:description" content="Augmented edition!">
+<meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-step0.svg">
+<meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-step1.svg">
+<meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-step2.svg">
+<meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-step3.svg">
+<meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-devtools-2.png">
+<meta property="og:image" content="https://draft.li/blog/blog/images/hiddenclasses-devtools.png">
+<meta property="og:updated_time" content="2016-12-22T19:13:03.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)">
+<meta name="twitter:description" content="Augmented edition!">
+<meta name="twitter:image" content="https://draft.li/blog/blog/images/hiddenclasses-step0.svg">
+<meta name="twitter:creator" content="@_vhf">
+<link rel="alternate" href="/blog/atom.xml" title="concise notes" type="application/atom+xml">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<link rel="icon" sizes="16x16 32x32 64x64" href="/favicons/favicon.ico">
+<link rel="icon" type="image/png" sizes="196x196" href="/favicons/favicon-192.png">
+<link rel="icon" type="image/png" sizes="160x160" href="/favicons/favicon-160.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96.png">
+<link rel="icon" type="image/png" sizes="64x64" href="/favicons/favicon-64.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16.png">
+<link rel="apple-touch-icon" href="/favicons/favicon-57.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/favicon-114.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/favicon-72.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/favicon-144.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/favicon-60.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/favicon-120.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/favicon-76.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/favicon-152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/favicon-180.png">
+<meta name="msapplication-TileColor" content="#FFFFFF">
+<meta name="msapplication-TileImage" content="/favicons/favicon-144.png">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/blog/css/style.css">
+<script type="text/javascript">!function(e,a,n,t,c,i,o){e.GoogleAnalyticsObject=c,e[c]=e[c]||function(){(e[c].q=e[c].q||[]).push(arguments)},e[c].l=1*new Date,i=a.createElement(n),o=a.getElementsByTagName(n)[0],i.async=1,i.src=t,o.parentNode.insertBefore(i,o)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-69443473-1","auto"),ga("require","linkid"),ga("send","pageview")</script>
+</head>
+<body>
+<div class="container">
+<div class="page-wrap">
+<header class="page-header" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+<nav itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<div class="nav-wrapper">
+<h1 class="brand-logo" itemprop="headline"><a href="/blog/" rel="home">concise notes</a></h1>
+<meta itemprop="description" content="Victor Felder's blog">
+<a href="#" id="mobile-menu" class="hide-on-med-and-up menu-icon"></a>
+<nav role="navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+<ul class="right hide-on-small-only">
+<li><a class="main-nav-link" href="/blog/">Home</a></li>
+<li><a class="main-nav-link" href="/blog/archives">Archives</a></li>
+<li><a class="main-nav-link" href="/blog/contact">Contact</a></li>
+<li><a class="main-nav-link" href="https://draft.li">About</a></li>
+<li><a class="rss-icon" href="/blog/atom.xml" title="RSS Feed"></a></li>
+</ul>
+</nav>
+</div>
+</nav>
+</header>
+<div class="pattern"></div>
+<main class="page-main" role="main" tabindex="-1">
+<article id="post-javascript-engines-hidden-classes" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+<link itemprop="mainEntityOfPage" href="/blog/2016/12/20/javascript-engines-hidden-classes/">
+<nav class="hide-on-small-only">
+<div class="nav-wrapper">
+<div class="col s12">
+<a href="/blog/2016/12/20/javascript-engines-hidden-classes/" class="breadcrumb">
+<time datetime="2016-12-20T05:40:48.000Z" itemprop="datePublished">2016-12-20</time>
+<time class="hide" datetime="2016-12-20T05:40:48.000Z" itemprop="dateModified">2016-12-20</time>
+</a>
+<a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/">programming</a><a class="breadcrumb breadcrumb-link" href="/blog/categories/programming/JavaScript/">JavaScript</a>
+<span class="hide" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+<span itemprop="name">
+<a class="breadcrumb" href="https://plus.google.com/102455247906663845886" itemprop="url" rel="author">victor felder</a>
+</span>
+</span>
+<div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+<meta itemprop="name" content="concise notes">
+</div>
+</div>
+</div>
+</nav>
+<div class="article-inner">
+<header class="article-header">
+<h1 class="article-title" itemprop="headline">
+JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)
+</h1>
+</header>
+<div class="article-entry" itemprop="articleBody">
+<blockquote>
+<p><em>A previous version of this post was published by accident 10 days ago. I didn’t correct this mistake because it had been sitting on my hard drive for too long. Since many people seemed to enjoy reading it, I finally took time to finish it. You are reading the “augmented” edition of this article, the one where I stick to my initial plan.</em><br><strong>If you read the earlier draft of this post</strong>, you can <a href="#p2">jump</a> to the top of the part I added or <a href="#">see the diff between the two versions</a>.</p>
+<p>Another version of this article exists in French: <em><a href="https://zestedesavoir.com/articles/1652/quelques-rouages-dun-moteur-javascript/" target="_blank" rel="external">Quelques rouages d’un moteur JavaScript</a></em>. Si vous êtes francophone, je vous recommande plutôt la lecture de cette dernière. Elle est peut-être plus marrante.</p>
+</blockquote>
+<hr>
+<p>When V8 lead engineer Lars Bak<sup id="a1"><a href="#f1" title="Jump to footnote">1</a></sup> <a href="https://www.youtube.com/watch?v=hWhMKalEicY" target="_blank" rel="external">describes</a> V8 design decisions, the first thing he talks about are hidden classes.</p>
+<p>To better understand hidden classes we need to know what problem they solve. This article is a first introduction to this concept. It will:</p>
+<ol>
+<li>cover fast property access because it’s something hidden classes make possible,</li>
+<li>explain what hidden classes are and where they come from,</li>
+<li>tell you how you can observe them in their natural habitat because Chromium provides us with an awesome microscope,</li>
+<li>show you why keeping them in mind can improve your JavaScript performance eg. by avoiding property deletion or bailouts.<sup id="a2"><a href="#f2" title="Jump to footnote">2</a></sup></li>
+</ol>
+<h3 id="Properties-in-an-OO-World"><a href="#Properties-in-an-OO-World" class="headerlink" title="Properties in an OO World"></a>Properties in an OO World</h3><p>In a class-based object-oriented language such as C++, Java or C# in which you cannot add or delete methods and properties from an object on the fly, accessing properties is generally not costly. You can store object properties at fixed memory offsets because the object layout for an instance of a given class will never change.<sup id="a4"><a href="#f4" title="Jump to footnote">4</a></sup> In this case, accessing a property can often be done with a single instruction: load the thing located at the given memory offset.</p>
+<p>In an imaginary Java virtual machine, a Java object could be stored in memory as a simple structure which is the exact same for all instances of a same class. The properties (attributes, methods, …) are either primitive Java types (int, float, …) or pointers (to arrays, functions, …). This structure doesn’t hold the “whole” object data, it merely holds references (memory offsets) to where the “real” data is stored. Or as another JVM could do, an object could be stored as three simple pointers: the first one to the class object representing the type of the object, the second one to a table holding pointers to the object’s methods, the third one to the memory allocated for the object data.</p>
+<p>At this point, you noticed I’m mainly talking about strategies to store an object in memory and access their properties. We call this <strong>property access</strong> which means retrieving the value of an object property. It’s a mechanism we use all the time, here is how we leverage it in JavaScript:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> o = &#123; <span class="comment">// object</span></div><div class="line">  f: <span class="function">(<span class="params">x</span>) =&gt;</span> <span class="built_in">parseInt</span>(x, <span class="number">13</span>),</div><div class="line">  <span class="number">1337</span>: <span class="number">13.37</span> + <span class="number">20</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line">o.f <span class="comment">// property access =&gt; function f</span></div><div class="line">o[<span class="number">1337</span>] <span class="comment">// property access =&gt; 33.37</span></div><div class="line">o.f(o[<span class="number">1337</span>]) <span class="comment">// performs two property accesses and one function call =&gt; 42</span></div></pre></td></tr></table></figure>
+<p>As you may know, JavaScript is prototype-based (and class-free, not class-based).</p>
+<blockquote>
+<p>Objects are mutable in JavaScript, so we can augment the new instances, giving them new fields and methods. These can then act as prototypes for even newer objects. We don’t need classes to make lots of similar objects.</p>
+<p class="quote-author"><a href="http://javascript.crockford.com/prototypal.html" target="_blank" rel="external">Douglas Crockford</a></p>
+</blockquote>
+<p>Not only are objects created by “cloning” existing prototypes, they can also be created by using the <em>literal</em> notation (or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer" target="_blank" rel="external"><em>initializer</em> notation</a>) which you then can just as easily modify on the fly.</p>
+<p>An important part of running some JavaScript code is creating objects, putting them in memory and retrieving them or only retrieving some of their properties. We will focus here on <a href="https://tc39.github.io/ecma262/#sec-ordinary-object" target="_blank" rel="external">ordinary JavaScript objects</a> (as opposed to <a href="https://tc39.github.io/ecma262/#sec-exotic-object" target="_blank" rel="external">exotic objects</a>) and discuss property access techniques.</p>
+<h3 id="The-Property-Access-Problem-Dynamic-Lookups-are-Slow"><a href="#The-Property-Access-Problem-Dynamic-Lookups-are-Slow" class="headerlink" title="The Property Access Problem: Dynamic Lookups are Slow"></a>The Property Access Problem: Dynamic Lookups are Slow</h3><p>Let’s get back to the topic: how can we implement property access? Looking at what the ECMAScript 2015 specification proposes is a good starting point.</p>
+<p>Under section <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-and-exotic-objects-behaviours" target="_blank" rel="external">9 Ordinary and Exotic Objects Behaviours</a>, <a href="http://www.ecma-international.org/ecma-262/6.0/#sec-ordinary-object-internal-methods-and-internal-slots-get-p-receiver" target="_blank" rel="external">9.1.8 [[Get]]</a> describes the following algorithm (simplified for the purpose of this article):</p>
+<p>When we do <code>obj[prop]</code> or <code>obj.prop</code>, …</p>
+<ol>
+<li>Make sure <code>typeof prop</code> is either <code>&#39;string&#39;</code> or <code>&#39;symbol&#39;</code>. (<code>obj[13]</code> does in fact <code>obj[&#39;13&#39;]</code><sup id="a3"><a href="#f3" title="Jump to footnote">3</a></sup>.)</li>
+<li>If <code>prop</code> is a direct property of <code>obj</code> and <code>obj[prop]</code> is not <code>undefined</code>, return <code>obj[prop]</code>. End.</li>
+<li>If <code>prop</code> is not a direct property of <code>obj</code> or if <code>obj[prop]</code> is <code>undefined</code>, then<br>a. Let <em>parent</em> be <code>obj</code>‘s prototype<br>b. Do the same as <code>2.</code> using <em>parent</em> instead of <code>obj</code>.<br>c. If <em>parent</em> is <code>null</code>, return <code>undefined</code>. End.<br>d. Go down the prototype chain: go back to <code>1.</code> but with <em>parent</em> instead of <code>obj</code> (which means it’ll retry the same procedure with <code>parent[prop]</code>).</li>
+</ol>
+<p>This is called <em>dynamic lookup</em>. This lookup is <em>dynamic</em> because at runtime we try to find <code>prop</code> on <code>obj</code>, if we fail we try the same on its prototype, then on the prototype’s prototype, etc.</p>
+<p>We could implement a (big) dictionary (or associative array) where you would store all the objects used by the program. Keys would be references to objects and the values would in turn be dictionaries with their properties as key and values:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Your JavaScript code:</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">12</span>, <span class="number">3</span>);</div><div class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">5</span>, <span class="number">9</span>);</div><div class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> Point(<span class="number">12</span>);</div><div class="line"><span class="keyword">const</span> lit = &#123; <span class="attr">name</span>: <span class="string">'Bond'</span> &#125;;</div><div class="line"></div><div class="line"><span class="comment">// The JavaScript engine's dictionary storing the objects</span></div><div class="line"><span class="keyword">const</span> allObjects = &#123;</div><div class="line">  <span class="attr">o0</span>: &#123; <span class="comment">// p1</span></div><div class="line">    __proto__: <span class="string">'p6a1251'</span>, <span class="comment">// Object&#123;constructor: Point(x, y), __proto__: Object&#123;constructor: Object()&#125;&#125;</span></div><div class="line">    x: <span class="number">12</span>,</div><div class="line">    <span class="attr">y</span>: <span class="number">3</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">o1</span>: &#123; <span class="comment">// p2</span></div><div class="line">    __proto__: <span class="string">'p6a1251'</span>, <span class="comment">// Object&#123;constructor: Point(x, y), __proto__: Object&#123;constructor: Object()&#125;&#125;</span></div><div class="line">    x: <span class="number">5</span>,</div><div class="line">    <span class="attr">y</span>: <span class="number">9</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">o2</span>: &#123; <span class="comment">// p3</span></div><div class="line">    __proto__: <span class="string">'p6a1251'</span>, <span class="comment">// Object&#123;constructor: Point(x, y), __proto__: Object&#123;constructor: Object()&#125;&#125;</span></div><div class="line">    x: <span class="number">12</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">o3</span>: &#123; <span class="comment">// lit</span></div><div class="line">    __proto__: <span class="string">'p419ecc'</span>, <span class="comment">// Object&#123;constructor: Object()&#125;</span></div><div class="line">    name: <span class="string">'Bond'</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>V8 is not implemented in JavaScript, but this should give you a basic idea of how we could store all the objects used in a JavaScript program using a dictionary. (This dictionary would probably be implemented as a hash table.)</p>
+<p>Now let’s say we want to get <code>p1.z</code>, <code>p1</code> being the first object created in our program hence having <code>o0</code> as reference. Let’s roughly follow the algorithm we took from the ECMAScript spec:</p>
+<ol>
+<li>Find <code>o0</code> in <code>allObjects</code> (<em>lookup</em> to resolve the object’s location in memory),</li>
+<li>Find a property named <code>&quot;z&quot;</code> in <code>o0</code> (<em>dynamic lookup</em> to resolve the property’s location in memory) and return its value. (Should we have tried <code>p1.x</code>, we could have stopped here, returning <code>12</code>.)</li>
+<li>Since <code>o0</code> does not have a property named <code>&quot;z&quot;</code>, fetch <code>o0.__proto__</code> to see if it has a property named <code>&quot;z&quot;</code>, otherwise look if <code>o0.__proto__.__proto__</code> has a property named <code>&quot;z&quot;</code>, repeat this process down the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain" target="_blank" rel="external">prototype chain</a> until <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/Proto" target="_blank" rel="external"><code>__proto__</code></a> is <code>null</code> (which means no object prototype was found).</li>
+</ol>
+<p>As you can probably guess, this process is not efficient.</p>
+<h3 id="The-Property-Access-Solution-Hidden-classes"><a href="#The-Property-Access-Solution-Hidden-classes" class="headerlink" title="The Property Access Solution: Hidden classes"></a>The Property Access Solution: Hidden classes</h3><p>Instead of resorting to dynamic lookup to access properties, V8 implements <em>hidden classes</em>, a concept originally present in another prototype-based programming language: SELF. Here is a quote from the abstract of the 1989 paper which first described this idea: (emphasis is mine)</p>
+<blockquote>
+<p>[…] SELF implementation runs twice as fast as the fastest Smalltalk implementation, <strong>despite SELF’s lack of classes</strong> and explicit variables.</p>
+<p><strong>To compensate for the absence of classes, our system uses implementation-level <em>maps</em> to transparently group objects cloned from the same prototype</strong> […]</p>
+<p class="quote-author"><a href="http://dl.acm.org/citation.cfm?doid=74878.74884" target="_blank" rel="external">C. Chambers, D. Ungar, and E. Lee. “An Efficient Implementation Of SELF, a Dynamically-Typed Object-Oriented Language Based on Prototypes.” <em>SIGPLAN Not. 24</em>, no. 10 (September 1989): 49–70.</a></p>
+</blockquote>
+<p><em>Hidden class</em> is a better, more explicit name for what this paper calls a <em>map</em>. It makes reference to SELF and avoids confusion with the <em>Map</em> data structures and their JavaScript implementation <em><a href="http://www.ecma-international.org/ecma-262/6.0/#sec-map-objects" target="_blank" rel="external">Map Objects</a></em>, although in fact they really are named <em>maps</em> in V8. This short vocabulary brief will prove handy when we’ll start digging into V8. I’ll mostly stick to the <em>hidden classes</em> terminology but don’t be surprised if I drop a <em>map</em> here and there for variety.</p>
+<p>Most of the modern JavaScript engines we use today implement similar approaches or hidden classes variants. Safari <a href="https://en.wikipedia.org/wiki/WebKit#JavaScriptCore" target="_blank" rel="external">JavaScriptCore</a> has <em>structures</em>. Microsoft Edge’s ChakraCore has <em><a href="http://abchatra.github.io/Type/" target="_blank" rel="external">type</a>s</em>. Firefox’ SpiderMonkey has <em>shapes</em>:</p>
+<blockquote>
+<p>There are a number of data structures within SpiderMonkey dedicated to making object property accesses fast. The most important of these are Shapes. […] Shapes are linked into linear sequences called “shape lineages”, which describe object layouts. Some shape lineages are shared and live in “property trees”. Other shape lineages are unshared and belong to a single JS object; these are “in dictionary mode”.</p>
+<p class="quote-author"><a href="https://blog.mozilla.org/nnethercote/2011/11/01/spidermonkey-is-on-a-diet/" target="_blank" rel="external">Nicholas Nethercote</a> (<a href="http://www.masonchang.com/blog/2008/5/28/spidermonkeys-secret-object-sauce.html" target="_blank" rel="external">more</a>)</p>
+</blockquote>
+<p>Everyone seems to use variants of these hidden classes but what do they look like, how are they generated? Let’s take a look at what V8 does. Here is our Point function again:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div><div class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">2</span>);</div><div class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> Point();</div><div class="line"><span class="keyword">const</span> p4 = <span class="keyword">new</span> Point(<span class="number">4</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>From what we read about hidden classes (or maps) we could expect our engine to create a map for <code>Point</code> as soon as it assigns <code>p1</code> and reuse this same map for <code>p2</code>, <code>p3</code> and <code>p4</code>. Not quite. We are in fact looking at 3 related but different maps here. (Although this part is well illustrated in <a href="https://github.com/v8/v8/wiki/Design%20Elements" target="_blank" rel="external">V8 design reference</a>, their documentation hasn’t been updated for almost 4 years and it’s worth paraphrasing.)</p>
+<p>Let’s start with the first part of our code. We define a function <code>Point</code> which we’ll use as constructor for many points. It has two parameters, <code>x</code> and <code>y</code>, and its objects will remember the arguments we pass to this Point constructor.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>At this point in time V8 puts our function in memory but we don’t really care about this, our point is what happens when we <em>create</em> a point:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div></pre></td></tr></table></figure>
+<p>When V8 sees our first usage of the <code>Point</code> function (or constructor) to create a new object based on this <code>Point</code> prototype it doesn’t yet know what a Point really looks like, all it knows is <code>function Point</code> so it creates an initial version <code>C0</code> of the hidden class <code>p1</code> needs.</p>
+<p><img src="/blog/images/hiddenclasses-step0.svg" alt=""></p>
+<p>This first hidden class <code>C0</code> represents a <code>Point</code> object without any property (<code>{}</code>). At the same time, V8 allocates our <code>p1</code> variable as some memory object containing nothing but a <em>class pointer</em> to store the fact that <code>p1</code>‘s hidden class will be <code>C0</code> for now.</p>
+<p>Entering the <code>Point</code> function with our arguments <code>13</code> and <code>37</code>, the next thing V8 encounters is <code>this.x = x;</code>, which resolves to <code>this.x = 13;</code>. Aha! The point <code>p1</code> (which is <code>this</code> here) has a property called <code>x</code> and this property is not part of the map <code>C0</code>! First thing first, <code>13</code> is put in memory at this object’s first memory offset (the spots where all the data contained in an object is stored) - we’ll call it <code>offset 0</code>. V8 then creates a new hidden class <code>C1</code> based on <code>C0</code>. What <code>C1</code> brings to the table is a reference to a property named <code>x</code>, for which the data is stored at the object’s <code>offset 0</code>.</p>
+<p>V8 modifies <code>C0</code> to tell it that each time an object with the hidden class <code>C0</code> gets a property named <code>x</code> added to it, this object will have to <em>transition</em> to using <code>C1</code> instead as its hidden class.</p>
+<p><img src="/blog/images/hiddenclasses-step1.svg" alt=""></p>
+<p>Next line is <code>this.y = y;</code>, ie. <code>this.y = 37</code>. Here is what happens internally: First <code>37</code> is stored at the next memory offset, <code>offset 1</code>. Then a new hidden class <code>C2</code> is created by cloning <code>C1</code> (I say <em>cloning</em> because <code>C2</code> is the same as <code>C1</code> at this point: it has a reference to a property named <code>x</code> for which the data is at <code>offset 0</code>). <code>C2</code> receives the additional ability to have a property named <code>y</code>, for which the data can be found at its object’s <code>offset 1</code>.</p>
+<p>Now that we have a more capable hidden class than <code>C1</code>, <code>C1</code>‘s <em>transition plan</em> is updated to tell all <code>C1</code> objects that they can transition to using <code>C2</code> should they get a property named <code>y</code> set to them.</p>
+<p><img src="/blog/images/hiddenclasses-step2.svg" alt=""> <a id="p2"></a></p>
+<p>Let’s get back to our example one last time:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div><div class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">2</span>);</div><div class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> Point();</div><div class="line"><span class="keyword">const</span> p4 = <span class="keyword">new</span> Point(<span class="number">4</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>I said that we had 3 hidden classes here, and I showed through which hidden classes <code>p1</code> transitioned before being finally assigned <code>C2</code>. As you might probably guess, these for <em>Point</em>s will end up with the following hidden classes:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* C2 */</span> <span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div><div class="line"><span class="comment">/* C1 */</span> <span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">2</span>);</div><div class="line"><span class="comment">/* C0 */</span> <span class="keyword">const</span> p3 = <span class="keyword">new</span> Point();</div><div class="line"><span class="comment">/* C2 */</span> <span class="keyword">const</span> p4 = <span class="keyword">new</span> Point(<span class="number">4</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+<p>To make sure you understood this concept of hidden classes and <em>transition plans</em>, here is a small exercise for you. Still using the small <code>Point</code> definition, try imagining what it will look like:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p5 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div><div class="line">p5.a = <span class="string">'a'</span>;</div><div class="line"><span class="keyword">const</span> p6 = <span class="keyword">new</span> Point(<span class="number">13</span>, <span class="number">37</span>);</div><div class="line">p6.b = <span class="string">'b'</span>;</div></pre></td></tr></table></figure>
+<p>Here’s the solution:</p>
+<p><img src="/blog/images/hiddenclasses-step3.svg" alt=""></p>
+<p>Since a transition is only created when we add a property to an object, the transition plan is a <a href="https://en.wikipedia.org/wiki/Directed_acyclic_graph" target="_blank" rel="external">DAG</a>. It’s a directed (we have arrows going from a vertex to another one) acyclic (it’s not possible to start at a vertex and go back to it by following the directed edges) graph (the vertices are hidden classes).</p>
+<h3 id="In-practice"><a href="#In-practice" class="headerlink" title="In practice"></a>In practice</h3><p>What happens if we <strong>delete</strong> a property of an object?</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">delete</span> p.y;</div><div class="line">p.y = <span class="number">10</span>;</div></pre></td></tr></table></figure>
+<p>Imagine if deleting a property was creating a transition saying “if the property <code>y</code> of an object which hidden class is <code>C2</code> doesn’t exist, this object is transitioned to the hidden class <code>C5</code>.”</p>
+<p>We would then have an object which hidden class is <code>C5</code>, and what would happen if we added a property <code>y</code> to this object? It would need to be transitioned back to <code>C2</code>! And to reach this conclusion, V8 would need to check if a hidden map exists for this specific case, and find it if it does. It would be a bit costly. In the transition plan we would have <code>C2 without y -&gt; C5</code>, <code>C5 with y -&gt; C2</code>. A cycle. That complicates things.</p>
+<p>Remember I told you transitions between hidden classes were a DAG, so a graph in which you have no cycles? So what really happens when we delete a property? V8 simply decides that the object from which we deleted properties won’t be backed by a hidden class. Accessing its properties won’t be fast. Such objects are said to be in <strong><em>dictionary mode</em></strong>. It’ll be treated as a dictionary - a hash map - a bit similarly to the “naive” property access implementation explained at the beginning of this article.</p>
+<hr>
+<p>This might all seem a bit schematic and by now you are probably wondering if you could observe this behaviour all by yourself. Fortunately, Chrome developer tools allows us to do just that. Kudos to their team for exposing hidden classes to the end users. Someone at Mozilla told me they considered adding this capability to their own developer tools but nobody implemented it… yet.</p>
+<p>If you want to play along, open a tab (preferably blank, for example <code>about://blank</code>) in Google Chrome or Chromium, fire up the devtools, open the devtools settings (focus the devtools and hit <code>F1</code>) and enable <em>Show advanced heap snapshot properties</em> in the <em>Profiler</em> section of the <em>Preferences</em> tab. Go to the “<em>Memory</em>“ tab (note: older Chrome version have this tab named “<em>Profiles</em>“) and take a heap snapshot. Then run the following code in the “<em>Console</em>“ tab and take another heap snapshot afterward. Last step: filter the objects list to only display the ones allocated between your first and your second snapshot:</p>
+<p><img src="/blog/images/hiddenclasses-devtools-2.png" alt=""></p>
+<p>Below is a screenshot of Chrome devtools showing the state of the three following objects:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> Point(<span class="number">2</span>, <span class="number">3</span>);</div><div class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> Point(<span class="number">3</span>, <span class="number">4</span>);</div><div class="line"><span class="keyword">delete</span> p3.y;</div></pre></td></tr></table></figure>
+<p><img src="/blog/images/hiddenclasses-devtools.png" alt=""></p>
+<p>Here we see that the objects <code>p1</code> and <code>p2</code> share the same <em>Map</em>, the internal reference of which being <code>96777</code>. By contrast the third object, <code>p3</code>, has a property <em>hashmap</em> : it is therefore in <em>dictionary mode</em>.</p>
+<h3 id="Hidden-Classes-Benchmarked"><a href="#Hidden-Classes-Benchmarked" class="headerlink" title="Hidden Classes Benchmarked"></a>Hidden Classes Benchmarked</h3><p>I summarized a few key points of this blogpost in the following benchmark:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div><div class="line"><span class="keyword">var</span> _shuffle = <span class="built_in">require</span>(<span class="string">'lodash/shuffle'</span>);</div><div class="line"><span class="keyword">var</span> Benchmark = <span class="built_in">require</span>(<span class="string">'benchmark'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = x;</div><div class="line">  <span class="keyword">this</span>.y = y;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> obj1 = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</div><div class="line"><span class="keyword">var</span> obj2 = <span class="keyword">new</span> Point(<span class="number">2.1</span>, <span class="number">3.1</span>);</div><div class="line"><span class="keyword">var</span> obj3 = <span class="keyword">new</span> Point(<span class="number">3</span>, <span class="number">4</span>);</div><div class="line"><span class="keyword">delete</span> obj3.y;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(<span class="string">'obj1 has fast properties:'</span>, %HasFastProperties(obj1));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'obj2 has fast properties:'</span>, %HasFastProperties(obj2));</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'obj3 has fast properties:'</span>, %HasFastProperties(obj3));</div><div class="line"></div><div class="line"><span class="keyword">var</span> len = <span class="number">1000</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> access = _shuffle(<span class="string">'xy'</span>.repeat(<span class="number">500</span>).split(<span class="string">''</span>));</div><div class="line"></div><div class="line"><span class="keyword">var</span> suite = <span class="keyword">new</span> Benchmark.Suite();</div><div class="line"><span class="comment">// case 1</span></div><div class="line">suite.add(<span class="string">'obj1'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> xs = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">    xs.push(obj1[access[i]]);</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// case 2</span></div><div class="line">.add(<span class="string">'obj2'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> xs = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">    xs.push(obj2[access[i]]);</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// case 3</span></div><div class="line">.add(<span class="string">'obj3'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> xs = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">    xs.push(obj3[access[i]]);</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"><span class="comment">// case 1b</span></div><div class="line">.add(<span class="string">'obj1b'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> xs = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">    xs.push(obj1[access[i]]);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">eval</span>();</div><div class="line">&#125;)</div><div class="line"><span class="comment">// case 2b</span></div><div class="line">.add(<span class="string">'obj2b'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> xs = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">    xs.push(obj2[access[i]]);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">eval</span>();</div><div class="line">&#125;)</div><div class="line"><span class="comment">// case 3b</span></div><div class="line">.add(<span class="string">'obj3b'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> xs = [];</div><div class="line">  <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; len; i++)&#123;</div><div class="line">    xs.push(obj3[access[i]]);</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">eval</span>();</div><div class="line">&#125;)</div><div class="line">.on(<span class="string">'cycle'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">String</span>(event.target));</div><div class="line">&#125;)</div><div class="line">.run(&#123; <span class="string">'async'</span>: <span class="literal">false</span> &#125;);</div></pre></td></tr></table></figure>
+<p>Please note:</p>
+<ul>
+<li>Before <code>delete</code>, <code>obj1</code>, <code>obj2</code> and <code>obj3</code> share the same hidden class.</li>
+<li><code>%HasFastProperties</code> is a V8 “native” function. To use V8 native syntax, you need to pass the following flag to node or Chrome: <code>--allow-natives-syntax</code>.</li>
+<li>Cases <code>1</code>, <code>2</code> and <code>3</code> will go through the <em>optimizing compiler</em>.</li>
+<li>Cases <code>1b</code>, <code>2b</code> and <code>3b</code> won’t go through the <em>optimizing compiler</em>. It will <a href="/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/">bailout</a> when noticing “<code>eval</code>“ and noticing it doesn’t know how to optimize functions containing <code>eval</code> it won’t even try. The <em><a href="https://github.com/vhf/v8-bailout-reasons" target="_blank" rel="external">bailout reason</a></em> will be <em>Function calls eval</em>.</li>
+<li>(Executing this benchmark requires these two dependencies: <code>npm install benchmark lodash</code>.)</li>
+</ul>
+<p>Results :</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ node <span class="comment">--allow-natives-syntax access-props.js</span></div><div class="line"><span class="title">obj1</span> has fast properties: true</div><div class="line"><span class="title">obj2</span> has fast properties: true</div><div class="line"><span class="title">obj3</span> has fast properties: false</div><div class="line"><span class="title">obj1</span>  x <span class="number">52</span>,<span class="number">314</span> ops/sec ±<span class="number">0.82</span>% (<span class="number">91</span> runs sampled)</div><div class="line"><span class="title">obj2</span>  x <span class="number">53</span>,<span class="number">153</span> ops/sec ±<span class="number">1.02</span>% (<span class="number">85</span> runs sampled)</div><div class="line"><span class="title">obj3</span>  x <span class="number">16</span>,<span class="number">956</span> ops/sec ±<span class="number">0.89</span>% (<span class="number">90</span> runs sampled)</div><div class="line"><span class="title">obj1b</span> x <span class="number">22</span>,<span class="number">948</span> ops/sec ±<span class="number">0.78</span>% (<span class="number">89</span> runs sampled)</div><div class="line"><span class="title">obj2b</span> x <span class="number">23</span>,<span class="number">495</span> ops/sec ±<span class="number">1.09</span>% (<span class="number">89</span> runs sampled)</div><div class="line"><span class="title">obj3b</span> x <span class="number">10</span>,<span class="number">632</span> ops/sec ±<span class="number">1.03</span>% (<span class="number">89</span> runs sampled)</div></pre></td></tr></table></figure>
+<p>Here are a few observations:</p>
+<ul>
+<li><code>p3</code> doesn’t benefit from <code>fast property access</code> because we deleted one of its properties. The function it which we access <code>p3</code>‘s properties a bunch of times became 3.3x slower.</li>
+<li>The <em>bailout</em> caused by <code>eval</code> in the 3 last cases made them run 2.3x slower. ~2x slower isn’t a huge difference, but keep in mind these functions are really trivial. They don’t do much, there’s not much to optimize in them. In some other cases, a <em>bailout</em> might well make a function run 10 or 20x slower.</li>
+</ul>
+<h3 id="Tiny-conclusion"><a href="#Tiny-conclusion" class="headerlink" title="Tiny conclusion"></a>Tiny conclusion</h3><ul>
+<li>Avoid <code>delete</code>ing properties.</li>
+<li>To avoid filling the heap with thousands of hidden classes, always initialize all possible properties of an object: it’s more efficient to set some properties to <code>null</code> until you have a value to put in there than dynamically adding properties.</li>
+<li>If you really have to add properties to objects, try doing it in the same order every time. For instance if you have an object <code>alphabet</code>, and you first add <code>a</code>, then <code>b</code>, then <code>c</code>, when you have to add properties to another <code>alphabet</code> object add <code>a</code> then <code>b</code> then <code>c</code>. They will have the same hidden classes and the same transitions. Adding the properties in different order every time will create a bunch of useless hidden classes.</li>
+</ul>
+<hr>
+<p><b id="f1">1</b> Lars Bak spent the last 30 years implementing and optimizing virtual machines. He worked on the SELF, Strongtalk, HotSpot, V8 and now Dart VMs. The best parts of V8 come from his previous experience. From SELF (which is similar to JavaScript in that they’re both prototype-based OO languages) came inline caching, inlining and deoptimization. What was learned from Strongtalk became a big part of HotSpot’s success. Which then heavily influenced V8 (JIT), and then Dart came inspired by Smalltalk, JavaScript, C# and Erlang while its VM only kept the best parts of SELF, Strongtalk and HotSpot. Notice the name <em>HotSpot</em>? It comes from its ability to profile bytecode at runtime and target “hot spots” (frequently executed parts of code, eg. hot functions or hot code) for optimization, just like <a href="https://draft.li/blog/2016/01/22/chromium-chrome-v8-crankshaft-bailout-reasons/#Crankshaft_and_bailouts">V8 does</a>. <a href="#a1" title="Jump back to footnote reference">↩</a></p>
+<p><b id="f2">2</b> This was my initial plan. I got lost on my way. The draft of this blog post has been sitting on my hard drive since February. I might publish a follow-up someday. :) <a href="#a2" title="Jump back to footnote reference">↩</a></p>
+<p><b id="f3">3</b> If you didn’t know that <code>xs[0]</code> is in fact <code>xs[&#39;0&#39;]</code>, you were probably under the impression that JavaScript has a “true” concept of <em>Array</em>s. It’s not the case, and it’s wonderfully explained by James Mickens in this talk: <a href="https://vimeo.com/111122950" target="_blank" rel="external">https://vimeo.com/111122950</a>. If you’re in a hurry, jump to the minute 5:50 and watch until 12:20. But please don’t, the whole thing is pure gold. <a href="#a3" title="Jump back to footnote reference">↩</a></p>
+<p><b id="f4">4</b> edited 2016/11/30: I incorrectly compared Java and Smalltalk. In Smalltalk, it is possible to add methods or properties to objects instantiated from a class, as pointed out by <a href="https://www.reddit.com/r/javascript/comments/5fkau7/javascript_engines_hidden_classes/dakylng/" target="_blank" rel="external">MoTTs_</a>. Their comment introduces a very relevant distinction between <em>compile-time classes and inheritance</em> and <em>runtime classes and inheritance</em>. <a href="#a4" title="Jump back to footnote reference">↩</a></p>
+</div>
+<footer class="article-footer">
+<div class="row">
+<div class="col s6">
+<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/v8/">v8</a></li></ul>
+&nbsp;
+</div>
+<div class="col s6 right-align">
+<div class="article-footer-right">
+<a data-url="https://draft.li/blog/2016/12/20/javascript-engines-hidden-classes/" data-id="ciwx5iv5x0000ceab9gokswgo" class="article-share-link">
+<span class="text">share</span>
+</a>
+or
+<a href="https://github.com/vhf/concise-notes/edit/master/source/_posts/2016-12-20-javascript-engines-hidden-classes.md" class="article-suggest-modification">
+<span class="text">suggest a modification</span>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="row post-navigation">
+<div class="col s12">
+<div class="post-nav">
+<div class="post-nav-title blue-grey darken-1 left center-align">
+<span class="white-text">Older</span>
+</div>
+<div class="post-nav-content post-nav-next clear">
+<a href="/blog/2016/05/16/ngw-2016/">
+!!Con and a week back at the Recurse Center
+</a>
+</div>
+</div>
+</div>
+</div>
+</article>
+</main>
+</div>
+<footer class="page-footer blue-grey darken-3">
+<div class="row">
+<div class="col l3 m6 s12">
+<h5 class="white-text">Categories</h5>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/">programming</a><span class="category-list-count">12</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/programming/JavaScript/">JavaScript</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/">project</a><span class="category-list-count">3</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/old-tech-new-ideas/">old tech new ideas</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/project/tools/">tools</a><span class="category-list-count">1</span></li></ul></li></ul>
+</div>
+<div class="col l3 m6 s12">
+<h5 class="white-text">Tags</h5>
+<ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/babel/">babel</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/chrome/">chrome</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/crankshaft/">crankshaft</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/es2015/">es2015</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/file-systems/">file systems</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/github/">github</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hiring/">hiring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/ipython/">ipython</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/javascript/">javascript</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/nodejs/">nodejs</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/osx/">osx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/programming-language-design/">programming language design</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/promises/">promises</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/rss/">rss</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/scala/">scala</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/spark/">spark</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/v8/">v8</a><span class="tag-list-count">6</span></li></ul>
+</div>
+<div class="col l3 m6 s12">
+<h5 class="white-text">Archives</h5>
+<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+</div>
+<div class="col l3 m6 s12">
+<h5 class="white-text">Recent posts</h5>
+<ul>
+<li>
+<a href="/blog/2016/12/20/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
+</li>
+<li>
+<a href="/blog/2016/05/16/ngw-2016/">!!Con and a week back at the Recurse Center</a>
+</li>
+<li>
+<a href="/blog/2016/03/21/rss-usage-on-the-web/">How Many Websites Provide RSS / Web Syndication Feeds</a>
+</li>
+<li>
+<a href="/blog/2016/02/06/navigating-the-ecmascript-2015-language-specification/">Navigating the ECMAScript® 2015 Language Specification</a>
+</li>
+<li>
+<a href="/blog/2016/02/04/the-dangers-of-hfs-for-git-repositories/">The dangers of HFS+ for git repositories</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="footer-copyright blue-grey darken-3">
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.9k words total</span><br>
+</div>
+</footer>
+</div>
+<nav class="side-nav">
+<ul id="nav-mobile">
+<li><a class="main-nav-link" href="/blog/">Home</a></li>
+<li><a class="main-nav-link" href="/blog/archives">Archives</a></li>
+<li><a class="main-nav-link" href="/blog/contact">Contact</a></li>
+<li><a class="main-nav-link" href="https://draft.li">About</a></li>
+<li><a id="mobile-menu-close" class="main-nav-link" href="#">Close the menu</a></li>
+</ul>
+</nav>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/blog/js/script.js"></script>
+</body>
+</html>

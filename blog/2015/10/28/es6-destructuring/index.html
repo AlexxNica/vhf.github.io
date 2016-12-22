@@ -101,7 +101,7 @@ ES6 Destructuring
 </li>
 <li>Default arguments and destructuring:</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123;&#125;;</span><br><span class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br><span class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123; prop: name = <span class="string">'default'</span> &#125; = &#123; prop: <span class="string">'value'</span> &#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* prop === 'default' */</span> <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123;&#125;;</div><div class="line"><span class="comment">/* prop === 'value' */</span>   <span class="keyword">let</span> &#123; prop = <span class="string">'default'</span> &#125; = &#123; <span class="attr">prop</span>: <span class="string">'value'</span> &#125;;</div><div class="line"><span class="comment">/* name === 'value' */</span>   <span class="keyword">let</span> &#123; <span class="attr">prop</span>: name = <span class="string">'default'</span> &#125; = &#123; <span class="attr">prop</span>: <span class="string">'value'</span> &#125;;</div></pre></td></tr></table></figure>
 <ul>
 <li>Default arguments also work for arrays:<ul>
 <li><code>let [head = &quot;default&quot;] = [];</code></li>
@@ -109,7 +109,7 @@ ES6 Destructuring
 </li>
 <li>Default values for destructuring assignment is especially useful as function arguments defaults:</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> destructObject = (&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [a, b];</span><br><span class="line"><span class="keyword">let</span> destructObject = (&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;) =&gt; [arg1, arg2];</span><br><span class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></span><br><span class="line">destructObject(&#123; b: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> destructObject = <span class="function">(<span class="params">&#123; a = <span class="string">'a'</span>, b = <span class="string">'b'</span> &#125; = &#123;&#125;</span>) =&gt;</span> [a, b];</div><div class="line"><span class="keyword">let</span> destructObject = <span class="function">(<span class="params">&#123; a: arg1 = <span class="string">'a'</span>, b: arg2 = <span class="string">'b'</span> &#125; = &#123;&#125;</span>) =&gt;</span> [arg1, arg2];</div><div class="line">destructObject(&#123;&#125;);       <span class="comment">// ['a', 'b]</span></div><div class="line">destructObject(&#123; <span class="attr">b</span>: <span class="string">'c'</span> &#125;); <span class="comment">// ['a', 'c']</span></div></pre></td></tr></table></figure>
 </div>
 <footer class="article-footer">
 <div class="row">
@@ -119,7 +119,7 @@ ES6 Destructuring
 </div>
 <div class="col s6 right-align">
 <div class="article-footer-right">
-<a data-url="https://draft.li/blog/2015/10/28/es6-destructuring/" data-id="cioa6p5lm000nzzabp95oen41" class="article-share-link">
+<a data-url="https://draft.li/blog/2015/10/28/es6-destructuring/" data-id="ciwvxj1mk000fefabbvfm9epx" class="article-share-link">
 <span class="text">share</span>
 </a>
 or
@@ -172,13 +172,13 @@ JavaScript Promises
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Archives</h5>
-<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/11/">November 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
+<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/12/">December 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/03/">March 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/12/">December 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/11/">November 2015</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a><span class="archive-list-count">2</span></li></ul>
 </div>
 <div class="col l3 m6 s12">
 <h5 class="white-text">Recent posts</h5>
 <ul>
 <li>
-<a href="/blog/2016/11/28/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
+<a href="/blog/2016/12/20/javascript-engines-hidden-classes/">JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</a>
 </li>
 <li>
 <a href="/blog/2016/05/16/ngw-2016/">!!Con and a week back at the Recurse Center</a>
@@ -196,7 +196,7 @@ JavaScript Promises
 </div>
 </div>
 <div class="footer-copyright blue-grey darken-3">
-unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.1k words total</span><br>
+unless otherwise stated, all content &amp; design &copy; copyright 2016 victor felder &mdash; <span class="post-count">14.9k words total</span><br>
 </div>
 </footer>
 </div>
