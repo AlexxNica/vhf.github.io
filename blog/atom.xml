@@ -5,7 +5,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://draft.li/blog/"/>
-  <updated>2016-12-22T19:13:03.000Z</updated>
+  <updated>2016-12-22T19:17:03.000Z</updated>
   <id>https://draft.li/blog/</id>
   
   <author>
@@ -17,13 +17,13 @@
   
   <entry>
     <title>JavaScript Engines Hidden Classes (and Why You Should Keep Them in Mind)</title>
-    <link href="https://draft.li/blog/2016/12/20/javascript-engines-hidden-classes/"/>
-    <id>https://draft.li/blog/2016/12/20/javascript-engines-hidden-classes/</id>
-    <published>2016-12-20T05:40:48.000Z</published>
-    <updated>2016-12-22T19:13:03.000Z</updated>
+    <link href="https://draft.li/blog/2016/12/22/javascript-engines-hidden-classes/"/>
+    <id>https://draft.li/blog/2016/12/22/javascript-engines-hidden-classes/</id>
+    <published>2016-12-22T19:10:48.000Z</published>
+    <updated>2016-12-22T19:17:03.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p><em>A previous version of this post was published by accident 10 days ago. I didn’t correct this mistake because it had been sitting on my hard drive for too long. Since many people seemed to enjoy reading it, I finally took time to finish it. You are reading the “augmented” edition of this article, the one where I stick to my initial plan.</em><br><strong>If you read the earlier draft of this post</strong>, you can <a href="#p2">jump</a> to the top of the part I added or <a href="#">see the diff between the two versions</a>.</p>
+<p><em>A previous version of this post was published by accident 10 days ago. I didn’t correct this mistake because it had been sitting on my hard drive for too long. Since many people seemed to enjoy reading it, I finally took time to finish it. You are reading the “augmented” edition of this article, the one where I stick to my initial plan.</em><br><strong>If you read the earlier draft of this post</strong>, you can <a href="#p2">jump</a> to the top of the part I added or <a href="https://github.com/vhf/concise-notes/commit/f25137a1772b17fa5ecbf42c2367719ef9fd37c7" target="_blank" rel="external">see the diff between the two versions</a>.</p>
 <p>Another version of this article exists in French: <em><a href="https://zestedesavoir.com/articles/1652/quelques-rouages-dun-moteur-javascript/" target="_blank" rel="external">Quelques rouages d’un moteur JavaScript</a></em>. Si vous êtes francophone, je vous recommande plutôt la lecture de cette dernière. Elle est peut-être plus marrante.</p>
 </blockquote>
 <hr>
