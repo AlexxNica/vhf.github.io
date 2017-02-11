@@ -107,13 +107,6 @@
     </url>
 
     <url>
-        <loc>https://draft.li/blog/tags/v8/</loc>
-        <lastmod>2016-12-22T19:17:03.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://draft.li/blog/tags/crankshaft/</loc>
         <lastmod>2016-12-22T19:17:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -121,8 +114,15 @@
     </url>
 
     <url>
+        <loc>https://draft.li/blog/tags/v8/</loc>
+        <lastmod>2017-02-11T16:23:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://draft.li/blog/tags/javascript/</loc>
-        <lastmod>2016-12-22T19:17:03.000Z</lastmod>
+        <lastmod>2017-02-11T16:23:26.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

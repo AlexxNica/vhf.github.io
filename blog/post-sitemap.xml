@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://draft.li/blog/2017/02/11/v8-puzzle/</loc>
+        <lastmod>2017-02-11T16:23:26.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://draft.li/blog/2016/12/22/javascript-engines-hidden-classes/</loc>
         <lastmod>2016-12-22T19:17:03.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -111,7 +119,7 @@
     </url>
 
     <url>
-        <loc>https://draft.li/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
+        <loc>https://draft.li/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -119,7 +127,7 @@
     </url>
 
     <url>
-        <loc>https://draft.li/blog/2016/01/20/modifying-or-deleting-a-line-from-an-old-commit/</loc>
+        <loc>https://draft.li/blog/2016/01/15/one-simple-trick-for-javascript-performance-optimization/</loc>
         <lastmod>2016-02-03T22:50:28.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
